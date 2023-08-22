@@ -13,6 +13,12 @@ $kernel->loadClassCache();
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
 //Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
+$request = Request::setTrustedProxies(
+    // trust *all* requests
+    array($request->server->get('REMOTE_ADDR')),
+    // if you're using ELB, otherwise use a constant from above
+    Request::HEADER_X_FORWARDED_ALL
+);
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
