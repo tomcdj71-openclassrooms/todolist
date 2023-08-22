@@ -10,7 +10,8 @@
         <server name="SYMFONY_PHPUNIT_VERSION" value="7.5" />
         <server name="KERNEL_CLASS" value="App\Kernel" />
         <env name="APP_SECRET" value="c28bbb9d21b556a0dd1139044675e4b1"/>
-        <env name="DATABASE_URL" value="sqlite:///%kernel.project_dir%/var/data.db" />
+        <env name="DATABASE_URL" value="sqlite:///%kernel.project_dir%/var/data.db"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[total]=999999"/>
     </php>
 
     <testsuites>
