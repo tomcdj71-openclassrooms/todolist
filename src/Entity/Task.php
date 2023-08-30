@@ -6,12 +6,10 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 #[ORM\Entity]
 #[ORM\Table(name: 'task')]
 class Task
 {
-
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: Types::INTEGER)]
@@ -29,7 +27,7 @@ class Task
     #[ORM\Column(type: Types::TEXT)]
     private $content;
 
-    #[ORM\Column(type: 'boolean', options: ["default" => false])]
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $isDone = false;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
@@ -37,20 +35,31 @@ class Task
 
     public function __construct()
     {
-        $this->createdAt = new \Datetime();
+        $this->createdAt = new \DateTime();
         $this->isDone = false;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return DateTime
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param DateTime $createdAt
+     *
+     * @return void
+     */
     public function setCreatedAt($createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -58,11 +67,19 @@ class Task
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return void
+     */
     public function setTitle($title): self
     {
         $this->title = $title;
@@ -70,11 +87,19 @@ class Task
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * @param string $content
+     *
+     * @return void
+     */
     public function setContent($content): self
     {
         $this->content = $content;
@@ -82,18 +107,26 @@ class Task
         return $this;
     }
 
+    /**
+     * @return bool|null
+     */
     public function isDone(): ?bool
     {
         return $this->isDone;
     }
 
+    /**
+     * @param $flag
+     *
+     * @return void
+     */
     public function toggle($flag): void
     {
         $this->isDone = $flag;
     }
 
     /**
-     * @return User|null
+     * @return bool|null
      */
     public function getUser(): ?User
     {
