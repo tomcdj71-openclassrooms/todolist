@@ -18,7 +18,6 @@ class Task
     #[Assert\Type('integer')]
     private ?int $id = null;
 
-
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeInterface $createdAt;
 
@@ -30,8 +29,11 @@ class Task
     #[ORM\Column(type: Types::TEXT)]
     private $content;
 
-    #[ORM\Column(type: Types::BOOLEAN)]
-    private $isDone;
+    #[ORM\Column(type: 'boolean', options: ["default" => false])]
+    private bool $isDone = false;
+
+    #[ORM\ManyToOne(inversedBy: 'tasks')]
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -88,5 +90,25 @@ class Task
     public function toggle($flag): void
     {
         $this->isDone = $flag;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User|null $user
+     *
+     * @return $this
+     */
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
