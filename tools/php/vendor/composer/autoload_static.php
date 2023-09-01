@@ -99,8 +99,6 @@ class ComposerStaticInit57eee300df7bcfb118d58c770fc2c233
         'D' => 
         array (
             'Doctrine\\Deprecations\\' => 22,
-            'Doctrine\\Common\\Lexer\\' => 22,
-            'Doctrine\\Common\\Annotations\\' => 28,
         ),
         'C' => 
         array (
@@ -270,6 +268,7 @@ class ComposerStaticInit57eee300df7bcfb118d58c770fc2c233
         'PHPStan\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpstan-doctrine/src',
+            1 => __DIR__ . '/..' . '/phpstan/phpstan-symfony/src',
         ),
         'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
         array (
@@ -302,14 +301,6 @@ class ComposerStaticInit57eee300df7bcfb118d58c770fc2c233
         'Doctrine\\Deprecations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
-        ),
-        'Doctrine\\Common\\Lexer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/lexer/src',
-        ),
-        'Doctrine\\Common\\Annotations\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
         ),
         'Composer\\XdebugHandler\\' => 
         array (

@@ -3,7 +3,7 @@
         "nunomaduro/phpinsights": "^2.8",
         "friendsofphp/php-cs-fixer": "^3.24",
         "phpmd/phpmd": "@stable",
-        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-symfony": "*",
         "rector/rector": "^0.18.1",
         "phpmetrics/phpmetrics": "^2.8",
         "squizlabs/php_codesniffer": "*",
@@ -36,7 +36,7 @@
             "@sniff-fix"
         ],
         "stan-bs": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --allow-empty-baseline --generate-baseline reports/phpstan-baseline.php --verbose",
-        "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --verbose || true",
+        "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --verbose",
         "cs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes",
         "cs-bs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes --dry-run --format=text > reports/phpcsfixer-baseline.text || true",
         "md-bs": "./vendor/bin/phpmd ../../src text config/phpmd-rules.xml --reportfile reports/phpmd-baseline.txt || true",
@@ -48,7 +48,7 @@
         "insights": "./vendor/bin/phpinsights analyse ../../src --no-interaction --min-quality=100 --min-complexity=100 --min-architecture=100 --min-style=100 --format=console --fix || true",
         "metrics": "./vendor/bin/phpmetrics --report-html=reports/phpmetrics.html ../../src --report-json=reports/phpmetrics.json --report-violation=reports/phpmetrics.violation.xml --level=10 --extensions=php",
         "sniff": "./vendor/bin/phpcs --standard=PSR12 ../../src --report=full --report-file=reports/phpcs-baseline.txt || true",
-        "sniff-fix": "./vendor/bin/phpcbf --standard=PSR12 ../../src || true",
+        "sniff-fix": "./vendor/bin/phpcbf --standard=PSR12 ../../src",
         "psalm": "./vendor/bin/psalm --show-info=true --threads=4 --config=config/psalm.xml --report=reports/psalm-baseline.xml --report-show-info=true  --find-unused-code || true"
     }
 }
