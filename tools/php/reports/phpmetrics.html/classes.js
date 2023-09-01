@@ -634,7 +634,8 @@ var classes = [
         "ccn": 1,
         "ccnMethodMax": 1,
         "externals": [
-            "DateTime"
+            "DateTime",
+            "App\\Entity\\DateTime"
         ],
         "parents": [],
         "implements": [],
@@ -652,12 +653,12 @@ var classes = [
         "number_operands": 34,
         "number_operators_unique": 2,
         "number_operands_unique": 14,
-        "cloc": 37,
-        "loc": 99,
+        "cloc": 31,
+        "loc": 93,
         "lloc": 62,
-        "mi": 85.24,
+        "mi": 83.65,
         "mIwoC": 44.65,
-        "commentWeight": 40.59,
+        "commentWeight": 38.99,
         "kanDefect": 0.15,
         "relativeStructuralComplexity": 0,
         "relativeDataComplexity": 10.42,
@@ -668,8 +669,8 @@ var classes = [
         "package": "App\\Entity\\",
         "pageRank": 0.36,
         "afferentCoupling": 3,
-        "efferentCoupling": 1,
-        "instability": 0.25,
+        "efferentCoupling": 2,
+        "instability": 0.4,
         "violations": {}
     },
     {

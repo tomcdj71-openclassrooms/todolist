@@ -3,7 +3,7 @@ FILE: /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms
 ------------------------------------------------------------------------------------------------------------------------------------------
 FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
 ------------------------------------------------------------------------------------------------------------------------------------------
- 18 | WARNING | Line exceeds 120 characters; contains 125 characters
+ 20 | WARNING | Line exceeds 120 characters; contains 125 characters
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -11,7 +11,7 @@ FILE: /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms
 ------------------------------------------------------------------------------------------------------------------------------------------
 FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
 ------------------------------------------------------------------------------------------------------------------------------------------
- 30 | WARNING | Line exceeds 120 characters; contains 126 characters
+ 32 | WARNING | Line exceeds 120 characters; contains 126 characters
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -19,24 +19,12 @@ FILE: /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms
 -----------------------------------------------------------------------------------------------------------------------
 FOUND 46 ERRORS AFFECTING 11 LINES
 -----------------------------------------------------------------------------------------------------------------------
- 20 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 20 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 35 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 35 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 38 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 38 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 22 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 22 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 37 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 37 | ERROR | [x] Expected at least 1 space after "."; 0 found
  40 | ERROR | [x] Expected at least 1 space before "."; 0 found
  40 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 40 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 40 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 41 | ERROR | [x] Expected at least 1 space after "."; 0 found
  42 | ERROR | [x] Expected at least 1 space before "."; 0 found
  42 | ERROR | [x] Expected at least 1 space after "."; 0 found
  42 | ERROR | [x] Expected at least 1 space before "."; 0 found
@@ -47,24 +35,36 @@ FOUND 46 ERRORS AFFECTING 11 LINES
  43 | ERROR | [x] Expected at least 1 space after "."; 0 found
  43 | ERROR | [x] Expected at least 1 space before "."; 0 found
  43 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 48 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 48 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 43 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 43 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 44 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 44 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 44 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 44 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 45 | ERROR | [x] Expected at least 1 space after "."; 0 found
  50 | ERROR | [x] Expected at least 1 space before "."; 0 found
  50 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 50 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 51 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 51 | ERROR | [x] Expected at least 1 space after "."; 0 found
- 51 | ERROR | [x] Expected at least 1 space before "."; 0 found
- 51 | ERROR | [x] Expected at least 1 space after "."; 0 found
  52 | ERROR | [x] Expected at least 1 space before "."; 0 found
  52 | ERROR | [x] Expected at least 1 space after "."; 0 found
  52 | ERROR | [x] Expected at least 1 space before "."; 0 found
  52 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 52 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 52 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 52 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 52 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 53 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 53 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 53 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 53 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 54 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 54 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 54 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 54 | ERROR | [x] Expected at least 1 space after "."; 0 found
 -----------------------------------------------------------------------------------------------------------------------
 PHPCBF CAN FIX THE 46 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -----------------------------------------------------------------------------------------------------------------------

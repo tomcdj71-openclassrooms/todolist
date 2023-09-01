@@ -1,12 +1,12 @@
 {
     "directories": 4,
     "files": 11,
-    "loc": 771,
+    "loc": 787,
     "lloc": 137,
     "llocClasses": 137,
     "llocFunctions": 0,
     "llocGlobal": 0,
-    "cloc": 154,
+    "cloc": 148,
     "ccn": 30,
     "ccnMethods": 30,
     "interfaces": 0,
@@ -61,5 +61,5 @@
     "minimumMethodsPerClass": 1,
     "maximumMethodsPerClass": 14,
     "namespaces": 5,
-    "ncloc": 617
+    "ncloc": 639
 }

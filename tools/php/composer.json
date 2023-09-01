@@ -38,17 +38,17 @@
         "stan-bs": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --allow-empty-baseline --generate-baseline reports/phpstan-baseline.php --verbose",
         "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --verbose || true",
         "cs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes",
-        "cs-bs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes --dry-run --format=json > reports/phpcsfixer-baseline.json",
+        "cs-bs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes --dry-run --format=text > reports/phpcsfixer-baseline.text || true",
         "md-bs": "./vendor/bin/phpmd ../../src text config/phpmd-rules.xml --reportfile reports/phpmd-baseline.txt || true",
         "md": "./vendor/bin/phpmd ../../src text config/phpmd_rules.xml",
         "loc": "./vendor/bin/phploc ../../src --log-json reports/phploc.json",
         "rector": "./vendor/bin/rector process ../../src --config config/rector.php",
         "rector-bs": "./vendor/bin/rector process ../../src --config config/rector.php --dry-run > reports/rector.txt",
         "insights-bs": "./vendor/bin/phpinsights analyse ../../src --no-interaction --min-quality=100 --min-complexity=100 --min-architecture=100 --min-style=100 --format=console > reports/phpinsights-baseline.txt || true",
-        "insights": "./vendor/bin/phpinsights analyse ../../src --no-interaction --min-quality=100 --min-complexity=100 --min-architecture=100 --min-style=100 --format=console,json --fix",
+        "insights": "./vendor/bin/phpinsights analyse ../../src --no-interaction --min-quality=100 --min-complexity=100 --min-architecture=100 --min-style=100 --format=console --fix || true",
         "metrics": "./vendor/bin/phpmetrics --report-html=reports/phpmetrics.html ../../src --report-json=reports/phpmetrics.json --report-violation=reports/phpmetrics.violation.xml --level=10 --extensions=php",
         "sniff": "./vendor/bin/phpcs --standard=PSR12 ../../src --report=full --report-file=reports/phpcs-baseline.txt || true",
-        "sniff-fix": "./vendor/bin/phpcbf --standard=PSR12 ../../src",
+        "sniff-fix": "./vendor/bin/phpcbf --standard=PSR12 ../../src || true",
         "psalm": "./vendor/bin/psalm --show-info=true --threads=4 --config=config/psalm.xml --report=reports/psalm-baseline.xml --report-show-info=true  --find-unused-code || true"
     }
 }

@@ -394,18 +394,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>8</line_from>
-    <line_to>8</line_to>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
     <type>UnusedClass</type>
     <message>Class App\Controller\DefaultController is never used</message>
     <file_name>../../../src/Controller/DefaultController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/DefaultController.php</file_path>
     <snippet>class DefaultController extends AbstractController</snippet>
     <selected_text>DefaultController</selected_text>
-    <from>155</from>
-    <to>172</to>
-    <snippet_from>149</snippet_from>
-    <snippet_to>199</snippet_to>
+    <from>181</from>
+    <to>198</to>
+    <snippet_from>175</snippet_from>
+    <snippet_to>225</snippet_to>
     <column_from>7</column_from>
     <column_to>24</column_to>
     <error_level>-2</error_level>
@@ -416,18 +416,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>8</line_from>
-    <line_to>8</line_to>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Bundle\FrameworkBundle\Controller\AbstractController does not exist</message>
     <file_name>../../../src/Controller/DefaultController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/DefaultController.php</file_path>
     <snippet>class DefaultController extends AbstractController</snippet>
     <selected_text>AbstractController</selected_text>
-    <from>181</from>
-    <to>199</to>
-    <snippet_from>149</snippet_from>
-    <snippet_to>199</snippet_to>
+    <from>207</from>
+    <to>225</to>
+    <snippet_from>175</snippet_from>
+    <snippet_to>225</snippet_to>
     <column_from>33</column_from>
     <column_to>51</column_to>
     <error_level>-1</error_level>
@@ -438,18 +438,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
     <type>UnusedClass</type>
     <message>Class App\Controller\SecurityController is never used</message>
     <file_name>../../../src/Controller/SecurityController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/SecurityController.php</file_path>
     <snippet>class SecurityController extends AbstractController</snippet>
     <selected_text>SecurityController</selected_text>
-    <from>274</from>
-    <to>292</to>
-    <snippet_from>268</snippet_from>
-    <snippet_to>319</snippet_to>
+    <from>300</from>
+    <to>318</to>
+    <snippet_from>294</snippet_from>
+    <snippet_to>345</snippet_to>
     <column_from>7</column_from>
     <column_to>25</column_to>
     <error_level>-2</error_level>
@@ -460,18 +460,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Bundle\FrameworkBundle\Controller\AbstractController does not exist</message>
     <file_name>../../../src/Controller/SecurityController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/SecurityController.php</file_path>
     <snippet>class SecurityController extends AbstractController</snippet>
     <selected_text>AbstractController</selected_text>
-    <from>301</from>
-    <to>319</to>
-    <snippet_from>268</snippet_from>
-    <snippet_to>319</snippet_to>
+    <from>327</from>
+    <to>345</to>
+    <snippet_from>294</snippet_from>
+    <snippet_to>345</snippet_to>
     <column_from>34</column_from>
     <column_to>52</column_to>
     <error_level>-1</error_level>
@@ -482,18 +482,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>13</line_from>
-    <line_to>13</line_to>
+    <line_from>15</line_from>
+    <line_to>15</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/SecurityController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/SecurityController.php</file_path>
     <snippet>    public function loginAction(AuthenticationUtils $authenticationUtils): Response</snippet>
     <selected_text>$authenticationUtils</selected_text>
-    <from>412</from>
-    <to>432</to>
-    <snippet_from>360</snippet_from>
-    <snippet_to>443</snippet_to>
+    <from>438</from>
+    <to>458</to>
+    <snippet_from>386</snippet_from>
+    <snippet_to>469</snippet_to>
     <column_from>53</column_from>
     <column_to>73</column_to>
     <error_level>-2</error_level>
@@ -504,18 +504,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>11</line_from>
-    <line_to>11</line_to>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
     <type>UnusedClass</type>
     <message>Class App\Controller\TaskController is never used</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>class TaskController extends AbstractController</snippet>
     <selected_text>TaskController</selected_text>
-    <from>245</from>
-    <to>259</to>
-    <snippet_from>239</snippet_from>
-    <snippet_to>286</snippet_to>
+    <from>271</from>
+    <to>285</to>
+    <snippet_from>265</snippet_from>
+    <snippet_to>312</snippet_to>
     <column_from>7</column_from>
     <column_to>21</column_to>
     <error_level>-2</error_level>
@@ -526,18 +526,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>11</line_from>
-    <line_to>11</line_to>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Bundle\FrameworkBundle\Controller\AbstractController does not exist</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>class TaskController extends AbstractController</snippet>
     <selected_text>AbstractController</selected_text>
-    <from>268</from>
-    <to>286</to>
-    <snippet_from>239</snippet_from>
-    <snippet_to>286</snippet_to>
+    <from>294</from>
+    <to>312</to>
+    <snippet_from>265</snippet_from>
+    <snippet_to>312</snippet_to>
     <column_from>30</column_from>
     <column_to>48</column_to>
     <error_level>-1</error_level>
@@ -548,18 +548,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>24</line_from>
-    <line_to>24</line_to>
+    <line_from>26</line_from>
+    <line_to>26</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>    public function createAction(Request $request)</snippet>
     <selected_text>$request</selected_text>
-    <from>627</from>
-    <to>635</to>
-    <snippet_from>586</snippet_from>
-    <snippet_to>636</snippet_to>
+    <from>653</from>
+    <to>661</to>
+    <snippet_from>612</snippet_from>
+    <snippet_to>662</snippet_to>
     <column_from>42</column_from>
     <column_to>50</column_to>
     <error_level>-2</error_level>
@@ -570,18 +570,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>48</line_from>
-    <line_to>48</line_to>
+    <line_from>50</line_from>
+    <line_to>50</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>    public function editAction(Task $task, Request $request)</snippet>
     <selected_text>$task</selected_text>
-    <from>1268</from>
-    <to>1273</to>
-    <snippet_from>1232</snippet_from>
-    <snippet_to>1292</snippet_to>
+    <from>1294</from>
+    <to>1299</to>
+    <snippet_from>1258</snippet_from>
+    <snippet_to>1318</snippet_to>
     <column_from>37</column_from>
     <column_to>42</column_to>
     <error_level>-2</error_level>
@@ -592,18 +592,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>48</line_from>
-    <line_to>48</line_to>
+    <line_from>50</line_from>
+    <line_to>50</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>    public function editAction(Task $task, Request $request)</snippet>
     <selected_text>$request</selected_text>
-    <from>1283</from>
-    <to>1291</to>
-    <snippet_from>1232</snippet_from>
-    <snippet_to>1292</snippet_to>
+    <from>1309</from>
+    <to>1317</to>
+    <snippet_from>1258</snippet_from>
+    <snippet_to>1318</snippet_to>
     <column_from>52</column_from>
     <column_to>60</column_to>
     <error_level>-2</error_level>
@@ -614,18 +614,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>71</line_from>
-    <line_to>71</line_to>
+    <line_from>73</line_from>
+    <line_to>73</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>    public function toggleTaskAction(Task $task)</snippet>
     <selected_text>$task</selected_text>
-    <from>1894</from>
-    <to>1899</to>
-    <snippet_from>1852</snippet_from>
-    <snippet_to>1900</snippet_to>
+    <from>1920</from>
+    <to>1925</to>
+    <snippet_from>1878</snippet_from>
+    <snippet_to>1926</snippet_to>
     <column_from>43</column_from>
     <column_to>48</column_to>
     <error_level>-2</error_level>
@@ -636,18 +636,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>84</line_from>
-    <line_to>84</line_to>
+    <line_from>86</line_from>
+    <line_to>86</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/TaskController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php</file_path>
     <snippet>    public function deleteTaskAction(Task $task)</snippet>
     <selected_text>$task</selected_text>
-    <from>2291</from>
-    <to>2296</to>
-    <snippet_from>2249</snippet_from>
-    <snippet_to>2297</snippet_to>
+    <from>2318</from>
+    <to>2323</to>
+    <snippet_from>2276</snippet_from>
+    <snippet_to>2324</snippet_to>
     <column_from>43</column_from>
     <column_to>48</column_to>
     <error_level>-2</error_level>
@@ -658,18 +658,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>13</line_from>
-    <line_to>13</line_to>
+    <line_from>15</line_from>
+    <line_to>15</line_to>
     <type>UnusedClass</type>
     <message>Class App\Controller\UserController is never used</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>class UserController extends AbstractController</snippet>
     <selected_text>UserController</selected_text>
-    <from>359</from>
-    <to>373</to>
-    <snippet_from>353</snippet_from>
-    <snippet_to>400</snippet_to>
+    <from>385</from>
+    <to>399</to>
+    <snippet_from>379</snippet_from>
+    <snippet_to>426</snippet_to>
     <column_from>7</column_from>
     <column_to>21</column_to>
     <error_level>-2</error_level>
@@ -680,18 +680,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>13</line_from>
-    <line_to>13</line_to>
+    <line_from>15</line_from>
+    <line_to>15</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Bundle\FrameworkBundle\Controller\AbstractController does not exist</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>class UserController extends AbstractController</snippet>
     <selected_text>AbstractController</selected_text>
-    <from>382</from>
-    <to>400</to>
-    <snippet_from>353</snippet_from>
-    <snippet_to>400</snippet_to>
+    <from>408</from>
+    <to>426</to>
+    <snippet_from>379</snippet_from>
+    <snippet_to>426</snippet_to>
     <column_from>30</column_from>
     <column_to>48</column_to>
     <error_level>-1</error_level>
@@ -702,18 +702,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>19</line_from>
-    <line_to>19</line_to>
+    <line_from>21</line_from>
+    <line_to>21</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function __construct(EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)</snippet>
     <selected_text>$entityManager</selected_text>
-    <from>521</from>
-    <to>535</to>
-    <snippet_from>466</snippet_from>
-    <snippet_to>585</snippet_to>
+    <from>547</from>
+    <to>561</to>
+    <snippet_from>492</snippet_from>
+    <snippet_to>611</snippet_to>
     <column_from>56</column_from>
     <column_to>70</column_to>
     <error_level>-2</error_level>
@@ -724,18 +724,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>19</line_from>
-    <line_to>19</line_to>
+    <line_from>21</line_from>
+    <line_to>21</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function __construct(EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)</snippet>
     <selected_text>$userPasswordHasher</selected_text>
-    <from>565</from>
-    <to>584</to>
-    <snippet_from>466</snippet_from>
-    <snippet_to>585</snippet_to>
+    <from>591</from>
+    <to>610</to>
+    <snippet_from>492</snippet_from>
+    <snippet_to>611</snippet_to>
     <column_from>100</column_from>
     <column_to>119</column_to>
     <error_level>-2</error_level>
@@ -746,18 +746,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>36</line_from>
-    <line_to>36</line_to>
+    <line_from>38</line_from>
+    <line_to>38</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function createAction(Request $request, UserPasswordHasherInterface $userPasswordHasher)</snippet>
     <selected_text>$request</selected_text>
-    <from>1042</from>
-    <to>1050</to>
-    <snippet_from>1001</snippet_from>
-    <snippet_to>1100</snippet_to>
+    <from>1068</from>
+    <to>1076</to>
+    <snippet_from>1027</snippet_from>
+    <snippet_to>1126</snippet_to>
     <column_from>42</column_from>
     <column_to>50</column_to>
     <error_level>-2</error_level>
@@ -768,18 +768,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>36</line_from>
-    <line_to>36</line_to>
+    <line_from>38</line_from>
+    <line_to>38</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function createAction(Request $request, UserPasswordHasherInterface $userPasswordHasher)</snippet>
     <selected_text>$userPasswordHasher</selected_text>
-    <from>1080</from>
-    <to>1099</to>
-    <snippet_from>1001</snippet_from>
-    <snippet_to>1100</snippet_to>
+    <from>1106</from>
+    <to>1125</to>
+    <snippet_from>1027</snippet_from>
+    <snippet_to>1126</snippet_to>
     <column_from>80</column_from>
     <column_to>99</column_to>
     <error_level>-2</error_level>
@@ -790,18 +790,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>66</line_from>
+    <line_to>66</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function editAction(User $user, Request $request)</snippet>
     <selected_text>$user</selected_text>
-    <from>1987</from>
-    <to>1992</to>
-    <snippet_from>1951</snippet_from>
-    <snippet_to>2011</snippet_to>
+    <from>2013</from>
+    <to>2018</to>
+    <snippet_from>1977</snippet_from>
+    <snippet_to>2037</snippet_to>
     <column_from>37</column_from>
     <column_to>42</column_to>
     <error_level>-2</error_level>
@@ -812,18 +812,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>66</line_from>
+    <line_to>66</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Controller/UserController.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php</file_path>
     <snippet>    public function editAction(User $user, Request $request)</snippet>
     <selected_text>$request</selected_text>
-    <from>2002</from>
-    <to>2010</to>
-    <snippet_from>1951</snippet_from>
-    <snippet_to>2011</snippet_to>
+    <from>2028</from>
+    <to>2036</to>
+    <snippet_from>1977</snippet_from>
+    <snippet_to>2037</snippet_to>
     <column_from>52</column_from>
     <column_to>60</column_to>
     <error_level>-2</error_level>
@@ -834,18 +834,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>9</line_from>
-    <line_to>9</line_to>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Entity does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>#[ORM\Entity]</snippet>
     <selected_text>ORM\Entity</selected_text>
-    <from>152</from>
-    <to>162</to>
-    <snippet_from>150</snippet_from>
-    <snippet_to>163</snippet_to>
+    <from>178</from>
+    <to>188</to>
+    <snippet_from>176</snippet_from>
+    <snippet_to>189</snippet_to>
     <column_from>3</column_from>
     <column_to>13</column_to>
     <error_level>-1</error_level>
@@ -856,18 +856,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Table does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>#[ORM\Table(name: 'task')]</snippet>
     <selected_text>ORM\Table</selected_text>
-    <from>166</from>
-    <to>175</to>
-    <snippet_from>164</snippet_from>
-    <snippet_to>190</snippet_to>
+    <from>192</from>
+    <to>201</to>
+    <snippet_from>190</snippet_from>
+    <snippet_to>216</snippet_to>
     <column_from>3</column_from>
     <column_to>12</column_to>
     <error_level>-1</error_level>
@@ -878,18 +878,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>11</line_from>
-    <line_to>11</line_to>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
     <type>UnusedClass</type>
     <message>Class App\Entity\Task is never used</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>class Task</snippet>
     <selected_text>Task</selected_text>
-    <from>197</from>
-    <to>201</to>
-    <snippet_from>191</snippet_from>
-    <snippet_to>201</snippet_to>
+    <from>223</from>
+    <to>227</to>
+    <snippet_from>217</snippet_from>
+    <snippet_to>227</snippet_to>
     <column_from>7</column_from>
     <column_to>11</column_to>
     <error_level>-2</error_level>
@@ -900,64 +900,20 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>13</line_from>
-    <line_to>13</line_to>
+    <line_from>15</line_from>
+    <line_to>15</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Id does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[ORM\Id]</snippet>
     <selected_text>ORM\Id</selected_text>
-    <from>210</from>
-    <to>216</to>
-    <snippet_from>204</snippet_from>
-    <snippet_to>217</snippet_to>
+    <from>236</from>
+    <to>242</to>
+    <snippet_from>230</snippet_from>
+    <snippet_to>243</snippet_to>
     <column_from>7</column_from>
     <column_to>13</column_to>
-    <error_level>-1</error_level>
-    <shortcode>241</shortcode>
-    <link>https://psalm.dev/241</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_from>14</line_from>
-    <line_to>14</line_to>
-    <type>UndefinedAttributeClass</type>
-    <message>Attribute class Doctrine\ORM\Mapping\GeneratedValue does not exist</message>
-    <file_name>../../../src/Entity/Task.php</file_name>
-    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    #[ORM\GeneratedValue(strategy: 'AUTO')]</snippet>
-    <selected_text>ORM\GeneratedValue</selected_text>
-    <from>224</from>
-    <to>242</to>
-    <snippet_from>218</snippet_from>
-    <snippet_to>261</snippet_to>
-    <column_from>7</column_from>
-    <column_to>25</column_to>
-    <error_level>-1</error_level>
-    <shortcode>241</shortcode>
-    <link>https://psalm.dev/241</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_from>15</line_from>
-    <line_to>15</line_to>
-    <type>UndefinedAttributeClass</type>
-    <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
-    <file_name>../../../src/Entity/Task.php</file_name>
-    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    #[ORM\Column(type: Types::INTEGER)]</snippet>
-    <selected_text>ORM\Column</selected_text>
-    <from>268</from>
-    <to>278</to>
-    <snippet_from>262</snippet_from>
-    <snippet_to>301</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
     <error_level>-1</error_level>
     <shortcode>241</shortcode>
     <link>https://psalm.dev/241</link>
@@ -969,15 +925,59 @@
     <line_from>16</line_from>
     <line_to>16</line_to>
     <type>UndefinedAttributeClass</type>
+    <message>Attribute class Doctrine\ORM\Mapping\GeneratedValue does not exist</message>
+    <file_name>../../../src/Entity/Task.php</file_name>
+    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
+    <snippet>    #[ORM\GeneratedValue(strategy: 'AUTO')]</snippet>
+    <selected_text>ORM\GeneratedValue</selected_text>
+    <from>250</from>
+    <to>268</to>
+    <snippet_from>244</snippet_from>
+    <snippet_to>287</snippet_to>
+    <column_from>7</column_from>
+    <column_to>25</column_to>
+    <error_level>-1</error_level>
+    <shortcode>241</shortcode>
+    <link>https://psalm.dev/241</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>17</line_from>
+    <line_to>17</line_to>
+    <type>UndefinedAttributeClass</type>
+    <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
+    <file_name>../../../src/Entity/Task.php</file_name>
+    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
+    <snippet>    #[ORM\Column(type: Types::INTEGER)]</snippet>
+    <selected_text>ORM\Column</selected_text>
+    <from>294</from>
+    <to>304</to>
+    <snippet_from>288</snippet_from>
+    <snippet_to>327</snippet_to>
+    <column_from>7</column_from>
+    <column_to>17</column_to>
+    <error_level>-1</error_level>
+    <shortcode>241</shortcode>
+    <link>https://psalm.dev/241</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>18</line_from>
+    <line_to>18</line_to>
+    <type>UndefinedAttributeClass</type>
     <message>Attribute class Symfony\Component\Validator\Constraints\Type does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[Assert\Type('integer')]</snippet>
     <selected_text>Assert\Type</selected_text>
-    <from>308</from>
-    <to>319</to>
-    <snippet_from>302</snippet_from>
-    <snippet_to>331</snippet_to>
+    <from>334</from>
+    <to>345</to>
+    <snippet_from>328</snippet_from>
+    <snippet_to>357</snippet_to>
     <column_from>7</column_from>
     <column_to>18</column_to>
     <error_level>-1</error_level>
@@ -988,64 +988,20 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>19</line_from>
-    <line_to>19</line_to>
+    <line_from>21</line_from>
+    <line_to>21</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[ORM\Column(type: Types::DATE_IMMUTABLE)]</snippet>
     <selected_text>ORM\Column</selected_text>
-    <from>368</from>
-    <to>378</to>
-    <snippet_from>362</snippet_from>
-    <snippet_to>408</snippet_to>
+    <from>394</from>
+    <to>404</to>
+    <snippet_from>388</snippet_from>
+    <snippet_to>434</snippet_to>
     <column_from>7</column_from>
     <column_to>17</column_to>
-    <error_level>-1</error_level>
-    <shortcode>241</shortcode>
-    <link>https://psalm.dev/241</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_from>22</line_from>
-    <line_to>22</line_to>
-    <type>UndefinedAttributeClass</type>
-    <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
-    <file_name>../../../src/Entity/Task.php</file_name>
-    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    #[ORM\Column(type: Types::STRING)]</snippet>
-    <selected_text>ORM\Column</selected_text>
-    <from>460</from>
-    <to>470</to>
-    <snippet_from>454</snippet_from>
-    <snippet_to>492</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
-    <error_level>-1</error_level>
-    <shortcode>241</shortcode>
-    <link>https://psalm.dev/241</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_from>23</line_from>
-    <line_to>23</line_to>
-    <type>UndefinedAttributeClass</type>
-    <message>Attribute class Symfony\Component\Validator\Constraints\NotBlank does not exist</message>
-    <file_name>../../../src/Entity/Task.php</file_name>
-    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    #[Assert\NotBlank(message: 'Vous devez saisir un titre.')]</snippet>
-    <selected_text>Assert\NotBlank</selected_text>
-    <from>499</from>
-    <to>514</to>
-    <snippet_from>493</snippet_from>
-    <snippet_to>555</snippet_to>
-    <column_from>7</column_from>
-    <column_to>22</column_to>
     <error_level>-1</error_level>
     <shortcode>241</shortcode>
     <link>https://psalm.dev/241</link>
@@ -1056,38 +1012,38 @@
     <severity>error</severity>
     <line_from>24</line_from>
     <line_to>24</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property App\Entity\Task::$title is not defined in constructor of App\Entity\Task or in any private or final methods called in the constructor</message>
+    <type>UndefinedAttributeClass</type>
+    <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    private ?string $title;</snippet>
-    <selected_text>$title</selected_text>
-    <from>576</from>
-    <to>582</to>
-    <snippet_from>556</snippet_from>
-    <snippet_to>583</snippet_to>
-    <column_from>21</column_from>
-    <column_to>27</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
+    <snippet>    #[ORM\Column(type: Types::STRING)]</snippet>
+    <selected_text>ORM\Column</selected_text>
+    <from>486</from>
+    <to>496</to>
+    <snippet_from>480</snippet_from>
+    <snippet_to>518</snippet_to>
+    <column_from>7</column_from>
+    <column_to>17</column_to>
+    <error_level>-1</error_level>
+    <shortcode>241</shortcode>
+    <link>https://psalm.dev/241</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
   <item>
     <severity>error</severity>
-    <line_from>26</line_from>
-    <line_to>26</line_to>
+    <line_from>25</line_from>
+    <line_to>25</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Symfony\Component\Validator\Constraints\NotBlank does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    #[Assert\NotBlank(message: 'Vous devez saisir du contenu.')]</snippet>
+    <snippet>    #[Assert\NotBlank(message: 'Vous devez saisir un titre.')]</snippet>
     <selected_text>Assert\NotBlank</selected_text>
-    <from>591</from>
-    <to>606</to>
-    <snippet_from>585</snippet_from>
-    <snippet_to>649</snippet_to>
+    <from>525</from>
+    <to>540</to>
+    <snippet_from>519</snippet_from>
+    <snippet_to>581</snippet_to>
     <column_from>7</column_from>
     <column_to>22</column_to>
     <error_level>-1</error_level>
@@ -1098,18 +1054,62 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>27</line_from>
-    <line_to>27</line_to>
+    <line_from>26</line_from>
+    <line_to>26</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property App\Entity\Task::$title is not defined in constructor of App\Entity\Task or in any private or final methods called in the constructor</message>
+    <file_name>../../../src/Entity/Task.php</file_name>
+    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
+    <snippet>    private ?string $title;</snippet>
+    <selected_text>$title</selected_text>
+    <from>602</from>
+    <to>608</to>
+    <snippet_from>582</snippet_from>
+    <snippet_to>609</snippet_to>
+    <column_from>21</column_from>
+    <column_to>27</column_to>
+    <error_level>2</error_level>
+    <shortcode>74</shortcode>
+    <link>https://psalm.dev/074</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>28</line_from>
+    <line_to>28</line_to>
+    <type>UndefinedAttributeClass</type>
+    <message>Attribute class Symfony\Component\Validator\Constraints\NotBlank does not exist</message>
+    <file_name>../../../src/Entity/Task.php</file_name>
+    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
+    <snippet>    #[Assert\NotBlank(message: 'Vous devez saisir du contenu.')]</snippet>
+    <selected_text>Assert\NotBlank</selected_text>
+    <from>617</from>
+    <to>632</to>
+    <snippet_from>611</snippet_from>
+    <snippet_to>675</snippet_to>
+    <column_from>7</column_from>
+    <column_to>22</column_to>
+    <error_level>-1</error_level>
+    <shortcode>241</shortcode>
+    <link>https://psalm.dev/241</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>29</line_from>
+    <line_to>29</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[ORM\Column(type: Types::TEXT)]</snippet>
     <selected_text>ORM\Column</selected_text>
-    <from>656</from>
-    <to>666</to>
-    <snippet_from>650</snippet_from>
-    <snippet_to>686</snippet_to>
+    <from>682</from>
+    <to>692</to>
+    <snippet_from>676</snippet_from>
+    <snippet_to>712</snippet_to>
     <column_from>7</column_from>
     <column_to>17</column_to>
     <error_level>-1</error_level>
@@ -1120,18 +1120,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>28</line_from>
-    <line_to>28</line_to>
+    <line_from>30</line_from>
+    <line_to>30</line_to>
     <type>MissingPropertyType</type>
     <message>Property App\Entity\Task::$content does not have a declared type</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    private $content;</snippet>
     <selected_text>$content</selected_text>
-    <from>699</from>
-    <to>707</to>
-    <snippet_from>687</snippet_from>
-    <snippet_to>708</snippet_to>
+    <from>725</from>
+    <to>733</to>
+    <snippet_from>713</snippet_from>
+    <snippet_to>734</snippet_to>
     <column_from>13</column_from>
     <column_to>21</column_to>
     <error_level>2</error_level>
@@ -1142,18 +1142,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>30</line_from>
-    <line_to>30</line_to>
+    <line_from>32</line_from>
+    <line_to>32</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\Column does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[ORM\Column(type: 'boolean', options: ['default' =&gt; false])]</snippet>
     <selected_text>ORM\Column</selected_text>
-    <from>716</from>
-    <to>726</to>
-    <snippet_from>710</snippet_from>
-    <snippet_to>775</snippet_to>
+    <from>742</from>
+    <to>752</to>
+    <snippet_from>736</snippet_from>
+    <snippet_to>801</snippet_to>
     <column_from>7</column_from>
     <column_to>17</column_to>
     <error_level>-1</error_level>
@@ -1164,18 +1164,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>33</line_from>
-    <line_to>33</line_to>
+    <line_from>35</line_from>
+    <line_to>35</line_to>
     <type>UndefinedAttributeClass</type>
     <message>Attribute class Doctrine\ORM\Mapping\ManyToOne does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    #[ORM\ManyToOne(inversedBy: 'tasks')]</snippet>
     <selected_text>ORM\ManyToOne</selected_text>
-    <from>817</from>
-    <to>830</to>
-    <snippet_from>811</snippet_from>
-    <snippet_to>852</snippet_to>
+    <from>843</from>
+    <to>856</to>
+    <snippet_from>837</snippet_from>
+    <snippet_to>878</snippet_to>
     <column_from>7</column_from>
     <column_to>20</column_to>
     <error_level>-1</error_level>
@@ -1186,18 +1186,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>34</line_from>
-    <line_to>34</line_to>
+    <line_from>36</line_from>
+    <line_to>36</line_to>
     <type>MissingDependency</type>
     <message>App\Entity\User depends on class or interface symfony\component\security\core\user\userinterface that does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    private ?User $user = null;</snippet>
     <selected_text>?User</selected_text>
-    <from>865</from>
-    <to>870</to>
-    <snippet_from>853</snippet_from>
-    <snippet_to>884</snippet_to>
+    <from>891</from>
+    <to>896</to>
+    <snippet_from>879</snippet_from>
+    <snippet_to>910</snippet_to>
     <column_from>13</column_from>
     <column_to>18</column_to>
     <error_level>-1</error_level>
@@ -1208,18 +1208,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>47</line_from>
-    <line_to>47</line_to>
+    <line_from>49</line_from>
+    <line_to>49</line_to>
     <type>UndefinedDocblockClass</type>
     <message>Docblock-defined class, interface or enum named App\Entity\DateTime does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return DateTime</snippet>
     <selected_text>DateTime</selected_text>
-    <from>1073</from>
-    <to>1081</to>
-    <snippet_from>1058</snippet_from>
-    <snippet_to>1081</snippet_to>
+    <from>1099</from>
+    <to>1107</to>
+    <snippet_from>1084</snippet_from>
+    <snippet_to>1107</snippet_to>
     <column_from>16</column_from>
     <column_to>24</column_to>
     <error_level>-1</error_level>
@@ -1230,45 +1230,23 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>47</line_from>
-    <line_to>47</line_to>
+    <line_from>49</line_from>
+    <line_to>49</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'App\Entity\DateTime|null' for App\Entity\Task::getCreatedAt</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return DateTime</snippet>
     <selected_text>DateTime</selected_text>
-    <from>1073</from>
-    <to>1081</to>
-    <snippet_from>1058</snippet_from>
-    <snippet_to>1081</snippet_to>
+    <from>1099</from>
+    <to>1107</to>
+    <snippet_from>1084</snippet_from>
+    <snippet_to>1107</snippet_to>
     <column_from>16</column_from>
     <column_to>24</column_to>
     <error_level>1</error_level>
     <shortcode>47</shortcode>
     <link>https://psalm.dev/047</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_from>55</line_from>
-    <line_to>55</line_to>
-    <type>UndefinedDocblockClass</type>
-    <message>Docblock-defined class, interface or enum named App\Entity\DateTime does not exist</message>
-    <file_name>../../../src/Entity/Task.php</file_name>
-    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>     * @param DateTime $createdAt</snippet>
-    <selected_text>DateTime</selected_text>
-    <from>1214</from>
-    <to>1222</to>
-    <snippet_from>1200</snippet_from>
-    <snippet_to>1233</snippet_to>
-    <column_from>15</column_from>
-    <column_to>23</column_to>
-    <error_level>-1</error_level>
-    <shortcode>200</shortcode>
-    <link>https://psalm.dev/200</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -1282,10 +1260,10 @@
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1256</from>
-    <to>1260</to>
-    <snippet_from>1241</snippet_from>
-    <snippet_to>1260</snippet_to>
+    <from>1241</from>
+    <to>1245</to>
+    <snippet_from>1226</snippet_from>
+    <snippet_to>1245</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>4</error_level>
@@ -1304,10 +1282,10 @@
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1256</from>
-    <to>1260</to>
-    <snippet_from>1241</snippet_from>
-    <snippet_to>1260</snippet_to>
+    <from>1241</from>
+    <to>1245</to>
+    <snippet_from>1226</snippet_from>
+    <snippet_to>1245</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>1</error_level>
@@ -1320,18 +1298,40 @@
     <severity>error</severity>
     <line_from>59</line_from>
     <line_to>59</line_to>
+    <type>UndefinedClass</type>
+    <message>Class, interface or enum named App\Entity\DateTime does not exist</message>
+    <file_name>../../../src/Entity/Task.php</file_name>
+    <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
+    <snippet>    public function setCreatedAt(DateTime $createdAt): self</snippet>
+    <selected_text>DateTime</selected_text>
+    <from>1287</from>
+    <to>1295</to>
+    <snippet_from>1254</snippet_from>
+    <snippet_to>1313</snippet_to>
+    <column_from>34</column_from>
+    <column_to>42</column_to>
+    <error_level>-1</error_level>
+    <shortcode>19</shortcode>
+    <link>https://psalm.dev/019</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>59</line_from>
+    <line_to>59</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    public function setCreatedAt($createdAt): self</snippet>
+    <snippet>    public function setCreatedAt(DateTime $createdAt): self</snippet>
     <selected_text>$createdAt</selected_text>
-    <from>1302</from>
-    <to>1312</to>
-    <snippet_from>1269</snippet_from>
-    <snippet_to>1319</snippet_to>
-    <column_from>34</column_from>
-    <column_to>44</column_to>
+    <from>1296</from>
+    <to>1306</to>
+    <snippet_from>1254</snippet_from>
+    <snippet_to>1313</snippet_to>
+    <column_from>43</column_from>
+    <column_to>53</column_to>
     <error_level>-2</error_level>
     <shortcode>134</shortcode>
     <link>https://psalm.dev/134</link>
@@ -1340,18 +1340,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>74</line_from>
-    <line_to>74</line_to>
+    <line_from>72</line_from>
+    <line_to>72</line_to>
     <type>MismatchingDocblockReturnType</type>
     <message>Docblock has incorrect return type 'void', should be 'App\Entity\Task'</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1535</from>
-    <to>1539</to>
-    <snippet_from>1520</snippet_from>
-    <snippet_to>1539</snippet_to>
+    <from>1494</from>
+    <to>1498</to>
+    <snippet_from>1479</snippet_from>
+    <snippet_to>1498</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>4</error_level>
@@ -1362,18 +1362,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>74</line_from>
-    <line_to>74</line_to>
+    <line_from>72</line_from>
+    <line_to>72</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'void' for App\Entity\Task::setTitle</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1535</from>
-    <to>1539</to>
-    <snippet_from>1520</snippet_from>
-    <snippet_to>1539</snippet_to>
+    <from>1494</from>
+    <to>1498</to>
+    <snippet_from>1479</snippet_from>
+    <snippet_to>1498</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>1</error_level>
@@ -1384,20 +1384,20 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>76</line_from>
-    <line_to>76</line_to>
+    <line_from>74</line_from>
+    <line_to>74</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    public function setTitle($title): self</snippet>
+    <snippet>    public function setTitle(string $title): self</snippet>
     <selected_text>$title</selected_text>
-    <from>1577</from>
-    <to>1583</to>
-    <snippet_from>1548</snippet_from>
-    <snippet_to>1590</snippet_to>
-    <column_from>30</column_from>
-    <column_to>36</column_to>
+    <from>1543</from>
+    <to>1549</to>
+    <snippet_from>1507</snippet_from>
+    <snippet_to>1556</snippet_to>
+    <column_from>37</column_from>
+    <column_to>43</column_to>
     <error_level>-2</error_level>
     <shortcode>134</shortcode>
     <link>https://psalm.dev/134</link>
@@ -1406,18 +1406,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>83</line_from>
-    <line_to>83</line_to>
+    <line_from>81</line_from>
+    <line_to>81</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'null|string' for App\Entity\Task::getContent</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    public function getContent(): ?string</snippet>
     <selected_text>?string</selected_text>
-    <from>1692</from>
-    <to>1699</to>
-    <snippet_from>1658</snippet_from>
-    <snippet_to>1699</snippet_to>
+    <from>1658</from>
+    <to>1665</to>
+    <snippet_from>1624</snippet_from>
+    <snippet_to>1665</snippet_to>
     <column_from>35</column_from>
     <column_to>42</column_to>
     <error_level>1</error_level>
@@ -1428,18 +1428,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>85</line_from>
-    <line_to>85</line_to>
+    <line_from>83</line_from>
+    <line_to>83</line_to>
     <type>MixedReturnStatement</type>
     <message>Could not infer a return type</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>        return $this-&gt;content;</snippet>
     <selected_text>$this-&gt;content</selected_text>
-    <from>1721</from>
-    <to>1735</to>
-    <snippet_from>1706</snippet_from>
-    <snippet_to>1736</snippet_to>
+    <from>1687</from>
+    <to>1701</to>
+    <snippet_from>1672</snippet_from>
+    <snippet_to>1702</snippet_to>
     <column_from>16</column_from>
     <column_to>30</column_to>
     <error_level>1</error_level>
@@ -1450,18 +1450,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>91</line_from>
-    <line_to>91</line_to>
+    <line_from>87</line_from>
+    <line_to>87</line_to>
     <type>MismatchingDocblockReturnType</type>
     <message>Docblock has incorrect return type 'void', should be 'App\Entity\Task'</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1804</from>
-    <to>1808</to>
-    <snippet_from>1789</snippet_from>
-    <snippet_to>1808</snippet_to>
+    <from>1733</from>
+    <to>1737</to>
+    <snippet_from>1718</snippet_from>
+    <snippet_to>1737</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>4</error_level>
@@ -1472,18 +1472,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>91</line_from>
-    <line_to>91</line_to>
+    <line_from>87</line_from>
+    <line_to>87</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'void' for App\Entity\Task::setContent</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return void</snippet>
     <selected_text>void</selected_text>
-    <from>1804</from>
-    <to>1808</to>
-    <snippet_from>1789</snippet_from>
-    <snippet_to>1808</snippet_to>
+    <from>1733</from>
+    <to>1737</to>
+    <snippet_from>1718</snippet_from>
+    <snippet_to>1737</snippet_to>
     <column_from>16</column_from>
     <column_to>20</column_to>
     <error_level>1</error_level>
@@ -1494,20 +1494,20 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>93</line_from>
-    <line_to>93</line_to>
+    <line_from>89</line_from>
+    <line_to>89</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
-    <snippet>    public function setContent($content): self</snippet>
+    <snippet>    public function setContent(string $content): self</snippet>
     <selected_text>$content</selected_text>
-    <from>1848</from>
-    <to>1856</to>
-    <snippet_from>1817</snippet_from>
-    <snippet_to>1863</snippet_to>
-    <column_from>32</column_from>
-    <column_to>40</column_to>
+    <from>1784</from>
+    <to>1792</to>
+    <snippet_from>1746</snippet_from>
+    <snippet_to>1799</snippet_to>
+    <column_from>39</column_from>
+    <column_to>47</column_to>
     <error_level>-2</error_level>
     <shortcode>134</shortcode>
     <link>https://psalm.dev/134</link>
@@ -1516,18 +1516,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>105</line_from>
-    <line_to>105</line_to>
+    <line_from>101</line_from>
+    <line_to>101</line_to>
     <type>MissingParamType</type>
     <message>Parameter $flag has no provided type</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    public function toggle($flag): void</snippet>
     <selected_text>$flag</selected_text>
-    <from>2041</from>
-    <to>2046</to>
-    <snippet_from>2014</snippet_from>
-    <snippet_to>2053</snippet_to>
+    <from>1977</from>
+    <to>1982</to>
+    <snippet_from>1950</snippet_from>
+    <snippet_to>1989</snippet_to>
     <column_from>28</column_from>
     <column_to>33</column_to>
     <error_level>2</error_level>
@@ -1538,18 +1538,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>107</line_from>
-    <line_to>107</line_to>
+    <line_from>103</line_from>
+    <line_to>103</line_to>
     <type>MixedAssignment</type>
     <message>Unable to determine the type that $this-&gt;isDone is being assigned to</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>        $this-&gt;isDone = $flag;</snippet>
     <selected_text>$this-&gt;isDone</selected_text>
-    <from>2068</from>
-    <to>2081</to>
-    <snippet_from>2060</snippet_from>
-    <snippet_to>2090</snippet_to>
+    <from>2004</from>
+    <to>2017</to>
+    <snippet_from>1996</snippet_from>
+    <snippet_to>2026</snippet_to>
     <column_from>9</column_from>
     <column_to>22</column_to>
     <error_level>1</error_level>
@@ -1572,18 +1572,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>111</line_from>
-    <line_to>111</line_to>
+    <line_from>107</line_from>
+    <line_to>107</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'bool|null' for App\Entity\Task::getUser</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return bool|null</snippet>
     <selected_text>bool|null</selected_text>
-    <from>2121</from>
-    <to>2130</to>
-    <snippet_from>2106</snippet_from>
-    <snippet_to>2130</snippet_to>
+    <from>2057</from>
+    <to>2066</to>
+    <snippet_from>2042</snippet_from>
+    <snippet_to>2066</snippet_to>
     <column_from>16</column_from>
     <column_to>25</column_to>
     <error_level>1</error_level>
@@ -1594,18 +1594,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>113</line_from>
-    <line_to>113</line_to>
+    <line_from>109</line_from>
+    <line_to>109</line_to>
     <type>MissingDependency</type>
     <message>App\Entity\User depends on class or interface symfony\component\security\core\user\userinterface that does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    public function getUser(): ?User</snippet>
     <selected_text>?User</selected_text>
-    <from>2170</from>
-    <to>2175</to>
-    <snippet_from>2139</snippet_from>
-    <snippet_to>2175</snippet_to>
+    <from>2106</from>
+    <to>2111</to>
+    <snippet_from>2075</snippet_from>
+    <snippet_to>2111</snippet_to>
     <column_from>32</column_from>
     <column_to>37</column_to>
     <error_level>-1</error_level>
@@ -1616,18 +1616,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>119</line_from>
-    <line_to>119</line_to>
+    <line_from>115</line_from>
+    <line_to>115</line_to>
     <type>MixedInferredReturnType</type>
     <message>Could not verify return type 'App\Entity\Task' for App\Entity\Task::setUser</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>     * @return $this</snippet>
     <selected_text>$this</selected_text>
-    <from>2240</from>
-    <to>2245</to>
-    <snippet_from>2225</snippet_from>
-    <snippet_to>2245</snippet_to>
+    <from>2176</from>
+    <to>2181</to>
+    <snippet_from>2161</snippet_from>
+    <snippet_to>2181</snippet_to>
     <column_from>16</column_from>
     <column_to>21</column_to>
     <error_level>1</error_level>
@@ -1638,18 +1638,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>121</line_from>
-    <line_to>121</line_to>
+    <line_from>117</line_from>
+    <line_to>117</line_to>
     <type>MissingDependency</type>
     <message>App\Entity\User depends on class or interface symfony\component\security\core\user\userinterface that does not exist</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    public function setUser(?User $user): self</snippet>
     <selected_text>?User</selected_text>
-    <from>2282</from>
-    <to>2287</to>
-    <snippet_from>2254</snippet_from>
-    <snippet_to>2300</snippet_to>
+    <from>2218</from>
+    <to>2223</to>
+    <snippet_from>2190</snippet_from>
+    <snippet_to>2236</snippet_to>
     <column_from>29</column_from>
     <column_to>34</column_to>
     <error_level>-1</error_level>
@@ -1660,18 +1660,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>121</line_from>
-    <line_to>121</line_to>
+    <line_from>117</line_from>
+    <line_to>117</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/Task.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/Task.php</file_path>
     <snippet>    public function setUser(?User $user): self</snippet>
     <selected_text>$user</selected_text>
-    <from>2288</from>
-    <to>2293</to>
-    <snippet_from>2254</snippet_from>
-    <snippet_to>2300</snippet_to>
+    <from>2224</from>
+    <to>2229</to>
+    <snippet_from>2190</snippet_from>
+    <snippet_to>2236</snippet_to>
     <column_from>35</column_from>
     <column_to>40</column_to>
     <error_level>-2</error_level>
@@ -1682,18 +1682,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>17</line_from>
-    <line_to>17</line_to>
+    <line_from>19</line_from>
+    <line_to>19</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Component\Security\Core\User\UserInterface does not exist</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>class User implements UserInterface, PasswordAuthenticatedUserInterface</snippet>
     <selected_text>UserInterface</selected_text>
-    <from>584</from>
-    <to>597</to>
-    <snippet_from>562</snippet_from>
-    <snippet_to>633</snippet_to>
+    <from>610</from>
+    <to>623</to>
+    <snippet_from>588</snippet_from>
+    <snippet_to>659</snippet_to>
     <column_from>23</column_from>
     <column_to>36</column_to>
     <error_level>-1</error_level>
@@ -1704,18 +1704,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>22</line_from>
-    <line_to>22</line_to>
+    <line_from>24</line_from>
+    <line_to>24</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$id</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private ?int $id = null;</snippet>
     <selected_text>$id</selected_text>
-    <from>733</from>
-    <to>736</to>
-    <snippet_from>716</snippet_from>
-    <snippet_to>744</snippet_to>
+    <from>759</from>
+    <to>762</to>
+    <snippet_from>742</snippet_from>
+    <snippet_to>770</snippet_to>
     <column_from>18</column_from>
     <column_to>21</column_to>
     <error_level>-2</error_level>
@@ -1726,18 +1726,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>26</line_from>
-    <line_to>26</line_to>
+    <line_from>28</line_from>
+    <line_to>28</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$username</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private ?string $username;</snippet>
     <selected_text>$username</selected_text>
-    <from>907</from>
-    <to>916</to>
-    <snippet_from>887</snippet_from>
-    <snippet_to>917</snippet_to>
+    <from>933</from>
+    <to>942</to>
+    <snippet_from>913</snippet_from>
+    <snippet_to>943</snippet_to>
     <column_from>21</column_from>
     <column_to>30</column_to>
     <error_level>-2</error_level>
@@ -1748,18 +1748,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>29</line_from>
-    <line_to>29</line_to>
+    <line_from>31</line_from>
+    <line_to>31</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$password</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private ?string $password;</snippet>
     <selected_text>$password</selected_text>
-    <from>990</from>
-    <to>999</to>
-    <snippet_from>970</snippet_from>
-    <snippet_to>1000</snippet_to>
+    <from>1016</from>
+    <to>1025</to>
+    <snippet_from>996</snippet_from>
+    <snippet_to>1026</snippet_to>
     <column_from>21</column_from>
     <column_to>30</column_to>
     <error_level>-2</error_level>
@@ -1770,18 +1770,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>32</line_from>
-    <line_to>32</line_to>
+    <line_from>34</line_from>
+    <line_to>34</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$roles</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private mixed $roles = [];</snippet>
     <selected_text>$roles</selected_text>
-    <from>1091</from>
-    <to>1097</to>
-    <snippet_from>1073</snippet_from>
-    <snippet_to>1103</snippet_to>
+    <from>1117</from>
+    <to>1123</to>
+    <snippet_from>1099</snippet_from>
+    <snippet_to>1129</snippet_to>
     <column_from>19</column_from>
     <column_to>25</column_to>
     <error_level>-2</error_level>
@@ -1792,18 +1792,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>37</line_from>
-    <line_to>37</line_to>
+    <line_from>39</line_from>
+    <line_to>39</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$email</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private ?string $email;</snippet>
     <selected_text>$email</selected_text>
-    <from>1339</from>
-    <to>1345</to>
-    <snippet_from>1319</snippet_from>
-    <snippet_to>1346</snippet_to>
+    <from>1365</from>
+    <to>1371</to>
+    <snippet_from>1345</snippet_from>
+    <snippet_to>1372</snippet_to>
     <column_from>21</column_from>
     <column_to>27</column_to>
     <error_level>-2</error_level>
@@ -1814,18 +1814,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>45</line_from>
-    <line_to>45</line_to>
+    <line_from>47</line_from>
+    <line_to>47</line_to>
     <type>UnusedProperty</type>
     <message>Cannot find any references to private property App\Entity\User::$tasks</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    private Collection $tasks;</snippet>
     <selected_text>$tasks</selected_text>
-    <from>1518</from>
-    <to>1524</to>
-    <snippet_from>1495</snippet_from>
-    <snippet_to>1525</snippet_to>
+    <from>1544</from>
+    <to>1550</to>
+    <snippet_from>1521</snippet_from>
+    <snippet_to>1551</snippet_to>
     <column_from>24</column_from>
     <column_to>30</column_to>
     <error_level>-2</error_level>
@@ -1836,18 +1836,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>47</line_from>
-    <line_to>47</line_to>
+    <line_from>49</line_from>
+    <line_to>49</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::__construct</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function __construct()</snippet>
     <selected_text>__construct</selected_text>
-    <from>1547</from>
-    <to>1558</to>
-    <snippet_from>1527</snippet_from>
-    <snippet_to>1560</snippet_to>
+    <from>1573</from>
+    <to>1584</to>
+    <snippet_from>1553</snippet_from>
+    <snippet_to>1586</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>-2</error_level>
@@ -1858,18 +1858,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>57</line_from>
-    <line_to>57</line_to>
+    <line_from>59</line_from>
+    <line_to>59</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getUserIdentifier</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getUserIdentifier(): string</snippet>
     <selected_text>getUserIdentifier</selected_text>
-    <from>1743</from>
-    <to>1760</to>
-    <snippet_from>1723</snippet_from>
-    <snippet_to>1770</snippet_to>
+    <from>1769</from>
+    <to>1786</to>
+    <snippet_from>1749</snippet_from>
+    <snippet_to>1796</snippet_to>
     <column_from>21</column_from>
     <column_to>38</column_to>
     <error_level>-2</error_level>
@@ -1880,18 +1880,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>65</line_from>
-    <line_to>65</line_to>
+    <line_from>67</line_from>
+    <line_to>67</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getRoles</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getRoles(): array</snippet>
     <selected_text>getRoles</selected_text>
-    <from>1887</from>
-    <to>1895</to>
-    <snippet_from>1867</snippet_from>
-    <snippet_to>1904</snippet_to>
+    <from>1913</from>
+    <to>1921</to>
+    <snippet_from>1893</snippet_from>
+    <snippet_to>1930</snippet_to>
     <column_from>21</column_from>
     <column_to>29</column_to>
     <error_level>-2</error_level>
@@ -1902,18 +1902,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>77</line_from>
-    <line_to>77</line_to>
+    <line_from>79</line_from>
+    <line_to>79</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::setRoles</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setRoles(mixed $roles): self</snippet>
     <selected_text>setRoles</selected_text>
-    <from>2134</from>
-    <to>2142</to>
-    <snippet_from>2114</snippet_from>
-    <snippet_to>2162</snippet_to>
+    <from>2160</from>
+    <to>2168</to>
+    <snippet_from>2140</snippet_from>
+    <snippet_to>2188</snippet_to>
     <column_from>21</column_from>
     <column_to>29</column_to>
     <error_level>-2</error_level>
@@ -1924,18 +1924,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>77</line_from>
-    <line_to>77</line_to>
+    <line_from>79</line_from>
+    <line_to>79</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setRoles(mixed $roles): self</snippet>
     <selected_text>$roles</selected_text>
-    <from>2149</from>
-    <to>2155</to>
-    <snippet_from>2114</snippet_from>
-    <snippet_to>2162</snippet_to>
+    <from>2175</from>
+    <to>2181</to>
+    <snippet_from>2140</snippet_from>
+    <snippet_to>2188</snippet_to>
     <column_from>36</column_from>
     <column_to>42</column_to>
     <error_level>-2</error_level>
@@ -1946,18 +1946,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>84</line_from>
-    <line_to>84</line_to>
+    <line_from>86</line_from>
+    <line_to>86</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getId</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getId(): ?int</snippet>
     <selected_text>getId</selected_text>
-    <from>2250</from>
-    <to>2255</to>
-    <snippet_from>2230</snippet_from>
-    <snippet_to>2263</snippet_to>
+    <from>2276</from>
+    <to>2281</to>
+    <snippet_from>2256</snippet_from>
+    <snippet_to>2289</snippet_to>
     <column_from>21</column_from>
     <column_to>26</column_to>
     <error_level>-2</error_level>
@@ -1968,18 +1968,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>92</line_from>
-    <line_to>92</line_to>
+    <line_from>94</line_from>
+    <line_to>94</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::setUsername</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setUsername(string $username): self</snippet>
     <selected_text>setUsername</selected_text>
-    <from>2360</from>
-    <to>2371</to>
-    <snippet_from>2340</snippet_from>
-    <snippet_to>2395</snippet_to>
+    <from>2386</from>
+    <to>2397</to>
+    <snippet_from>2366</snippet_from>
+    <snippet_to>2421</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>-2</error_level>
@@ -1990,18 +1990,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>92</line_from>
-    <line_to>92</line_to>
+    <line_from>94</line_from>
+    <line_to>94</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setUsername(string $username): self</snippet>
     <selected_text>$username</selected_text>
-    <from>2379</from>
-    <to>2388</to>
-    <snippet_from>2340</snippet_from>
-    <snippet_to>2395</snippet_to>
+    <from>2405</from>
+    <to>2414</to>
+    <snippet_from>2366</snippet_from>
+    <snippet_to>2421</snippet_to>
     <column_from>40</column_from>
     <column_to>49</column_to>
     <error_level>-2</error_level>
@@ -2012,18 +2012,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>102</line_from>
-    <line_to>102</line_to>
+    <line_from>104</line_from>
+    <line_to>104</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getPassword</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getPassword(): string</snippet>
     <selected_text>getPassword</selected_text>
-    <from>2552</from>
-    <to>2563</to>
-    <snippet_from>2532</snippet_from>
-    <snippet_to>2573</snippet_to>
+    <from>2578</from>
+    <to>2589</to>
+    <snippet_from>2558</snippet_from>
+    <snippet_to>2599</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>-2</error_level>
@@ -2034,18 +2034,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>114</line_from>
-    <line_to>114</line_to>
+    <line_from>116</line_from>
+    <line_to>116</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::setPassword</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setPassword(string $password): self</snippet>
     <selected_text>setPassword</selected_text>
-    <from>2825</from>
-    <to>2836</to>
-    <snippet_from>2805</snippet_from>
-    <snippet_to>2860</snippet_to>
+    <from>2851</from>
+    <to>2862</to>
+    <snippet_from>2831</snippet_from>
+    <snippet_to>2886</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>-2</error_level>
@@ -2056,18 +2056,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>114</line_from>
-    <line_to>114</line_to>
+    <line_from>116</line_from>
+    <line_to>116</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setPassword(string $password): self</snippet>
     <selected_text>$password</selected_text>
-    <from>2844</from>
-    <to>2853</to>
-    <snippet_from>2805</snippet_from>
-    <snippet_to>2860</snippet_to>
+    <from>2870</from>
+    <to>2879</to>
+    <snippet_from>2831</snippet_from>
+    <snippet_to>2886</snippet_to>
     <column_from>40</column_from>
     <column_to>49</column_to>
     <error_level>-2</error_level>
@@ -2078,18 +2078,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>124</line_from>
-    <line_to>124</line_to>
+    <line_from>126</line_from>
+    <line_to>126</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::eraseCredentials</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
-    <snippet>    public function eraseCredentials()</snippet>
+    <snippet>    public function eraseCredentials(): void</snippet>
     <selected_text>eraseCredentials</selected_text>
-    <from>2996</from>
-    <to>3012</to>
-    <snippet_from>2976</snippet_from>
-    <snippet_to>3014</snippet_to>
+    <from>3022</from>
+    <to>3038</to>
+    <snippet_from>3002</snippet_from>
+    <snippet_to>3046</snippet_to>
     <column_from>21</column_from>
     <column_to>37</column_to>
     <error_level>-2</error_level>
@@ -2100,18 +2100,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>130</line_from>
-    <line_to>130</line_to>
+    <line_from>132</line_from>
+    <line_to>132</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getEmail</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getEmail(): string</snippet>
     <selected_text>getEmail</selected_text>
-    <from>3169</from>
-    <to>3177</to>
-    <snippet_from>3149</snippet_from>
-    <snippet_to>3187</snippet_to>
+    <from>3201</from>
+    <to>3209</to>
+    <snippet_from>3181</snippet_from>
+    <snippet_to>3219</snippet_to>
     <column_from>21</column_from>
     <column_to>29</column_to>
     <error_level>-2</error_level>
@@ -2122,18 +2122,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>135</line_from>
-    <line_to>135</line_to>
+    <line_from>137</line_from>
+    <line_to>137</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::setEmail</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setEmail(mixed $email): void</snippet>
     <selected_text>setEmail</selected_text>
-    <from>3250</from>
-    <to>3258</to>
-    <snippet_from>3230</snippet_from>
-    <snippet_to>3278</snippet_to>
+    <from>3282</from>
+    <to>3290</to>
+    <snippet_from>3262</snippet_from>
+    <snippet_to>3310</snippet_to>
     <column_from>21</column_from>
     <column_to>29</column_to>
     <error_level>-2</error_level>
@@ -2144,18 +2144,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>135</line_from>
-    <line_to>135</line_to>
+    <line_from>137</line_from>
+    <line_to>137</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function setEmail(mixed $email): void</snippet>
     <selected_text>$email</selected_text>
-    <from>3265</from>
-    <to>3271</to>
-    <snippet_from>3230</snippet_from>
-    <snippet_to>3278</snippet_to>
+    <from>3297</from>
+    <to>3303</to>
+    <snippet_from>3262</snippet_from>
+    <snippet_to>3310</snippet_to>
     <column_from>36</column_from>
     <column_to>42</column_to>
     <error_level>-2</error_level>
@@ -2166,18 +2166,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>143</line_from>
-    <line_to>143</line_to>
+    <line_from>145</line_from>
+    <line_to>145</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::getTasks</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function getTasks(): Collection</snippet>
     <selected_text>getTasks</selected_text>
-    <from>3396</from>
-    <to>3404</to>
-    <snippet_from>3376</snippet_from>
-    <snippet_to>3418</snippet_to>
+    <from>3428</from>
+    <to>3436</to>
+    <snippet_from>3408</snippet_from>
+    <snippet_to>3450</snippet_to>
     <column_from>21</column_from>
     <column_to>29</column_to>
     <error_level>-2</error_level>
@@ -2188,18 +2188,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>151</line_from>
-    <line_to>151</line_to>
+    <line_from>153</line_from>
+    <line_to>153</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::addTask</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function addTask(Task $task): self</snippet>
     <selected_text>addTask</selected_text>
-    <from>3518</from>
-    <to>3525</to>
-    <snippet_from>3498</snippet_from>
-    <snippet_to>3543</snippet_to>
+    <from>3550</from>
+    <to>3557</to>
+    <snippet_from>3530</snippet_from>
+    <snippet_to>3575</snippet_to>
     <column_from>21</column_from>
     <column_to>28</column_to>
     <error_level>-2</error_level>
@@ -2210,18 +2210,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>151</line_from>
-    <line_to>151</line_to>
+    <line_from>153</line_from>
+    <line_to>153</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function addTask(Task $task): self</snippet>
     <selected_text>$task</selected_text>
-    <from>3531</from>
-    <to>3536</to>
-    <snippet_from>3498</snippet_from>
-    <snippet_to>3543</snippet_to>
+    <from>3563</from>
+    <to>3568</to>
+    <snippet_from>3530</snippet_from>
+    <snippet_to>3575</snippet_to>
     <column_from>34</column_from>
     <column_to>39</column_to>
     <error_level>-2</error_level>
@@ -2232,18 +2232,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>164</line_from>
-    <line_to>164</line_to>
+    <line_from>166</line_from>
+    <line_to>166</line_to>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find any calls to method App\Entity\User::removeTask</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function removeTask(Task $task): self</snippet>
     <selected_text>removeTask</selected_text>
-    <from>3766</from>
-    <to>3776</to>
-    <snippet_from>3746</snippet_from>
-    <snippet_to>3794</snippet_to>
+    <from>3799</from>
+    <to>3809</to>
+    <snippet_from>3779</snippet_from>
+    <snippet_to>3827</snippet_to>
     <column_from>21</column_from>
     <column_to>31</column_to>
     <error_level>-2</error_level>
@@ -2254,18 +2254,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>164</line_from>
-    <line_to>164</line_to>
+    <line_from>166</line_from>
+    <line_to>166</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Entity/User.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php</file_path>
     <snippet>    public function removeTask(Task $task): self</snippet>
     <selected_text>$task</selected_text>
-    <from>3782</from>
-    <to>3787</to>
-    <snippet_from>3746</snippet_from>
-    <snippet_to>3794</snippet_to>
+    <from>3815</from>
+    <to>3820</to>
+    <snippet_from>3779</snippet_from>
+    <snippet_to>3827</snippet_to>
     <column_from>37</column_from>
     <column_to>42</column_to>
     <error_level>-2</error_level>
@@ -2276,18 +2276,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>9</line_from>
-    <line_to>9</line_to>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
     <type>UnusedClass</type>
     <message>Class App\Form\TaskType is never used</message>
     <file_name>../../../src/Form/TaskType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/TaskType.php</file_path>
     <snippet>class TaskType extends AbstractType</snippet>
     <selected_text>TaskType</selected_text>
-    <from>186</from>
-    <to>194</to>
-    <snippet_from>180</snippet_from>
-    <snippet_to>215</snippet_to>
+    <from>212</from>
+    <to>220</to>
+    <snippet_from>206</snippet_from>
+    <snippet_to>241</snippet_to>
     <column_from>7</column_from>
     <column_to>15</column_to>
     <error_level>-2</error_level>
@@ -2298,18 +2298,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>9</line_from>
-    <line_to>9</line_to>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Component\Form\AbstractType does not exist</message>
     <file_name>../../../src/Form/TaskType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/TaskType.php</file_path>
     <snippet>class TaskType extends AbstractType</snippet>
     <selected_text>AbstractType</selected_text>
-    <from>203</from>
-    <to>215</to>
-    <snippet_from>180</snippet_from>
-    <snippet_to>215</snippet_to>
+    <from>229</from>
+    <to>241</to>
+    <snippet_from>206</snippet_from>
+    <snippet_to>241</snippet_to>
     <column_from>24</column_from>
     <column_to>36</column_to>
     <error_level>-1</error_level>
@@ -2320,18 +2320,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>11</line_from>
-    <line_to>11</line_to>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Form/TaskType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/TaskType.php</file_path>
     <snippet>    public function buildForm(FormBuilderInterface $builder, array $options): void</snippet>
     <selected_text>$builder</selected_text>
-    <from>269</from>
-    <to>277</to>
-    <snippet_from>218</snippet_from>
-    <snippet_to>300</snippet_to>
+    <from>295</from>
+    <to>303</to>
+    <snippet_from>244</snippet_from>
+    <snippet_to>326</snippet_to>
     <column_from>52</column_from>
     <column_to>60</column_to>
     <error_level>-2</error_level>
@@ -2342,18 +2342,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>11</line_from>
-    <line_to>11</line_to>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Form/TaskType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/TaskType.php</file_path>
     <snippet>    public function buildForm(FormBuilderInterface $builder, array $options): void</snippet>
     <selected_text>$options</selected_text>
-    <from>285</from>
-    <to>293</to>
-    <snippet_from>218</snippet_from>
-    <snippet_to>300</snippet_to>
+    <from>311</from>
+    <to>319</to>
+    <snippet_from>244</snippet_from>
+    <snippet_to>326</snippet_to>
     <column_from>68</column_from>
     <column_to>76</column_to>
     <error_level>-2</error_level>
@@ -2364,18 +2364,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>12</line_from>
-    <line_to>12</line_to>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
     <type>UnusedClass</type>
     <message>Class App\Form\UserType is never used</message>
     <file_name>../../../src/Form/UserType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php</file_path>
     <snippet>class UserType extends AbstractType</snippet>
     <selected_text>UserType</selected_text>
-    <from>362</from>
-    <to>370</to>
-    <snippet_from>356</snippet_from>
-    <snippet_to>391</snippet_to>
+    <from>388</from>
+    <to>396</to>
+    <snippet_from>382</snippet_from>
+    <snippet_to>417</snippet_to>
     <column_from>7</column_from>
     <column_to>15</column_to>
     <error_level>-2</error_level>
@@ -2386,18 +2386,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>12</line_from>
-    <line_to>12</line_to>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Component\Form\AbstractType does not exist</message>
     <file_name>../../../src/Form/UserType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php</file_path>
     <snippet>class UserType extends AbstractType</snippet>
     <selected_text>AbstractType</selected_text>
-    <from>379</from>
-    <to>391</to>
-    <snippet_from>356</snippet_from>
-    <snippet_to>391</snippet_to>
+    <from>405</from>
+    <to>417</to>
+    <snippet_from>382</snippet_from>
+    <snippet_to>417</snippet_to>
     <column_from>24</column_from>
     <column_to>36</column_to>
     <error_level>-1</error_level>
@@ -2408,18 +2408,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>14</line_from>
-    <line_to>14</line_to>
+    <line_from>16</line_from>
+    <line_to>16</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Form/UserType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php</file_path>
     <snippet>    public function buildForm(FormBuilderInterface $builder, array $options): void</snippet>
     <selected_text>$builder</selected_text>
-    <from>445</from>
-    <to>453</to>
-    <snippet_from>394</snippet_from>
-    <snippet_to>476</snippet_to>
+    <from>471</from>
+    <to>479</to>
+    <snippet_from>420</snippet_from>
+    <snippet_to>502</snippet_to>
     <column_from>52</column_from>
     <column_to>60</column_to>
     <error_level>-2</error_level>
@@ -2430,18 +2430,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>14</line_from>
-    <line_to>14</line_to>
+    <line_from>16</line_from>
+    <line_to>16</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Form/UserType.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php</file_path>
     <snippet>    public function buildForm(FormBuilderInterface $builder, array $options): void</snippet>
     <selected_text>$options</selected_text>
-    <from>461</from>
-    <to>469</to>
-    <snippet_from>394</snippet_from>
-    <snippet_to>476</snippet_to>
+    <from>487</from>
+    <to>495</to>
+    <snippet_from>420</snippet_from>
+    <snippet_to>502</snippet_to>
     <column_from>68</column_from>
     <column_to>76</column_to>
     <error_level>-2</error_level>
@@ -2452,18 +2452,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>12</line_from>
-    <line_to>12</line_to>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
     <type>UnusedClass</type>
     <message>Class App\Kernel is never used</message>
     <file_name>../../../src/Kernel.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Kernel.php</file_path>
     <snippet>class Kernel extends BaseKernel</snippet>
     <selected_text>Kernel</selected_text>
-    <from>381</from>
-    <to>387</to>
-    <snippet_from>375</snippet_from>
-    <snippet_to>406</snippet_to>
+    <from>407</from>
+    <to>413</to>
+    <snippet_from>401</snippet_from>
+    <snippet_to>432</snippet_to>
     <column_from>7</column_from>
     <column_to>13</column_to>
     <error_level>-2</error_level>
@@ -2474,18 +2474,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>12</line_from>
-    <line_to>12</line_to>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Component\HttpKernel\Kernel does not exist</message>
     <file_name>../../../src/Kernel.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Kernel.php</file_path>
     <snippet>class Kernel extends BaseKernel</snippet>
     <selected_text>BaseKernel</selected_text>
-    <from>396</from>
-    <to>406</to>
-    <snippet_from>375</snippet_from>
-    <snippet_to>406</snippet_to>
+    <from>422</from>
+    <to>432</to>
+    <snippet_from>401</snippet_from>
+    <snippet_to>432</snippet_to>
     <column_from>22</column_from>
     <column_to>32</column_to>
     <error_level>-1</error_level>
@@ -2496,18 +2496,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>33</line_from>
-    <line_to>33</line_to>
+    <line_from>35</line_from>
+    <line_to>35</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Kernel.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Kernel.php</file_path>
     <snippet>    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void</snippet>
     <selected_text>$container</selected_text>
-    <from>956</from>
-    <to>966</to>
-    <snippet_from>897</snippet_from>
-    <snippet_to>998</snippet_to>
+    <from>982</from>
+    <to>992</to>
+    <snippet_from>923</snippet_from>
+    <snippet_to>1024</snippet_to>
     <column_from>60</column_from>
     <column_to>70</column_to>
     <error_level>-2</error_level>
@@ -2518,18 +2518,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>33</line_from>
-    <line_to>33</line_to>
+    <line_from>35</line_from>
+    <line_to>35</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Kernel.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Kernel.php</file_path>
     <snippet>    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void</snippet>
     <selected_text>$loader</selected_text>
-    <from>984</from>
-    <to>991</to>
-    <snippet_from>897</snippet_from>
-    <snippet_to>998</snippet_to>
+    <from>1010</from>
+    <to>1017</to>
+    <snippet_from>923</snippet_from>
+    <snippet_to>1024</snippet_to>
     <column_from>88</column_from>
     <column_to>95</column_to>
     <error_level>-2</error_level>
@@ -2540,18 +2540,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Kernel.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Kernel.php</file_path>
     <snippet>    protected function configureRoutes(RoutingConfigurator $routes): void</snippet>
     <selected_text>$routes</selected_text>
-    <from>1753</from>
-    <to>1760</to>
-    <snippet_from>1694</snippet_from>
-    <snippet_to>1767</snippet_to>
+    <from>1779</from>
+    <to>1786</to>
+    <snippet_from>1720</snippet_from>
+    <snippet_to>1793</snippet_to>
     <column_from>60</column_from>
     <column_to>67</column_to>
     <error_level>-2</error_level>
@@ -2562,18 +2562,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>18</line_from>
-    <line_to>18</line_to>
+    <line_from>20</line_from>
+    <line_to>20</line_to>
     <type>UnusedClass</type>
     <message>Class App\Repository\TaskRepository is never used</message>
     <file_name>../../../src/Repository/TaskRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php</file_path>
     <snippet>class TaskRepository extends ServiceEntityRepository</snippet>
     <selected_text>TaskRepository</selected_text>
-    <from>540</from>
-    <to>554</to>
-    <snippet_from>534</snippet_from>
-    <snippet_to>586</snippet_to>
+    <from>574</from>
+    <to>588</to>
+    <snippet_from>568</snippet_from>
+    <snippet_to>620</snippet_to>
     <column_from>7</column_from>
     <column_to>21</column_to>
     <error_level>-2</error_level>
@@ -2584,18 +2584,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>18</line_from>
-    <line_to>18</line_to>
+    <line_from>20</line_from>
+    <line_to>20</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository does not exist</message>
     <file_name>../../../src/Repository/TaskRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php</file_path>
     <snippet>class TaskRepository extends ServiceEntityRepository</snippet>
     <selected_text>ServiceEntityRepository</selected_text>
-    <from>563</from>
-    <to>586</to>
-    <snippet_from>534</snippet_from>
-    <snippet_to>586</snippet_to>
+    <from>597</from>
+    <to>620</to>
+    <snippet_from>568</snippet_from>
+    <snippet_to>620</snippet_to>
     <column_from>30</column_from>
     <column_to>53</column_to>
     <error_level>-1</error_level>
@@ -2606,18 +2606,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>22</line_from>
-    <line_to>22</line_to>
+    <line_from>24</line_from>
+    <line_to>24</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/TaskRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php</file_path>
     <snippet>    public function __construct(ManagerRegistry $registry)</snippet>
     <selected_text>$registry</selected_text>
-    <from>689</from>
-    <to>698</to>
-    <snippet_from>641</snippet_from>
-    <snippet_to>699</snippet_to>
+    <from>723</from>
+    <to>732</to>
+    <snippet_from>675</snippet_from>
+    <snippet_to>733</snippet_to>
     <column_from>49</column_from>
     <column_to>58</column_to>
     <error_level>-2</error_level>
@@ -2628,18 +2628,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>28</line_from>
-    <line_to>28</line_to>
+    <line_from>30</line_from>
+    <line_to>30</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/TaskRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php</file_path>
     <snippet>    public function save(Task $Task): void</snippet>
     <selected_text>$Task</selected_text>
-    <from>854</from>
-    <to>859</to>
-    <snippet_from>824</snippet_from>
-    <snippet_to>866</snippet_to>
+    <from>888</from>
+    <to>893</to>
+    <snippet_from>858</snippet_from>
+    <snippet_to>900</snippet_to>
     <column_from>31</column_from>
     <column_to>36</column_to>
     <error_level>-2</error_level>
@@ -2650,18 +2650,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>34</line_from>
-    <line_to>34</line_to>
+    <line_from>36</line_from>
+    <line_to>36</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/TaskRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php</file_path>
     <snippet>    public function remove(Task $Task): void</snippet>
     <selected_text>$Task</selected_text>
-    <from>997</from>
-    <to>1002</to>
-    <snippet_from>965</snippet_from>
-    <snippet_to>1009</snippet_to>
+    <from>1031</from>
+    <to>1036</to>
+    <snippet_from>999</snippet_from>
+    <snippet_to>1043</snippet_to>
     <column_from>33</column_from>
     <column_to>38</column_to>
     <error_level>-2</error_level>
@@ -2672,18 +2672,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>21</line_from>
-    <line_to>21</line_to>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
     <type>UnusedClass</type>
     <message>Class App\Repository\UserRepository is never used</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface</snippet>
     <selected_text>UserRepository</selected_text>
-    <from>757</from>
-    <to>771</to>
-    <snippet_from>751</snippet_from>
-    <snippet_to>840</snippet_to>
+    <from>791</from>
+    <to>805</to>
+    <snippet_from>785</snippet_from>
+    <snippet_to>874</snippet_to>
     <column_from>7</column_from>
     <column_to>21</column_to>
     <error_level>-2</error_level>
@@ -2694,18 +2694,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>21</line_from>
-    <line_to>21</line_to>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository does not exist</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface</snippet>
     <selected_text>ServiceEntityRepository</selected_text>
-    <from>780</from>
-    <to>803</to>
-    <snippet_from>751</snippet_from>
-    <snippet_to>840</snippet_to>
+    <from>814</from>
+    <to>837</to>
+    <snippet_from>785</snippet_from>
+    <snippet_to>874</snippet_to>
     <column_from>30</column_from>
     <column_to>53</column_to>
     <error_level>-1</error_level>
@@ -2716,18 +2716,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>21</line_from>
-    <line_to>21</line_to>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
     <type>UndefinedClass</type>
     <message>Class, interface or enum named Symfony\Component\Security\Core\User\PasswordUpgraderInterface does not exist</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface</snippet>
     <selected_text>PasswordUpgraderInterface</selected_text>
-    <from>815</from>
-    <to>840</to>
-    <snippet_from>751</snippet_from>
-    <snippet_to>840</snippet_to>
+    <from>849</from>
+    <to>874</to>
+    <snippet_from>785</snippet_from>
+    <snippet_to>874</snippet_to>
     <column_from>65</column_from>
     <column_to>90</column_to>
     <error_level>-1</error_level>
@@ -2738,18 +2738,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>25</line_from>
-    <line_to>25</line_to>
+    <line_from>27</line_from>
+    <line_to>27</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>    public function __construct(ManagerRegistry $registry)</snippet>
     <selected_text>$registry</selected_text>
-    <from>943</from>
-    <to>952</to>
-    <snippet_from>895</snippet_from>
-    <snippet_to>953</snippet_to>
+    <from>977</from>
+    <to>986</to>
+    <snippet_from>929</snippet_from>
+    <snippet_to>987</snippet_to>
     <column_from>49</column_from>
     <column_to>58</column_to>
     <error_level>-2</error_level>
@@ -2760,18 +2760,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>31</line_from>
-    <line_to>31</line_to>
+    <line_from>33</line_from>
+    <line_to>33</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>    public function save(User $user): void</snippet>
     <selected_text>$user</selected_text>
-    <from>1108</from>
-    <to>1113</to>
-    <snippet_from>1078</snippet_from>
-    <snippet_to>1120</snippet_to>
+    <from>1142</from>
+    <to>1147</to>
+    <snippet_from>1112</snippet_from>
+    <snippet_to>1154</snippet_to>
     <column_from>31</column_from>
     <column_to>36</column_to>
     <error_level>-2</error_level>
@@ -2782,18 +2782,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>37</line_from>
-    <line_to>37</line_to>
+    <line_from>39</line_from>
+    <line_to>39</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>    public function remove(User $user): void</snippet>
     <selected_text>$user</selected_text>
-    <from>1251</from>
-    <to>1256</to>
-    <snippet_from>1219</snippet_from>
-    <snippet_to>1263</snippet_to>
+    <from>1285</from>
+    <to>1290</to>
+    <snippet_from>1253</snippet_from>
+    <snippet_to>1297</snippet_to>
     <column_from>33</column_from>
     <column_to>38</column_to>
     <error_level>-2</error_level>
@@ -2804,18 +2804,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #1 is never referenced in this method</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>    public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void</snippet>
     <selected_text>$user</selected_text>
-    <from>1525</from>
-    <to>1530</to>
-    <snippet_from>1454</snippet_from>
-    <snippet_to>1564</snippet_to>
+    <from>1559</from>
+    <to>1564</to>
+    <snippet_from>1488</snippet_from>
+    <snippet_to>1598</snippet_to>
     <column_from>72</column_from>
     <column_to>77</column_to>
     <error_level>-2</error_level>
@@ -2826,18 +2826,18 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>PossiblyUnusedParam</type>
     <message>Param #2 is never referenced in this method</message>
     <file_name>../../../src/Repository/UserRepository.php</file_name>
     <file_path>/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php</file_path>
     <snippet>    public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void</snippet>
     <selected_text>$newHashedPassword</selected_text>
-    <from>1539</from>
-    <to>1557</to>
-    <snippet_from>1454</snippet_from>
-    <snippet_to>1564</snippet_to>
+    <from>1573</from>
+    <to>1591</to>
+    <snippet_from>1488</snippet_from>
+    <snippet_to>1598</snippet_to>
     <column_from>86</column_from>
     <column_to>104</column_to>
     <error_level>-2</error_level>

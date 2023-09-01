@@ -352,11 +352,6 @@ $ignoreErrors[] = [
 	'path' => __DIR__ . '/../../../src/Entity/User.php',
 ];
 $ignoreErrors[] = [
-	'message' => '#^Method App\\\\Entity\\\\User\\:\\:eraseCredentials\\(\\) has no return type specified\\.$#',
-	'count' => 1,
-	'path' => __DIR__ . '/../../../src/Entity/User.php',
-];
-$ignoreErrors[] = [
 	'message' => '#^Method App\\\\Entity\\\\User\\:\\:getEmail\\(\\) should return string but returns string\\|null\\.$#',
 	'count' => 1,
 	'path' => __DIR__ . '/../../../src/Entity/User.php',
@@ -510,6 +505,11 @@ $ignoreErrors[] = [
 	'message' => '#^Property App\\\\Repository\\\\TaskRepository\\:\\:\\$entityManager has unknown class Doctrine\\\\ORM\\\\EntityManagerInterface as its type\\.$#',
 	'count' => 1,
 	'path' => __DIR__ . '/../../../src/Repository/TaskRepository.php',
+];
+$ignoreErrors[] = [
+	'message' => '#^Access to constant class on an unknown class Symfony\\\\Component\\\\Security\\\\Core\\\\User\\\\PasswordAuthenticatedUserInterface\\.$#',
+	'count' => 1,
+	'path' => __DIR__ . '/../../../src/Repository/UserRepository.php',
 ];
 $ignoreErrors[] = [
 	'message' => '#^App\\\\Repository\\\\UserRepository\\:\\:__construct\\(\\) calls parent\\:\\:__construct\\(\\) but App\\\\Repository\\\\UserRepository does not extend any class\\.$#',
