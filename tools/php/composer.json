@@ -17,7 +17,7 @@
     },
     "scripts": {
         "analyze": [
-            "@stan-bs",
+            "@stan",
             "@cs-bs",
             "@md-bs",
             "@loc",
@@ -28,17 +28,15 @@
             "@psalm"
         ],
         "fix": [
-            "@stan",
+            "@rector",
+            "@sniff-fix",
             "@cs",
             "@md",
-            "@rector",
-            "@insights",
-            "@sniff-fix"
+            "@insights"
         ],
-        "stan-bs": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --allow-empty-baseline --generate-baseline reports/phpstan-baseline.php --verbose",
-        "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --level=9 --verbose",
+        "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --ansi || true",
         "cs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes",
-        "cs-bs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes --dry-run --format=text > reports/phpcsfixer-baseline.text || true",
+        "cs-bs": "./vendor/bin/php-cs-fixer fix ../../src --rules=@Symfony --verbose --allow-risky=yes --dry-run --format=text > reports/phpcsfixer-baseline.txt || true",
         "md-bs": "./vendor/bin/phpmd ../../src text config/phpmd-rules.xml --reportfile reports/phpmd-baseline.txt || true",
         "md": "./vendor/bin/phpmd ../../src text config/phpmd_rules.xml",
         "loc": "./vendor/bin/phploc ../../src --log-json reports/phploc.json",
