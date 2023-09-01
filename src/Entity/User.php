@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -28,7 +30,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::STRING, length: 50)]
     private ?string $password;
 
-    #[ORM\Column(type: 'json', options: ['default' => '[ROLE_USER]'])]
+    #[ORM\Column(type: 'json', options: ['default' => '["ROLE_USER"]'])]
     private mixed $roles = [];
 
     #[ORM\Column(type: Types::STRING, length: 60, unique: true)]
@@ -74,23 +76,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return $this
      */
-    public function setRoles(mixed $roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    public function getUsername(): string
+    {
+        if ($this->username === null) {
+            throw new \LogicException('Username should not be accessed before it has been set.');
+        }
+
+        return $this->username;
+    }
+
     /**
-     * @param  string $username
      * @return $this
      */
     public function setUsername(string $username): self
@@ -105,7 +112,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        if (null === $this->password) {
+        if ($this->password === null) {
             throw new \LogicException('Password should not be accessed before it has been set.');
         }
 
@@ -113,7 +120,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @param  string $password
      * @return $this
      */
     public function setPassword(string $password): self
@@ -126,24 +132,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param  mixed $email
-     * @return void
-     */
     public function setEmail(mixed $email): void
     {
         $this->email = $email;
@@ -162,7 +161,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function addTask(Task $task): self
     {
-        if (!$this->tasks->contains($task)) {
+        if (! $this->tasks->contains($task)) {
             $this->tasks->add($task);
             $task->setUser($this);
         }
@@ -171,16 +170,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @param  Task $task
      * @return $this
      */
     public function removeTask(Task $task): self
     {
-        if ($this->tasks->removeElement($task)) {
-            // set the owning side to null (unless already changed)
-            if ($task->getUser() === $this) {
-                $task->setUser(null);
-            }
+        // set the owning side to null (unless already changed)
+        if ($this->tasks->removeElement($task) && $task->getUser() === $this) {
+            $task->setUser(null);
         }
 
         return $this;

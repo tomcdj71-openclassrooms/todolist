@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
@@ -36,19 +38,15 @@ class Task
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-        $this->isDone = false;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -56,70 +54,50 @@ class Task
     }
 
     /**
-     * @param DateTime $createdAt
-     *
      * @return void
      */
-    public function setCreatedAt($createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
-     * @param string $title
-     *
      * @return void
      */
-    public function setTitle($title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
     /**
-     * @param string $content
-     *
      * @return void
      */
-    public function setContent($content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function isDone(): ?bool
     {
         return $this->isDone;
     }
 
-    /**
-     * @param $flag
-     *
-     * @return void
-     */
     public function toggle($flag): void
     {
         $this->isDone = $flag;
@@ -134,8 +112,6 @@ class Task
     }
 
     /**
-     * @param User|null $user
-     *
      * @return $this
      */
     public function setUser(?User $user): self
