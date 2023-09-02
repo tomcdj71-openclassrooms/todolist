@@ -12,6 +12,7 @@ COMPOSER := "composer"
 NPM := "pnpm"
 VENDOR_BIN := "./vendor/bin"
 PHPUNIT := "APP_ENV=test ${SYMFONY} php vendor/bin/phpunit"
+COMPOSER_TOOLS := "composer --working-dir=tools/php"
 
 # Symfony
 #Starts the Symfony server.
@@ -97,18 +98,23 @@ sf-decrypt:
 #Installs the composer dependencies.
 composer-install: 
     {{COMPOSER}} install
+    {{COMPOSER_TOOLS}} install
 #Updates the composer dependencies.
 composer-update: 
     {{COMPOSER}} update
+    {{COMPOSER_TOOLS}} update
 #Validates the composer.json and composer.lock files.
 composer-validate: 
     {{COMPOSER}} validate
+    {{COMPOSER_TOOLS}} validate
 #Executes a deeper validation of the composer.json and composer.lock files.
 composer-validate-deep: 
     {{COMPOSER}} validate --strict --check-lock
+    {{COMPOSER_TOOLS}} validate --strict --check-lock
 #Check if there are outdate packages
 composer-outdated: 
     {{COMPOSER}} outdated --direct --strict
+    {{COMPOSER_TOOLS}} outdated --direct --strict
 
 # Determine the php.ini location and set opcache.preload
 php-set-env:
@@ -133,72 +139,6 @@ npm-watch:
 
 # PHPQA
 #Runs PHP CS Fixer in dry run mode.
-qa-cs-fixer-dr: 
-    @if {{COMPOSER}} run-script phpcs-dr; then \
-        echo "No errors found."; \
-    else \
-        read -p "Errors found. Do you want to run qa-cs-fixer? (y/N) " decision; \
-        if [ "$$decision" = "y" ]; then \
-            {{COMPOSER}} run-script phpcs; \
-        fi \
-    fi
-#Runs PHP CS Fixer.
-qa-cs-fixer: 
-    {{COMPOSER}} run-script phpcs
-#Runs PHPStan report.
-qa-phpstan-baseline: 
-    {{COMPOSER}} run-script phpstan-baseline
-#Runs PHPStan.
-qa-phpstan: 
-    {{COMPOSER}} run-script phpstan
-#Runs Psalm.
-qa-psalm: 
-    {{VENDOR_BIN}}/psalm
-#Runs PHPLoc.
-qa-phploc: 
-    {{VENDOR_BIN}}/phploc
-#Runs Symfony security checker.
-qa-security-checker: 
-    {{SYMFONY}} check:security
-#Runs PHPMetrics.
-qa-phpmetrics: 
-    {{VENDOR_BIN}}/phpmetrics
-#Runs PHPMD.
-qa-phpmd-baseline: 
-    {{VENDOR_BIN}}/phpmd src text phpmd-rules.xml --reportfile phpmd-baseline.txt || true
-qa-phpmd: 
-    {{VENDOR_BIN}}/phpmd src text phpmd-rules.xml
-#Runs Rector in dry run mode.
-qa-rector-dr:
-    @if {{VENDOR_BIN}}/rector process src --dry-run; then \
-        echo "No errors found."; \
-    else \
-        read -p "Errors found. Do you want to run qa-rector-fix? (y/N) " decision; \
-        if [ "$$decision" = "y" || "$$decision" = "yes" ]; then \
-            just qa-rector; \
-        fi \
-    fi
-#Runs Rector.
-qa-rector: 
-    {{VENDOR_BIN}}/rector process src
-#Lints Twig templates.
-qa-lint-twigs:
-    {{SYMFONY_CONSOLE}} lint:twig ./templates
-#Lints YAML files.
-qa-lint-yaml:
-    {{SYMFONY_CONSOLE}} lint:yaml ./config
-#Checks the Symfony DI container for errors.
-qa-lint-container:
-    {{SYMFONY_CONSOLE}} lint:container
-#Validates that the Doctrine schema is in sync with the current mapping metadata.
-qa-lint-schema:
-    {{SYMFONY_CONSOLE}} doctrine:schema:validate --skip-sync -v --no-interaction
-#Runs a security audit using the local composer.lock file.
-qa-audit:
-    {{COMPOSER}} audit
-#Extracts the translation messages.
-qa-translations-update:
-    {{COMPOSER}} run-script translations-update
 
 # Tests
 #Runs PHPUnit tests.
@@ -271,10 +211,11 @@ print-vars:
     echo "${VENDOR_BIN}"
     echo "${RECTOR}"
 
+analyze:
+    {{COMPOSER_TOOLS}} run-script analyze
+
 fix:
-    just qa-cs-fixer
-    just qa-rector
-    just qa-phpstan
+    {{COMPOSER_TOOLS}} run-script fix
 
 lint:
     just qa-translations-update

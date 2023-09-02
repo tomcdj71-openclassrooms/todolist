@@ -1,0 +1,18 @@
+includes:
+    - ../vendor/phpstan/phpstan-doctrine/extension.neon
+    - ../vendor/phpstan/phpstan-symfony/extension.neon
+parameters:
+    phpVersion: 80200
+    level: max
+    paths:
+        - ../../../src
+        - ../../../tests
+    checkGenericClassInNonGenericObjectType: false
+    excludePaths:
+        - ../../../src/Factory
+        - ../../../src/DataFixtures
+        - ../../../tests
+    symfony:
+        container_xml_path: ../../../var/cache/dev/App_KernelDevDebugContainer.xml
+    bootstrapFiles: 
+        - ../../../config/bootstrap.php

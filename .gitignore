@@ -32,3 +32,4 @@
 ###< symfony/phpunit-bridge ###
 
 php.ini
+tools/php/vendor/
