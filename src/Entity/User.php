@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -28,8 +30,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::STRING, length: 50)]
     private ?string $password;
 
-    #[ORM\Column(type: 'json', options: ['default' => '[ROLE_USER]'])]
-    private mixed $roles = [];
+    /**
+     * @var array<string>
+     */
+    #[ORM\Column(options: ['default' => '["ROLE_USER"]'])]
+    private array $roles = [];
 
     #[ORM\Column(type: Types::STRING, length: 60, unique: true)]
     #[Assert\NotBlank(message: 'Vous devez saisir une adresse email.')]
@@ -66,31 +71,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        // $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
 
     /**
+     * @param array<string> $roles
+     *
      * @return $this
      */
-    public function setRoles(mixed $roles): self
+    public function setRoles(array $roles): static
     {
         $this->roles = $roles;
 
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    public function getUsername(): string
+    {
+        if (null === $this->username) {
+            throw new \LogicException('Username should not be accessed before it has been set.');
+        }
+
+        return $this->username;
+    }
+
     /**
-     * @param  string $username
      * @return $this
      */
     public function setUsername(string $username): self
@@ -113,7 +125,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @param  string $password
      * @return $this
      */
     public function setPassword(string $password): self
@@ -126,25 +137,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
+        if (null === $this->email) {
+            throw new \LogicException('Email should not be accessed before it has been set.');
+        }
+
         return $this->email;
     }
 
-    /**
-     * @param  mixed $email
-     * @return void
-     */
-    public function setEmail(mixed $email): void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -171,16 +179,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @param  Task $task
      * @return $this
      */
     public function removeTask(Task $task): self
     {
-        if ($this->tasks->removeElement($task)) {
-            // set the owning side to null (unless already changed)
-            if ($task->getUser() === $this) {
-                $task->setUser(null);
-            }
+        // set the owning side to null (unless already changed)
+        if ($this->tasks->removeElement($task) && $task->getUser() === $this) {
+            $task->setUser(null);
         }
 
         return $this;
