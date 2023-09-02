@@ -13,6 +13,12 @@ return static function (RectorConfig $rectorConfig): void {
     $rootDir = '../../../';
     $rectorConfig->paths([$rootDir . '/src', $rootDir . '/tests']);
 
+    // print the full rectorConfig array. with print_r
+    print_r($rectorConfig->paths([]));
+
+    // format $rectorConfig array to json and export to file
+    file_put_contents(__DIR__ . '/rector.json', json_encode($rectorConfig->paths([]), JSON_PRETTY_PRINT));
+
     $rectorConfig->sets([
         SetList::CODE_QUALITY,
     ]);
