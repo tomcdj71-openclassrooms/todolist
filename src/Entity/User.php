@@ -30,8 +30,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::STRING, length: 50)]
     private ?string $password;
 
-    #[ORM\Column(type: 'json', options: ['default' => '["ROLE_USER"]'])]
-    private mixed $roles = [];
+    /**
+     * @var array<string>
+     */
+    #[ORM\Column(options: ['default' => '["ROLE_USER"]'])]
+    private array $roles = [];
 
     #[ORM\Column(type: Types::STRING, length: 60, unique: true)]
     #[Assert\NotBlank(message: 'Vous devez saisir une adresse email.')]
@@ -68,15 +71,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        // $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
 
     /**
+     * @param array<string> $roles
+     *
      * @return $this
      */
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles): static
     {
         $this->roles = $roles;
 
@@ -90,7 +95,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUsername(): string
     {
-        if ($this->username === null) {
+        if (null === $this->username) {
             throw new \LogicException('Username should not be accessed before it has been set.');
         }
 
@@ -112,7 +117,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        if ($this->password === null) {
+        if (null === $this->password) {
             throw new \LogicException('Password should not be accessed before it has been set.');
         }
 
@@ -140,10 +145,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getEmail(): string
     {
+        if (null === $this->email) {
+            throw new \LogicException('Email should not be accessed before it has been set.');
+        }
         return $this->email;
     }
 
-    public function setEmail(mixed $email): void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -161,7 +169,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function addTask(Task $task): self
     {
-        if (! $this->tasks->contains($task)) {
+        if (!$this->tasks->contains($task)) {
             $this->tasks->add($task);
             $task->setUser($this);
         }
