@@ -148,6 +148,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if (null === $this->email) {
             throw new \LogicException('Email should not be accessed before it has been set.');
         }
+
         return $this->email;
     }
 

@@ -27,7 +27,7 @@ class Task
 
     #[Assert\NotBlank(message: 'Vous devez saisir du contenu.')]
     #[ORM\Column(type: Types::TEXT)]
-    private $content;
+    private string $content;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $isDone = false;
@@ -45,18 +45,12 @@ class Task
         return $this->id;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    /**
-     * @return void
-     */
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -68,9 +62,6 @@ class Task
         return $this->title;
     }
 
-    /**
-     * @return void
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -83,9 +74,6 @@ class Task
         return $this->content;
     }
 
-    /**
-     * @return void
-     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -98,14 +86,11 @@ class Task
         return $this->isDone;
     }
 
-    public function toggle($flag): void
+    public function toggle(bool $flag): void
     {
         $this->isDone = $flag;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getUser(): ?User
     {
         return $this->user;
