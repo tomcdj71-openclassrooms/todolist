@@ -22,7 +22,9 @@ class Kernel extends BaseKernel
         $contents = include $this->getProjectDir().'/config/bundles.php';
         foreach ($contents as $class => $envs) {
             if ($envs[$this->environment] ?? $envs['all'] ?? false) {
-                yield new $class();
+                /** @var \Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle */
+                $bundle = new $class();
+                yield $bundle;
             }
         }
     }
