@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -15,8 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'user')]
-#[UniqueEntity(fields: ['email'], message: 'This email is already registered.')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+#[UniqueEntity(
+    fields: ['email'],
+    message: 'Cette adresse email est déjà utilisée.'
+)]
+final class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,28 +32,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password;
 
     /**
-     * @var array<string>
+     * @var array<string> roles assigned to the user
      */
-    #[ORM\Column(options: ['default' => '["ROLE_USER"]'])]
+    #[ORM\Column]
     private array $roles = [];
 
     #[ORM\Column(type: Types::STRING, length: 60, unique: true)]
     #[Assert\NotBlank(message: 'Vous devez saisir une adresse email.')]
     #[Assert\Email(message: 'Le format de l\'adresse n\'est pas correcte.')]
     private ?string $email;
-
-    #[ORM\OneToMany(
-        mappedBy: 'user',
-        targetEntity: Task::class,
-        cascade: ['persist'],
-        orphanRemoval: true
-    )]
-    private Collection $tasks;
-
-    public function __construct()
-    {
-        $this->tasks = new ArrayCollection();
-    }
 
     /**
      * A visual identifier that represents this user.
@@ -65,6 +53,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Gets roles assigned to the user.
+     *
+     * @return array<string> an array of role strings
+     *
      * @see UserInterface
      */
     public function getRoles(): array
@@ -77,9 +69,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @param array<string> $roles
+     * Set the roles for the user.
      *
-     * @return $this
+     * @param array<string> $roles an array of role strings
      */
     public function setRoles(array $roles): static
     {
@@ -139,7 +131,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+        // If you store any temporary,
+        // sensitive data on the user,
+        // clear it here
         // $this->plainPassword = null;
     }
 
@@ -155,39 +149,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): void
     {
         $this->email = $email;
-    }
-
-    /**
-     * @return Collection<int, Task>
-     */
-    public function getTasks(): Collection
-    {
-        return $this->tasks;
-    }
-
-    /**
-     * @return $this
-     */
-    public function addTask(Task $task): self
-    {
-        if (!$this->tasks->contains($task)) {
-            $this->tasks->add($task);
-            $task->setUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function removeTask(Task $task): self
-    {
-        // set the owning side to null (unless already changed)
-        if ($this->tasks->removeElement($task) && $task->getUser() === $this) {
-            $task->setUser(null);
-        }
-
-        return $this;
     }
 }
