@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'task')]
-class Task
+final class Task
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
@@ -18,12 +18,12 @@ class Task
     #[Assert\Type('integer')]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeInterface $createdAt;
 
     #[ORM\Column(type: Types::STRING)]
     #[Assert\NotBlank(message: 'Vous devez saisir un titre.')]
-    private ?string $title;
+    private string $title;
 
     #[Assert\NotBlank(message: 'Vous devez saisir du contenu.')]
     #[ORM\Column(type: Types::TEXT)]
@@ -32,12 +32,17 @@ class Task
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $isDone = false;
 
-    #[ORM\ManyToOne(inversedBy: 'tasks')]
-    private ?User $user = null;
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(
+        nullable: false,
+        name: 'user_id',
+        referencedColumnName: 'id'
+    )]
+    private User $user;
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -91,7 +96,7 @@ class Task
         $this->isDone = $flag;
     }
 
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
@@ -99,7 +104,7 @@ class Task
     /**
      * @return $this
      */
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
