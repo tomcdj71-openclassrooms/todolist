@@ -8,10 +8,20 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class TaskType extends AbstractType
+final class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
+    /**
+     * Builds the form.
+     *
+     * @param FormBuilderInterface $builder The form builder
+     * @param array<string, mixed> $options an array of options
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
+     */
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
         $builder
             ->add('title')
             ->add('content', TextareaType::class)

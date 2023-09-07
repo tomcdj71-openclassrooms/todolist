@@ -17,7 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method array<Task> findAll()
  * @method array<Task> findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TaskRepository extends ServiceEntityRepository
+final class TaskRepository extends ServiceEntityRepository
 {
     private EntityManagerInterface $entityManager;
 
@@ -38,29 +38,4 @@ class TaskRepository extends ServiceEntityRepository
         $this->entityManager->remove($Task);
         $this->entityManager->flush();
     }
-
-    //    /**
-    //     * @return Task[] Returns an array of Task objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Task
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }
