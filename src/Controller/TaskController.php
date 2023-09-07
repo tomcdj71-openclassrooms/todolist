@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
 use App\Repository\TaskRepository;
+use App\Security\TaskVoter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,173 +17,176 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[IsGranted('ROLE_USER')]
-class TaskController extends AbstractController
+final class TaskController extends AbstractController
 {
-    public function __construct(private readonly EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager
+    ) {
     }
 
     #[Route('/tasks', name: 'task_list')]
-    public function listTasks(TaskRepository $taskRepository): Response
-    {
-        $tasks = $taskRepository->findBy(
-            ['user' => $this->getUser()],
-            ['createdAt' => 'DESC']
-        );
-
-        return $this->render('task/list.html.twig', ['tasks' => $tasks]);
+    #[IsGranted(
+        TaskVoter::LIST,
+        message: 'Access denied.',
+        statusCode: 404
+    )]
+    public function listTasks(
+        TaskRepository $taskRepository
+    ): Response {
+        return $this->render('task/list.html.twig', [
+            'tasks' => $taskRepository->findAll(),
+        ]);
     }
 
     #[Route('/tasks/done', name: 'task_list_done')]
-    public function listTasksDone(TaskRepository $taskRepository): Response
-    {
-        $tasks = $taskRepository->findBy(
-            ['user' => $this->getUser(), 'isDone' => '1'],
-            ['createdAt' => 'DESC']
-        );
-
-        return $this->render('task/list.html.twig', ['tasks' => $tasks]);
+    public function listTasksDone(
+        TaskRepository $taskRepository
+    ): Response {
+        return $this->render('task/list.html.twig', [
+            'tasks' => $this->getTasksByUserAndStatus($taskRepository, true),
+        ]);
     }
 
     #[Route('/tasks/todo', name: 'task_list_todo')]
-    public function listTaskTodo(TaskRepository $taskRepository): Response
-    {
-        $tasks = $taskRepository->findBy(
-            ['user' => $this->getUser(), 'isDone' => '0'],
-            ['createdAt' => 'DESC']
-        );
-
-        return $this->render('task/list.html.twig', ['tasks' => $tasks]);
-    }
-
-    #[Route('/tasks/manage', name: 'task_manage')]
-    #[IsGranted('ROLE_ADMIN', message: 'Espace réservé aux administrateurs.')]
-    public function listTaskManage(TaskRepository $taskRepository): Response
-    {
-        return $this->render(
-            'task/manage.html.twig',
-            ['tasks' => $taskRepository->findAll()]
-        );
+    public function listTaskTodo(
+        TaskRepository $taskRepository
+    ): Response {
+        return $this->render('task/list.html.twig', [
+            'tasks' => $this->getTasksByUserAndStatus($taskRepository, false),
+        ]);
     }
 
     #[Route('/tasks/create', name: 'task_create')]
-    public function createAction(Request $request): RedirectResponse|Response
-    {
+    #[IsGranted(
+        TaskVoter::ADD,
+        message: 'Access denied.',
+        statusCode: 404
+    )]
+    public function createAction(
+        Request $request
+    ): RedirectResponse|Response {
         $task = new Task();
-        $form = $this->createForm(TaskType::class, $task);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($task->getUser() !== $this->getUser()) {
-                $this->addFlash('error', 'Vous ne pouvez pas ajouter cette tâche.');
-
-                return $this->redirectToRoute('homepage', [], Response::HTTP_SEE_OTHER);
-            }
-            $task->setUser($this->getUser());
-            $this->entityManager->persist($task);
-            $this->entityManager->flush();
-            $this->addFlash('success', 'La tâche a été bien été ajoutée.');
-
-            return $this->redirectToRoute('task_list');
-        }
-
-        return $this->render(
-            'task/create.html.twig',
-            ['form' => $form]
-        );
+        return $this->handleTaskForm($task, $request, 'task/create.html.twig');
     }
 
     #[Route('/tasks/{id}/edit', name: 'task_edit')]
-    public function editAction(Task $task, Request $request, Security $security): RedirectResponse|Response
-    {
-        if ($security->isGranted('ROLE_USER') && !$security->isGranted('ROLE_ADMIN')) {
-            if ($task->getUser() !== $this->getUser()) {
-                $this->addFlash('error', 'Vous ne pouvez pas modifier cette tâche.');
-
-                return $this->redirectToRoute('homepage', [], Response::HTTP_SEE_OTHER);
-            }
-            $form = $this->createForm(TaskType::class, $task);
-            $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->entityManager->flush();
-                $this->addFlash('success', 'La tâche a bien été modifiée.');
-
-                return $this->redirectToRoute('task_list');
-            }
+    #[IsGranted(
+        TaskVoter::EDIT,
+        subject: 'task',
+        message: 'Access denied.',
+        statusCode: 404
+    )]
+    public function editAction(
+        Task $task,
+        Request $request
+    ): RedirectResponse|Response {
+        $task = $this->entityManager
+            ->getRepository(Task::class)
+            ->find($task->getId());
+        if (!$task instanceof Task) {
+            throw new \InvalidArgumentException('La tâche doit être une instance de '.Task::class);
         }
 
-        $form = $this->createForm(TaskType::class, $task);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->flush();
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
-
-            if ($task->getUser() !== $this->getUser()) {
-                return $this->redirectToRoute('task_manage');
-            }
-
-            return $this->redirectToRoute('task_list');
-        }
-
-        return $this->render(
+        return $this->handleTaskForm(
+            $task,
+            $request,
             'task/edit.html.twig',
-            [
-                'form' => $form,
-                'task' => $task,
-            ]
+            'task_list'
         );
     }
 
     #[Route('/tasks/{id}/toggle', name: 'task_toggle')]
-    public function toggleTaskAction(Task $task): RedirectResponse
-    {
-        if ($task->getUser() !== $this->getUser()) {
-            $this->addFlash('error', 'Vous n\'avez pas accès à cette tâche.');
-
-            return $this->redirectToRoute('homepage', [], Response::HTTP_SEE_OTHER);
-        }
-
-        $task->toggle(!$task->isDone());
-        $this->entityManager->flush();
-        if (true == $task->isDone()) {
-            $this->addFlash(
-                'success',
-                sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle())
-            );
-        } else {
-            $this->addFlash(
-                'error',
-                sprintf('La tâche %s a bien été marquée comme non terminée.', $task->getTitle())
-            );
-        }
+    #[IsGranted(
+        TaskVoter::EDIT,
+        subject: 'task',
+        message: 'Access denied.',
+        statusCode: 404
+    )]
+    public function toggleTaskAction(
+        Task $task
+    ): RedirectResponse {
+        $this->toggleTask($task);
 
         return $this->redirectToRoute('task_list');
     }
 
     #[Route('/tasks/{id}/delete', name: 'task_delete')]
-    public function deleteTaskAction(Task $task, Security $security): RedirectResponse
+    #[IsGranted(
+        TaskVoter::DELETE,
+        subject: 'task',
+        message: 'Access denied.',
+        statusCode: 404
+    )]
+    public function deleteTaskAction(Task $task): RedirectResponse
     {
-        if ($security->isGranted('ROLE_USER') && !$security->isGranted('ROLE_ADMIN')) {
-            if ($task->getUser() !== $this->getUser()) {
-                $this->addFlash('error', 'Vous ne pouvez pas supprimer cette tâche.');
-
-                return $this->redirectToRoute('homepage', [], Response::HTTP_SEE_OTHER);
-            }
-            $this->entityManager->remove($task);
-            $this->entityManager->flush();
-            $this->addFlash('success', 'La tâche a bien été supprimée.');
-
-            return $this->redirectToRoute('task_list');
-        }
-
-        $this->entityManager->remove($task);
-        $this->entityManager->flush();
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
-        if ($task->getUser() !== $this->getUser()) {
-            return $this->redirectToRoute('task_manage');
-        }
+        $this->deleteTask($task);
 
         return $this->redirectToRoute('task_list');
+    }
+
+    /**
+     * @return array<Task>
+     */
+    private function getTasksByUserAndStatus(
+        TaskRepository $taskRepository,
+        bool $status = null
+    ): array {
+        return $taskRepository->findBy([
+            'user' => $this->getUser(),
+            'isDone' => $status,
+        ], ['createdAt' => 'DESC']);
+    }
+
+    private function handleTaskForm(
+        Task $task,
+        Request $request,
+        string $template,
+        string $redirectRoute = 'task_list'
+    ): RedirectResponse|Response {
+        $form = $this->createForm(TaskType::class, $task);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$task->getId()) {
+                $task->setUser($this->getUser());
+            }
+            $this->entityManager->persist($task);
+            $this->entityManager->flush();
+            $this->addFlash('success', 'La tâche a été bien traitée.');
+
+            return $this->redirectToRoute($redirectRoute);
+        }
+
+        return $this->render(
+            $template,
+            [
+                'form' => $form,
+                'task' => $task ?? null,
+            ]
+        );
+    }
+
+    private function toggleTask(
+        Task $task
+    ): void {
+        $task->toggle(!$task->isDone());
+        $this->entityManager->flush();
+        $this->addFlash(
+            $task->isDone() ? 'success' : 'error',
+            sprintf(
+                'La tâche %s a bien été %s.',
+                $task->getTitle(),
+                $task->isDone()
+                ? 'marquée comme faite' : 'marquée comme non terminée'
+            )
+        );
+    }
+
+    private function deleteTask(
+        Task $task
+    ): void {
+        $this->entityManager->remove($task);
+        $this->entityManager->flush();
+        $this->addFlash('success', 'La tâche a été bien supprimée.');
     }
 }
