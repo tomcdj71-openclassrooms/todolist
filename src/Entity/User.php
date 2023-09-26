@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     fields: ['email'],
     message: 'Cette adresse email est déjà utilisée.'
 )]
-abstract class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
