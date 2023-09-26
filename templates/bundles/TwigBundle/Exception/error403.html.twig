@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Oops! An Error Occurred</h1>
+
+	<p>
+		You are not authorized to access this page.
+		<a href="{{ path('homepage') }}">return to the homepage</a>.
+	</p>
+{% endblock %}
