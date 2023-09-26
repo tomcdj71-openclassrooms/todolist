@@ -2,35 +2,39 @@
 
 declare(strict_types=1);
 
-use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\SetList;
-use Rector\Core\ValueObject\PhpVersion;
 use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
+use Rector\Config\RectorConfig;
+use Rector\Core\ValueObject\PhpVersion;
+use Rector\Set\ValueObject\SetList;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 return static function (RectorConfig $rectorConfig): void {
     // get root dir
-    $rootDir = '../../../';
-    $rectorConfig->paths([$rootDir . '/src', $rootDir . '/tests']);
-
-    // print the full rectorConfig array. with print_r
-    print_r($rectorConfig->paths([]));
-
-    // format $rectorConfig array to json and export to file
-    file_put_contents(__DIR__ . '/rector.json', json_encode($rectorConfig->paths([]), JSON_PRETTY_PRINT));
+    $srcDir = dirname(__DIR__, 3).'/src';
+    $testsDir = dirname(__DIR__, 3).'/tests';
+    if (! is_dir($srcDir) || ! is_dir($testsDir)) {
+        throw new \Exception(
+            "Directories do not exist: $srcDir or $testsDir \n"
+        );
+    }
+    $rectorConfig->paths(
+        [$srcDir, $testsDir]
+    );
 
     $rectorConfig->sets([
         SetList::CODE_QUALITY,
+        SetList::DEAD_CODE,
+        SetList::PHP_80,
+        SetList::STRICT_BOOLEANS,
+        SetList::CODING_STYLE,
+        SetList::NAMING,
+        SetList::TYPE_DECLARATION,
+        SetList::EARLY_RETURN,
+        SetList::INSTANCEOF
     ]);
 
-    $rectorConfig->skip([
-        CompleteDynamicPropertiesRector::class => [
-        ]
-    ]);
 
     $rectorConfig->rule(TypedPropertyFromStrictConstructorRector::class);
 
     $rectorConfig->phpVersion(PhpVersion::PHP_80);
-
-    $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
 };

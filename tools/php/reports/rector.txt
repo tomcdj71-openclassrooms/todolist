@@ -1,4 +1,39 @@
 
+1 file with changes
+===================
 
- [OK] Rector is done!                                                                                                   
+1) ../../src/Security/TaskVoter.php:15
+
+    ---------- begin diff ----------
+@@ @@
+ {
+     public const OWNER = 'owner';
+
+-    /**
+-     * @param mixed $subject
+-     */
+-    protected function supports(string $attribute, $subject): bool
++    protected function supports(string $attribute, mixed $subject): bool
+     {
+         return self::OWNER === $attribute && $subject instanceof Task;
+     }
+
+-    /**
+-     * @param mixed $subject
+-     */
+-    protected function voteOnAttribute(string $_attribute, $subject, TokenInterface $token): bool
++    protected function voteOnAttribute(string $_attribute, mixed $subject, TokenInterface $token): bool
+     {
+         $user = $token->getUser();
+    ----------- end diff -----------
+
+Applied rules:
+ * MixedTypeRector
+
+
+ [ERROR] Could not process                                                                                              
+         "/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/tests/Task/
+         DeleteTest.php" file, due to:                                                                                  
+         "System error: "Class "Symfony\Bundle\FrameworkBundle\Test\WebTestCase" not found"                             
+         Run Rector with "--debug" option and post the report here: https://github.com/rectorphp/rector/issues/new". On line: 15
 
