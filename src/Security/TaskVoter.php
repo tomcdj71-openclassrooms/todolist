@@ -13,18 +13,11 @@ final class TaskVoter extends Voter
 {
     public const OWNER = 'owner';
 
-    /**
-     * @param mixed $subject
-     * 
-     */
     protected function supports(string $attribute, mixed $subject): bool
     {
-        return self::OWNER === $attribute && $subject instanceof Task;
+        return $attribute === self::OWNER && $subject instanceof Task;
     }
 
-    /**
-     * @param mixed $subject
-     */
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
     {
         $user = $token->getUser();

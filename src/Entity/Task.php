@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'task')]
-abstract class Task
+class Task
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]

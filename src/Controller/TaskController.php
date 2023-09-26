@@ -34,10 +34,10 @@ final class TaskController extends AbstractController
     public function listAction(
         TaskRepository $taskRepository
     ): Response {
-        if (!$this->isGranted('ROLE_ADMIN')) {
+        if (! $this->isGranted('ROLE_ADMIN')) {
             $user = $this->getUser();
             if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
-                $tasks = $taskRepository->findByUser($this->getUser());
+                $tasks = $taskRepository->findByUser($user);
 
                 return $this->render(
                     'task/list.html.twig',
@@ -73,9 +73,10 @@ final class TaskController extends AbstractController
         );
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $task->setUser(
-                $security->getUser()
-            );
+            $user = $security->getUser();
+            if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
+                $task->setUser($user);
+            }
             $this->entityManager->persist($task);
             $this->entityManager->flush();
             $this->addFlash(
@@ -99,7 +100,10 @@ final class TaskController extends AbstractController
         name: 'edit',
         methods: ['GET', 'POST']
     )]
-    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
+    #[IsGranted(
+        TaskVoter::OWNER, 
+        subject: 'task'
+    )]
     public function editAction(
         Task $task,
         Request $request
@@ -150,11 +154,14 @@ final class TaskController extends AbstractController
         name: 'toggle',
         methods: ['POST']
     )]
-    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
+    #[IsGranted(
+        TaskVoter::OWNER, 
+        subject: 'task'
+    )]
     public function toggleTaskAction(
         Task $task
     ): Response {
-        $isDone = true !== $task->isDone();
+        $isDone = $task->isDone() !== true;
         $task->toggle($isDone);
         $this->entityManager->flush();
         $message = $isDone ? sprintf(
@@ -179,14 +186,24 @@ final class TaskController extends AbstractController
         name: 'delete',
         methods: ['POST', 'DELETE']
     )]
-    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
-    public function deleteTaskAction(Task $task): Response
+    #[IsGranted(
+        TaskVoter::OWNER, 
+        subject: 'task'
+    )]
+    public function deleteTaskAction(
+        Task $task
+    ): Response
     {
         $this->entityManager->remove($task);
         $this->entityManager->flush();
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
+        $this->addFlash(
+            'success', 
+            'La tâche a bien été supprimée.'
+        );
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute(
+            'task_list'
+        );
     }
 
     #[Route(
@@ -196,26 +213,26 @@ final class TaskController extends AbstractController
     public function listTasksDone(
         TaskRepository $taskRepository
     ): Response {
-        if ($this->isGranted('ROLE_USER')) {
-            $tasks = $taskRepository->findByUserAndStatus(
-                $this->getUser()
-            );
+        $tasks = [];
 
+        if ($this->isGranted('ROLE_USER')) {
+            $user = $this->getUser();
+            if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
+                $tasks = $taskRepository
+                            ->findByUserAndStatus($user);
+            }
             return $this->render(
-                'task/list_done.html.twig',
-                [
-                    'tasks' => $tasks,
-                ]
+                'task/list_done.html.twig', 
+                ['tasks' => $tasks]
             );
         }
 
-        $tasks = $taskRepository->findByStatus(true);
+        $tasks = $taskRepository
+                    ->findByStatus(true);
 
         return $this->render(
-            'task/list_done.html.twig',
-            [
-                'tasks' => $tasks,
-            ]
+            'task/list_done.html.twig', 
+            ['tasks' => $tasks]
         );
     }
 }
