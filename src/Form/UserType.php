@@ -18,16 +18,16 @@ final class UserType extends AbstractType
     /**
      * Builds the form.
      *
-     * @param FormBuilderInterface $builder The form builder
-     * @param array<string, mixed> $options an array of options
+     * @param FormBuilderInterface $formBuilder The form builder
+     * @param array<string, mixed> $options     an array of options
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
     public function buildForm(
-        FormBuilderInterface $builder,
+        FormBuilderInterface $formBuilder,
         array $options
     ): void {
-        $builder
+        $formBuilder
             ->add(
                 'username',
                 TextType::class,
@@ -71,14 +71,24 @@ final class UserType extends AbstractType
                 ]
             );
 
-        $builder->get('roles')
+        $formBuilder->get('roles')
             ->addModelTransformer(
                 new CallbackTransformer(
                     static function ($rolesArray) {
+                        // Check if $rolesArray is null or not an array
+                        if ($rolesArray === null || ! is_array($rolesArray)) {
+                            return null;
+                        }
+
                         // transform the array to a string
-                        return count($rolesArray) > 0 ? $rolesArray[0] : null;
+                        return $rolesArray !== [] ? $rolesArray[0] : null;
                     },
-                    static function ($rolesString) {
+                    static function ($rolesString): array {
+                        // Check if $rolesString is null
+                        if ($rolesString === null) {
+                            return [];
+                        }
+
                         // transform the string back to an array
                         return [$rolesString];
                     }
