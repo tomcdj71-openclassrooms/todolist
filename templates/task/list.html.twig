@@ -4,6 +4,15 @@
 {% endblock %}
 
 {% block body %}
+	{% if app.request.requestUri == '/tasks' %}
+		<h2>Liste de l'ensemble de vos tâches</h2>
+	{% endif %}
+	{% if app.request.requestUri == '/tasks/todo' %}
+		<h2>Liste de l'ensemble de vos tâches à faire</h2>
+	{% endif %}
+	{% if app.request.requestUri == '/tasks/done' %}
+		<h2>Liste de l'ensemble de vos tâches terminées</h2>
+	{% endif %}
 	<a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
 	<div class="row">
 		{% for task in tasks %}
@@ -29,7 +38,7 @@
 								{% endif %}
 							</button>
 						</form>
-						<form action="{{ path('task_delete', {'id' : task.id }) }}">
+						<form action="{{ path('task_delete', {'id' : task.id }) }}" method="POST">
 							<button class="btn btn-danger btn-sm pull-right">Supprimer</button>
 						</form>
 					</div>
