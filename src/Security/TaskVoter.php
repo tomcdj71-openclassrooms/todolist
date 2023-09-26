@@ -11,50 +11,42 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 final class TaskVoter extends Voter
 {
-    public const LIST = 'list';
-    public const EDIT = 'edit';
-    public const DELETE = 'delete';
-    public const ADD = 'add';
+    public const OWNER = 'owner';
 
+    /**
+     * @param mixed $subject
+     * 
+     */
     protected function supports(string $attribute, mixed $subject): bool
     {
-        if (!in_array(
-            $attribute,
-            [self::LIST, self::EDIT, self::DELETE, self::ADD]
-        )
-        ) {
-            return false;
-        }
-        if (self::ADD === $attribute && null === $subject) {
-            return true;
-        }
-
-        return $subject instanceof Task;
+        return self::OWNER === $attribute && $subject instanceof Task;
     }
 
-    protected function voteOnAttribute(
-        string $attribute,
-        mixed $subject,
-        TokenInterface $token
-    ): bool {
+    /**
+     * @param mixed $subject
+     */
+    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
+    {
         $user = $token->getUser();
-        if (!$user instanceof User) {
+
+        if (! $user instanceof User) {
             return false;
         }
+
+        // If the user is an admin, they can do anything
         if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
             return true;
         }
-        if (self::ADD === $attribute) {
-            return true;
-        }
+
         /** @var Task $task */
         $task = $subject;
 
-        return match ($attribute) {
-            self::LIST => $task->getUser() === $user,
-            self::EDIT => $task->getUser() === $user,
-            self::DELETE => $task->getUser() === $user,
-            default => throw new \LogicException('This code should not be reached!')
-        };
+        // If the task does not belong to a user, deny access
+        if (! $task->getUser() instanceof User) {
+            return false;
+        }
+
+        // If the user owns the task, grant access
+        return $user === $task->getUser();
     }
 }

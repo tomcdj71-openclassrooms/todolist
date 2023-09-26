@@ -8,6 +8,7 @@ use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<Task>
@@ -21,9 +22,9 @@ final class TaskRepository extends ServiceEntityRepository
 {
     private EntityManagerInterface $entityManager;
 
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $managerRegistry)
     {
-        parent::__construct($registry, Task::class);
+        parent::__construct($managerRegistry, Task::class);
         $this->entityManager = $this->getEntityManager();
     }
 
@@ -37,5 +38,37 @@ final class TaskRepository extends ServiceEntityRepository
     {
         $this->entityManager->remove($Task);
         $this->entityManager->flush();
+    }
+
+    public function findByUserAndStatus(UserInterface $user): array
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.user = :user')
+            ->andWhere('t.isDone = :isDone')
+            ->setParameter('user', $user)
+            ->setParameter('isDone', false)
+            ->orderBy('t.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByStatus(bool $isDone): array
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.isDone = :isDone')
+            ->setParameter('isDone', $isDone)
+            ->orderBy('t.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByUser(UserInterface $user): array
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('t.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
     }
 }

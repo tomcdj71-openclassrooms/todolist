@@ -6,27 +6,40 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'task')]
-final class Task
+abstract class Task
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: Types::INTEGER)]
     #[Assert\Type('integer')]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    private ?\DateTimeInterface $createdAt;
+    private \DateTimeInterface $createdAt;
 
     #[ORM\Column(type: Types::STRING)]
     #[Assert\NotBlank(message: 'Vous devez saisir un titre.')]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+        minMessage: 'Le titre doit contenir au moins {{ limit }} caractères.',
+        maxMessage: 'Le titre doit contenir au maximum {{ limit }} caractères.'
+    )]
     private string $title;
 
     #[Assert\NotBlank(message: 'Vous devez saisir du contenu.')]
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+        minMessage: 'Le contenu doit contenir au moins {{ limit }} caractères.',
+        maxMessage: 'Le contenu doit contenir au maximum {{ limit }} caractères.'
+    )]
     private string $content;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
@@ -38,7 +51,7 @@ final class Task
         name: 'user_id',
         referencedColumnName: 'id'
     )]
-    private User $user;
+    private UserInterface $user;
 
     public function __construct()
     {
@@ -96,7 +109,7 @@ final class Task
         $this->isDone = $flag;
     }
 
-    public function getUser(): User
+    public function getUser(): UserInterface
     {
         return $this->user;
     }
@@ -104,7 +117,7 @@ final class Task
     /**
      * @return $this
      */
-    public function setUser(User $user): self
+    public function setUser(UserInterface $user): self
     {
         $this->user = $user;
 
