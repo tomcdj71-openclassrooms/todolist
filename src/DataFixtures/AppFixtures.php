@@ -10,9 +10,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-/**
- * @codeCoverageIgnore
- */
+
 final class AppFixtures extends Fixture
 {
     public function __construct(
@@ -20,47 +18,69 @@ final class AppFixtures extends Fixture
     ) {
     }
 
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $objectManager): void
     {
-        // create 2 users
-        $user1 = new User();
-        $user1->setUsername('alice');
-        $user1->setPassword(
-            $this->userPasswordHasher
-                ->hashPassword($user1, 'alice')
+        // create the user alice (user)
+        $user1 = $this->createUser(
+            'alice', 
+            'alice@gmail.com', 
+            ['ROLE_USER'], 
+            $objectManager
         );
-        $user1->setEmail('alice@gmail.com');
-        $user1->setRoles(['ROLE_USER']);
-        $manager->persist($user1);
-
-        $user2 = new User();
-        $user2->setUsername('john');
-        $user2->setPassword(
-            $this->userPasswordHasher
-                ->hashPassword($user2, 'john')
+        // create the user john (admin)
+        $user2 = $this->createUser(
+            'john', 
+            'john@gmail.com', 
+            ['ROLE_ADMIN'], 
+            $objectManager
         );
-        $user2->setEmail('john@gmail.com');
-        $user2->setRoles(['ROLE_ADMIN']);
-        $manager->persist($user2);
 
-        // create 50 tasks
-        for ($i = 0; $i < 50; ++$i) {
+        // create 50 tasks and assign them randomly to the users
+        $this->createTasks(
+            50, 
+            [$user1, $user2], 
+            $objectManager
+        );
+
+        $objectManager->flush();
+    }
+
+    private function createUser(
+        string $username,
+        string $email,
+        array $roles,
+        ObjectManager $objectManager
+    ): User {
+        $user = new User();
+        $user->setUsername($username);
+        $user->setEmail($email);
+        $user->setRoles($roles);
+        $user->setPassword(
+            $this->userPasswordHasher
+                ->hashPassword(
+                    $user, 
+                    $username
+                )
+        );
+
+        $objectManager->persist($user);
+
+        return $user;
+    }
+
+    private function createTasks(
+        int $count,
+        array $users,
+        ObjectManager $objectManager
+    ): void {
+        for ($i = 0; $i < $count; ++$i) {
             $task = new Task();
-            $task->setTitle('task '.$i);
-            $task->setContent('content '.$i);
-            $task->toggle(rand(0, 1));
-            $randInt = rand(1, 2);
-            if (1 === $randInt) {
-                $user = $user1;
-            } elseif (2 === $randInt) {
-                $user = $user2;
-            } else {
-                $user = null;
-            }
+            $task->setTitle('task ' . $i);
+            $task->setContent('content ' . $i);
+            $task->toggle((bool) rand(0, 1));
+            $user = $users[array_rand($users)];
             $task->setUser($user);
-            $manager->persist($task);
+            $objectManager->persist($task);
         }
-
-        $manager->flush();
     }
 }
