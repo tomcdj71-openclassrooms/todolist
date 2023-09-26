@@ -1,3 +1,4 @@
-   1) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php (whitespace_after_comma_in_array, no_extra_blank_lines, blank_line_before_statement, ordered_imports)
+   1) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php (unary_operator_spaces)
+   2) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Security/TaskVoter.php (no_superfluous_phpdoc_tags, no_empty_phpdoc, no_extra_blank_lines)
 
-Found 1 of 11 files that can be fixed in 0.137 seconds, 14.000 MB memory used
+Found 2 of 27 files that can be fixed in 0.103 seconds, 14.000 MB memory used
