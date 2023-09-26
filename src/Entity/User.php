@@ -17,19 +17,19 @@ use Symfony\Component\Validator\Constraints as Assert;
     fields: ['email'],
     message: 'Cette adresse email est déjà utilisée.'
 )]
-final class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(type: Types::STRING, length: 25, unique: true)]
-    #[Assert\NotBlank(message: 'Vous devez saisir un nom d\'utilisateur.')]
-    private ?string $username;
+    #[Assert\NotBlank(message: "Vous devez saisir un nom d'utilisateur.")]
+    private string $username;
 
     #[ORM\Column(type: Types::STRING, length: 50)]
-    private ?string $password;
+    private string $password;
 
     /**
      * @var array<string> roles assigned to the user
@@ -39,8 +39,8 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::STRING, length: 60, unique: true)]
     #[Assert\NotBlank(message: 'Vous devez saisir une adresse email.')]
-    #[Assert\Email(message: 'Le format de l\'adresse n\'est pas correcte.')]
-    private ?string $email;
+    #[Assert\Email(message: "Le format de l'adresse n'est pas correcte.")]
+    private string $email;
 
     /**
      * A visual identifier that represents this user.
@@ -49,7 +49,7 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->username;
+        return $this->username;
     }
 
     /**
@@ -87,9 +87,12 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUsername(): string
     {
-        if (null === $this->username) {
-            throw new \LogicException('Username should not be accessed before it has been set.');
-        }
+        assert(
+            $this->username !== null,
+            new \LogicException(
+                'Username should not be accessed before it has been set.'
+            )
+        );
 
         return $this->username;
     }
@@ -109,9 +112,12 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        if (null === $this->password) {
-            throw new \LogicException('Password should not be accessed before it has been set.');
-        }
+        assert(
+            $this->password !== null,
+            new \LogicException(
+                'Password should not be accessed before it has been set.'
+            )
+        );
 
         return $this->password;
     }
@@ -139,9 +145,12 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getEmail(): string
     {
-        if (null === $this->email) {
-            throw new \LogicException('Email should not be accessed before it has been set.');
-        }
+        assert(
+            $this->email !== null,
+            new \LogicException(
+                'Email should not be accessed before it has been set.'
+            )
+        );
 
         return $this->email;
     }

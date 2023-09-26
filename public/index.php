@@ -20,6 +20,12 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts([$trustedHosts]);
 }
 
+if ($_SERVER['APP_ENV'] !== 'prod') {
+    ini_set('assert.active', '1');
+} else {
+    ini_set('assert.active', '-1');
+}
+
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
