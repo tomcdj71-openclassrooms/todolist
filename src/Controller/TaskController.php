@@ -101,7 +101,7 @@ final class TaskController extends AbstractController
         methods: ['GET', 'POST']
     )]
     #[IsGranted(
-        TaskVoter::OWNER, 
+        TaskVoter::OWNER,
         subject: 'task'
     )]
     public function editAction(
@@ -155,7 +155,7 @@ final class TaskController extends AbstractController
         methods: ['POST']
     )]
     #[IsGranted(
-        TaskVoter::OWNER, 
+        TaskVoter::OWNER,
         subject: 'task'
     )]
     public function toggleTaskAction(
@@ -187,17 +187,16 @@ final class TaskController extends AbstractController
         methods: ['POST', 'DELETE']
     )]
     #[IsGranted(
-        TaskVoter::OWNER, 
+        TaskVoter::OWNER,
         subject: 'task'
     )]
     public function deleteTaskAction(
         Task $task
-    ): Response
-    {
+    ): Response {
         $this->entityManager->remove($task);
         $this->entityManager->flush();
         $this->addFlash(
-            'success', 
+            'success',
             'La tâche a bien été supprimée.'
         );
 
@@ -219,19 +218,19 @@ final class TaskController extends AbstractController
             $user = $this->getUser();
             if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
                 $tasks = $taskRepository
-                            ->findByUserAndStatus($user);
+                    ->findByUserAndStatus($user);
             }
             return $this->render(
-                'task/list_done.html.twig', 
+                'task/list_done.html.twig',
                 ['tasks' => $tasks]
             );
         }
 
         $tasks = $taskRepository
-                    ->findByStatus(true);
+            ->findByStatus(true);
 
         return $this->render(
-            'task/list_done.html.twig', 
+            'task/list_done.html.twig',
             ['tasks' => $tasks]
         );
     }
