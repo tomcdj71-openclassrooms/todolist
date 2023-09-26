@@ -24,9 +24,9 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
 {
     private EntityManagerInterface $entityManager;
 
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $managerRegistry)
     {
-        parent::__construct($registry, User::class);
+        parent::__construct($managerRegistry, User::class);
         $this->entityManager = $this->getEntityManager();
     }
 
@@ -47,13 +47,24 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
      * the user's password automatically over time.
      */
     public function upgradePassword(
-        PasswordAuthenticatedUserInterface $user,
+        PasswordAuthenticatedUserInterface $passwordAuthenticatedUser,
         string $newHashedPassword
     ): void {
-        if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
+        if (! $passwordAuthenticatedUser instanceof User) {
+            throw new UnsupportedUserException(
+                sprintf(
+                    'Instances of "%s" are not supported.',
+                    $passwordAuthenticatedUser::class
+                )
+            );
         }
-        $user->setPassword($newHashedPassword);
-        $this->save($user);
+
+        $passwordAuthenticatedUser->setPassword($newHashedPassword);
+        $this->save($passwordAuthenticatedUser);
+    }
+
+    public function findOneByRoles(string $role): ?User
+    {
+        return $this->findOneBy(['roles' => $role]);
     }
 }
