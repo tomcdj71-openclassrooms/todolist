@@ -2,6 +2,43 @@
     "name": "saro0h/to-do-list",
     "license": "proprietary",
     "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "doctrine/annotations": "*",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "doctrine/orm": "*",
+        "symfony/asset": "~6.3.0",
+        "symfony/console": "~6.3.0",
+        "symfony/css-selector": "~6.3.0",
+        "symfony/flex": "^1.8",
+        "symfony/form": "~6.3.0",
+        "symfony/framework-bundle": "~6.3.0",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/polyfill-apcu": "^1.0",
+        "symfony/security-bundle": "~6.3.0",
+        "symfony/security-core": "~6.3.0",
+        "symfony/security-csrf": "~6.3.0",
+        "symfony/translation": "~6.3.0",
+        "symfony/twig-bundle": "~6.3.0",
+        "symfony/validator": "~6.3.0",
+        "symfony/yaml": "~6.3.0",
+        "twig/extra-bundle": "^2.12 || ^3.0",
+        "twig/twig": "^2.12 || ^3.0"
+    },
+    "require-dev": {
+        "dama/doctrine-test-bundle": "^7.2",
+        "phpunit/phpunit": "^10.3",
+        "symfony/browser-kit": "~6.3.0",
+        "symfony/dotenv": "~6.3.0",
+        "symfony/maker-bundle": "^1.19",
+        "symfony/phpunit-bridge": "~6.3.0",
+        "symfony/stopwatch": "~6.3.0",
+        "symfony/web-profiler-bundle": "~6.3.0"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -12,69 +49,35 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "require": {
-        "php": ">=8.2",
-        "doctrine/annotations": "*",
-        "doctrine/doctrine-bundle": "*",
-        "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "doctrine/orm": "*",
-        "symfony/asset": "6.3.*",
-        "symfony/console": "6.3.*",
-        "symfony/css-selector": "6.3.*",
-        "symfony/flex": "^1.8",
-        "symfony/form": "6.3.*",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/monolog-bundle": "^3.1",
-        "symfony/polyfill-apcu": "^1.0",
-        "symfony/security-bundle": "6.3.*",
-        "symfony/security-core": "6.3.*",
-        "symfony/security-csrf": "6.3.*",
-        "symfony/translation": "6.3.*",
-        "symfony/twig-bundle": "6.3.*",
-        "symfony/validator": "6.3.*",
-        "symfony/yaml": "6.3.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^10.3",
-        "symfony/browser-kit": "6.3.*",
-        "symfony/dotenv": "6.3.*",
-        "symfony/maker-bundle": "^1.19",
-        "symfony/phpunit-bridge": "6.3.*",
-        "symfony/stopwatch": "6.3.*",
-        "symfony/web-profiler-bundle": "6.3.*"
-    },
     "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        },
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true,
-        "allow-plugins": {
-            "symfony/flex": true
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "docker": true,
+            "require": "6.3.*"
         }
     },
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true,
-            "require": "6.3.*",
-            "docker": true
-        }
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "analyze": "cd tools/php && composer run-script analyze",
+        "fix": "cd tools/php && composer run-script fix"
     }
 }
