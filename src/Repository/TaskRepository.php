@@ -40,9 +40,13 @@ final class TaskRepository extends ServiceEntityRepository
         $this->entityManager->flush();
     }
 
+    /**
+     * @return array<Task>
+     */
     public function findByUserAndStatus(UserInterface $user): array
     {
-        return $this->createQueryBuilder('t')
+        /** @phpstan-ignore-next-line */
+        return (array) $this->createQueryBuilder('t')
             ->where('t.user = :user')
             ->andWhere('t.isDone = :isDone')
             ->setParameter('user', $user)
@@ -52,9 +56,13 @@ final class TaskRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @return array<Task>
+     */
     public function findByStatus(bool $isDone): array
     {
-        return $this->createQueryBuilder('t')
+        /** @phpstan-ignore-next-line */ 
+        return (array) $this->createQueryBuilder('t')
             ->where('t.isDone = :isDone')
             ->setParameter('isDone', $isDone)
             ->orderBy('t.createdAt', 'DESC')
@@ -62,9 +70,13 @@ final class TaskRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @return array<Task>
+     */
     public function findByUser(UserInterface $user): array
     {
-        return $this->createQueryBuilder('t')
+        /** @phpstan-ignore-next-line */ 
+        return (array) $this->createQueryBuilder('t')
             ->where('t.user = :user')
             ->setParameter('user', $user)
             ->orderBy('t.createdAt', 'DESC')
