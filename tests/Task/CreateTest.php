@@ -25,22 +25,22 @@ final class CreateTest extends WebTestCase
 
     public function testShouldCreateTaskAndRedirectToShowPage(): void
     {
-        $client = $this->setUpClientAndLogin();
-        $client->request(
+        $kernelBrowser = $this->setUpClientAndLogin();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::CREATE_TASK_URL
         );
         self::assertResponseIsSuccessful();
         self::assertEquals(
             200,
-            $client->getResponse()->getStatusCode()
+            $kernelBrowser->getResponse()->getStatusCode()
         );
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
-            self::createFormData()
+            $this->createFormData()
         );
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
-        $client->followRedirect();
+        $kernelBrowser->followRedirect();
         $successMessage = 'La tâche a été bien été ajoutée.';
         self::assertSelectorTextContains(
             'div.alert.alert-success',
@@ -59,23 +59,23 @@ final class CreateTest extends WebTestCase
     }
 
     /**
+     * Unauthenticated users should be redirected to the login page
+     * Users that don't have access to this task should be redirected to the login page.
+     *
      * @dataProvider provideInvalidFormData
      *
-     * @param array{
-     *      'task[title]': string,
-     *      'task[content]': string
-     * } $formData
+     * @param array<string, mixed> $formData
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {
-        $client = $this->setUpClientAndLogin();
-        $client->request(Request::METHOD_GET, self::CREATE_TASK_URL);
+        $kernelBrowser = $this->setUpClientAndLogin();
+        $kernelBrowser->request(Request::METHOD_GET, self::CREATE_TASK_URL);
         self::assertResponseIsSuccessful();
 
         self::assertResponseIsSuccessful();
-        $client->followRedirects(false);
+        $kernelBrowser->followRedirects(false);
 
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
             $formData
         );
@@ -86,23 +86,22 @@ final class CreateTest extends WebTestCase
     }
 
     /**
-     * @return array<string, array<array-key, array{
-     *   parameters: array{
-     *     task: array{
-     *      title: string,
-     *      content: string,
-     *  }
-     * }
-     * }>>
+     * @return array<string, array{array<string, string>}>
      */
     public static function provideInvalidFormData(): array
     {
         return [
             'blank title' => [
-                self::createFormData(title: ''),
+                [
+                    'task[title]' => '',
+                    'task[content]' => 'Description',
+                ],
             ],
             'blank content' => [
-                self::createFormData(content: ''),
+                [
+                    'task[title]' => 'Task',
+                    'task[content]' => '',
+                ],
             ],
         ];
     }
@@ -110,29 +109,31 @@ final class CreateTest extends WebTestCase
     /**
      * login and return client.
      *
-     * @return object $client
+     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */
-    private function setUpClientAndLogin(): object
+    private function setUpClientAndLogin()
     {
         $client = self::createClient();
+        /** @var EntityManagerInterface $entityManager */
         $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        /** @var User|null $user */
         $user = $entityManager->getRepository(User::class)->findOneBy(['email' => self::TEST_USER_EMAIL]);
-        $client->loginUser($user);
+        if ($user instanceof User) {
+            $client->loginUser($user);
+        }
 
         return $client;
     }
 
     /**
      * @return array{
-     *  parameters: array{
      *   task: array{
      *      title: string,
-     *      content: string,
-     *      _token: string
+     *      content: string
      *  }
      * }
      */
-    private static function createFormData(string $title = 'Task', string $content = 'Description'): array
+    private function createFormData(string $title = 'Task', string $content = 'Description'): array
     {
         return [
             'task' => [

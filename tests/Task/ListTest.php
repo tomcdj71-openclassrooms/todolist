@@ -50,18 +50,21 @@ final class ListTest extends WebTestCase
         );
     }
 
-    private function setUpClientAndLogin(): \Symfony\Bundle\FrameworkBundle\KernelBrowser
+    /**
+     * login and return client.
+     *
+     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     */
+    private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL)
     {
         $client = self::createClient();
-        $entityManager = $client
-            ->getContainer()
-            ->get(EntityManagerInterface::class);
-        $user = $entityManager
-            ->getRepository(User::class)
-            ->findOneBy(
-                ['email' => self::TEST_USER_EMAIL]
-            );
-        $client->loginUser($user);
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        /** @var User|null $user */
+        $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+        if ($user instanceof User) {
+            $client->loginUser($user);
+        }
 
         return $client;
     }

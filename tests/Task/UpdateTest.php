@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 final class UpdateTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
-
     public const BASE_URL = 'http://localhost:8000';
 
     public const UPDATE_TASK_URL = self::BASE_URL.'/tasks/1/edit';
@@ -25,28 +24,18 @@ final class UpdateTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Modifier';
 
-    /**
-     * @param array{
-     *      task: array{
-     *          title: string,
-     *          content: string,
-     *   }
-     * } $formData
-     *
-     * @group test
-     */
     public function testShouldUpdateTaskAndRedirectToShowPage(): void
     {
-        $client = $this->setUpClientAndLogin();
-        $client->request(
+        $kernelBrowser = $this->setUpClientAndLogin();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::UPDATE_TASK_URL
         );
         self::assertResponseIsSuccessful();
 
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
-            self::createFormData()
+            $this->createFormData()
         );
         self::assertResponseStatusCodeSame(
             Response::HTTP_FOUND
@@ -59,22 +48,24 @@ final class UpdateTest extends WebTestCase
      * Users that don't have access to this task should be redirected to the login page.
      *
      * @dataProvider provideInvalidFormData
+     *
+     * @param array<string, mixed> $formData
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {
-        $client = $this->setUpClientAndLogin();
-        $client->request(
+        $kernelBrowser = $this->setUpClientAndLogin();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::UPDATE_TASK_URL
         );
         self::assertResponseIsSuccessful();
-        $client->followRedirects(false);
+        $kernelBrowser->followRedirects(false);
 
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
             $formData
         );
-        $crawler = $client->getCrawler();
+        $crawler = $kernelBrowser->getCrawler();
         $alert = $crawler->filter('.alert.alert-danger');
         self::assertCount(1, $alert);
         self::assertStringContainsString("Oops ! La tâche n'a pas été modifiée.", $alert->text());
@@ -85,63 +76,53 @@ final class UpdateTest extends WebTestCase
     }
 
     /**
-     * @return array<string, array<array-key, array{
-     *   parameters: array{
-     *     task: array{
-     *      title: string,
-     *      content: string,
-     *  }
-     * }
-     * }>>
+     * @return array<string, array{array<string, string>}>
      */
     public static function provideInvalidFormData(): array
     {
         return [
             'blank title' => [
-                self::createFormData(title: ''),
+                [
+                    'task[title]' => '',
+                    'task[content]' => 'Description',
+                ],
             ],
             'blank content' => [
-                self::createFormData(content: ''),
+                [
+                    'task[title]' => 'Task',
+                    'task[content]' => '',
+                ],
             ],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function createFormData(string $title = 'Task', string $content = 'Description'): array
+    {
+        return [
+            'task[title]' => $title,
+            'task[content]' => $content,
         ];
     }
 
     /**
      * login and return client.
      *
-     * @return object $client
+     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */
-    private function setUpClientAndLogin(): object
+    private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL)
     {
         $client = self::createClient();
-        $entityManager = $client
-            ->getContainer()
-            ->get(EntityManagerInterface::class);
-        $user = $entityManager
-            ->getRepository(User::class)
-            ->findOneBy(
-                ['email' => self::TEST_USER_EMAIL]
-            );
-        $client->loginUser($user);
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        /** @var User|null $user */
+        $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+        if ($user instanceof User) {
+            $client->loginUser($user);
+        }
 
         return $client;
-    }
-
-    /**
-     * @return array{
-     *    parameters: array{
-     *       task: array{
-     *         title: string,
-     *         content: string,
-     *      }
-     *   }
-     * }
-     */
-    private static function createFormData(string $title = 'Task', string $content = 'Description'): array
-    {
-        return [
-            'task[title]' => $title,
-            'task[content]' => $content,
-        ];
     }
 }

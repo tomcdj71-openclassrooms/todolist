@@ -27,18 +27,26 @@ final class ToggleTest extends WebTestCase
         $entityManager = $client
             ->getContainer()
             ->get(EntityManagerInterface::class);
-        /** @var ?User $user */
+        /** @var User|null $user */
         $user = $entityManager
             ->getRepository(User::class)
             ->findOneBy(
                 ['email' => self::TEST_USER_EMAIL]
             );
-        /** @var ?Task $task */
+        if (!$user instanceof User) {
+            $this->fail('User not found.');
+        }
+
+        /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
+
+        if (!$task instanceof Task) {
+            $this->fail('Task not found.');
+        }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $client->request(
             Request::METHOD_POST,
@@ -65,18 +73,24 @@ final class ToggleTest extends WebTestCase
         $entityManager = $client
             ->getContainer()
             ->get(EntityManagerInterface::class);
-        /** @var ?User $user */
+        /** @var User|null $user */
         $user = $entityManager
             ->getRepository(User::class)
             ->findOneBy(
                 ['email' => self::ADMIN_USER_EMAIL]
             );
-        /** @var ?Task $task */
+        if (!$user) {
+            $this->fail('User not found.');
+        }
+        /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
+        if (!$task) {
+            $this->fail('Task not found.');
+        }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $client->request(
             Request::METHOD_POST,
@@ -93,18 +107,24 @@ final class ToggleTest extends WebTestCase
         $entityManager = $client
             ->getContainer()
             ->get(EntityManagerInterface::class);
-        /** @var ?User $user */
+        /** @var User|null $user */
         $user = $entityManager
             ->getRepository(User::class)
             ->findOneBy(
                 ['email' => self::TEST_USER_EMAIL]
             );
-        /** @var ?Task $task */
+        if (!$user) {
+            $this->fail('User not found.');
+        }
+        /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
+        if (!$task) {
+            $this->fail('Task not found.');
+        }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $client->request(
             Request::METHOD_POST,
@@ -126,19 +146,21 @@ final class ToggleTest extends WebTestCase
         );
     }
 
-    private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL): \Symfony\Bundle\FrameworkBundle\KernelBrowser
+    /**
+     * login and return client.
+     *
+     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     */
+    private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL)
     {
         $client = self::createClient();
-        $entityManager = $client
-            ->getContainer()
-            ->get(EntityManagerInterface::class);
-        $user = $entityManager
-            ->getRepository(User::class)
-            ->findOneBy(['email' => $email]);
-        if (!$user) {
-            throw new \Exception("User with email {$email} not found.");
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        /** @var User|null $user */
+        $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+        if ($user instanceof User) {
+            $client->loginUser($user);
         }
-        $client->loginUser($user);
 
         return $client;
     }
