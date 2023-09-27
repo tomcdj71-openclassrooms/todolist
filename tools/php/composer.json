@@ -42,8 +42,8 @@
             "@rector",
             "@insights"
         ],
-        "insights": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction --fix > tools/php/reports/insights.txt || true",
-        "insights-bs": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction",
+        "insights": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction --fix",
+        "insights-bs": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction -v > tools/php/reports/insights.txt || true",
         "metrics-src": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../src --report-html=reports/metrics-src --report-violations=reports/metrics-src/violations.xml --exclude=DataFixtures",
         "metrics-test": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../tests --report-html=reports/metrics-test --report-violations=reports/metrics-test/violations.xml --exclude=DataFixtures",
         "metrics": [
