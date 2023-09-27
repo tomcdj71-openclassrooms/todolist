@@ -36,8 +36,6 @@ final class RegistrationTest extends WebTestCase
         'roles' => ['ROLE_ADMIN'],
     ];
 
-    private readonly EntityManagerInterface $entityManager;
-
     public function testShouldRegisterUserAndRedirectToIndex(): void
     {
         $client = self::createClient();
@@ -93,12 +91,7 @@ final class RegistrationTest extends WebTestCase
     /**
      * @dataProvider provideInvalidFormData
      *
-     * @param array{
-     *      'user[email]': string,
-     *      'user[username]': string,
-     *      'user[password]': string
-     *      'user[roles]': array<string>
-     * } $formData
+     * @param array<string, mixed> $formData
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {
@@ -137,40 +130,30 @@ final class RegistrationTest extends WebTestCase
     }
 
     /**
-     * @return array<string, array<array-key, array{
-     *      'user[username]': string,
-     *      'user[password][first]': string,
-     *      'user[password][second]': string,
-     *      'user[email]': string
-     *      'user[roles]': string
-     * }>>
+     * @return array<string, array<string, mixed>>
      */
     public static function provideInvalidFormData(): array
     {
         return [
             'blank username' => [
-                self::createFormData(username: ''),
+                'data' => self::createFormData(username: ''),
             ],
             'blank password' => [
-                self::createFormData(password: ''),
+                'data' => self::createFormData(password: ''),
             ],
             'blank email' => [
-                self::createFormData(email: ''),
+                'data' => self::createFormData(email: ''),
             ],
             'invalid email' => [
-                self::createFormData(email: 'nope'),
+                'data' => self::createFormData(email: 'nope'),
             ],
         ];
     }
 
     /**
-     * @return array{
-     *      'user[username]': string,
-     *      'user[password][first]': string,
-     *      'user[password][second]': string,
-     *      'user[email]': string
-     *      'user[roles]': array<string>
-     * }
+     * @param array<string> $roles
+     *
+     * @return array<string, mixed>
      */
     private static function createFormData(
         string $username = self::TEST_USER['username'],

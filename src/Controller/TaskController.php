@@ -77,6 +77,7 @@ final class TaskController extends AbstractController
             if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
                 $task->setUser($user);
             }
+
             $this->entityManager->persist($task);
             $this->entityManager->flush();
             $this->addFlash(
@@ -220,6 +221,7 @@ final class TaskController extends AbstractController
                 $tasks = $taskRepository
                     ->findByUserAndStatus($user);
             }
+
             return $this->render(
                 'task/list_done.html.twig',
                 ['tasks' => $tasks]

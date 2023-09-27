@@ -10,7 +10,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-
 final class AppFixtures extends Fixture
 {
     public function __construct(
@@ -22,29 +21,34 @@ final class AppFixtures extends Fixture
     {
         // create the user alice (user)
         $user1 = $this->createUser(
-            'alice', 
-            'alice@gmail.com', 
-            ['ROLE_USER'], 
+            'alice',
+            'alice@gmail.com',
+            ['ROLE_USER'],
             $objectManager
         );
         // create the user john (admin)
         $user2 = $this->createUser(
-            'john', 
-            'john@gmail.com', 
-            ['ROLE_ADMIN'], 
+            'john',
+            'john@gmail.com',
+            ['ROLE_ADMIN'],
             $objectManager
         );
 
         // create 50 tasks and assign them randomly to the users
         $this->createTasks(
-            50, 
-            [$user1, $user2], 
+            50,
+            [$user1, $user2],
             $objectManager
         );
 
         $objectManager->flush();
     }
 
+    /**
+     * create user.
+     *
+     * @param array<string> $roles
+     */
     private function createUser(
         string $username,
         string $email,
@@ -58,7 +62,7 @@ final class AppFixtures extends Fixture
         $user->setPassword(
             $this->userPasswordHasher
                 ->hashPassword(
-                    $user, 
+                    $user,
                     $username
                 )
         );
@@ -68,6 +72,11 @@ final class AppFixtures extends Fixture
         return $user;
     }
 
+    /**
+     * create tasks.
+     *
+     * @param array<User> $users
+     */
     private function createTasks(
         int $count,
         array $users,
@@ -75,8 +84,8 @@ final class AppFixtures extends Fixture
     ): void {
         for ($i = 0; $i < $count; ++$i) {
             $task = new Task();
-            $task->setTitle('task ' . $i);
-            $task->setContent('content ' . $i);
+            $task->setTitle('task '.$i);
+            $task->setContent('content '.$i);
             $task->toggle((bool) rand(0, 1));
             $user = $users[array_rand($users)];
             $task->setUser($user);

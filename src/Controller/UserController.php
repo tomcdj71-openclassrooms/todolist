@@ -22,7 +22,9 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class UserController extends AbstractController
 {
     public const PASSWORD_NOT_STRING = 'Le mot de passe doit être une chaîne de caractères.';
+
     public const NOT_LOGGED_IN = 'Vous devez être connecté pour accéder à cette page.';
+
     public const NO_ROLE_ATTRIBUTED = 'Aucun rôle n\'a été attribué à l\'utilisateur.';
 
     public function __construct(
@@ -69,15 +71,12 @@ final class UserController extends AbstractController
                 ->get('password')
                 ->getData();
             if (! is_string($plaintextPassword)) {
-                throw new \InvalidArgumentException(
-                    self::PASSWORD_NOT_STRING
-                );
+                throw new \InvalidArgumentException(self::PASSWORD_NOT_STRING);
             }
+
             // if no roles are set, throw an exception
             if ($user->getRoles() === []) {
-                throw new \InvalidArgumentException(
-                    self::NO_ROLE_ATTRIBUTED
-                );
+                throw new \InvalidArgumentException(self::NO_ROLE_ATTRIBUTED);
             }
 
             $hashedPassword = $this->userPasswordHasher
@@ -123,9 +122,7 @@ final class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $plaintextPassword = $form->get('password')->getData();
             if (! is_string($plaintextPassword)) {
-                throw new \InvalidArgumentException(
-                    self::PASSWORD_NOT_STRING
-                );
+                throw new \InvalidArgumentException(self::PASSWORD_NOT_STRING);
             }
 
             $hashedPassword = $this->userPasswordHasher
