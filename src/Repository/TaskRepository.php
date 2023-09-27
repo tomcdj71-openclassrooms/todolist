@@ -45,7 +45,7 @@ final class TaskRepository extends ServiceEntityRepository
      */
     public function findByUserAndStatus(UserInterface $user): array
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return (array) $this->createQueryBuilder('t')
             ->where('t.user = :user')
             ->andWhere('t.isDone = :isDone')
@@ -61,7 +61,7 @@ final class TaskRepository extends ServiceEntityRepository
      */
     public function findByStatus(bool $isDone): array
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return (array) $this->createQueryBuilder('t')
             ->where('t.isDone = :isDone')
             ->setParameter('isDone', $isDone)
@@ -75,7 +75,7 @@ final class TaskRepository extends ServiceEntityRepository
      */
     public function findByUser(UserInterface $user): array
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return (array) $this->createQueryBuilder('t')
             ->where('t.user = :user')
             ->setParameter('user', $user)

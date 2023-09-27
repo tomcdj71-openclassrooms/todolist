@@ -51,12 +51,11 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
         string $newHashedPassword
     ): void {
         if (! $passwordAuthenticatedUser instanceof User) {
-            throw new UnsupportedUserException(
-                sprintf(
-                    'Instances of "%s" are not supported.',
-                    $passwordAuthenticatedUser::class
-                )
+            $errorMessage = sprintf(
+                'Instances of "%s" are not supported.',
+                $passwordAuthenticatedUser::class
             );
+            throw new UnsupportedUserException($errorMessage);
         }
 
         $passwordAuthenticatedUser->setPassword($newHashedPassword);
