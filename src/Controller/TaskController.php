@@ -6,14 +6,13 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
-use App\Repository\TaskRepository;
 use App\Security\TaskVoter;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\TaskService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(
@@ -23,7 +22,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class TaskController extends AbstractController
 {
     public function __construct(
-        private readonly EntityManagerInterface $entityManager,
+        private readonly TaskService $taskService
     ) {
     }
 
@@ -31,24 +30,10 @@ final class TaskController extends AbstractController
         '',
         name: 'list'
     )]
-    public function listAction(
-        TaskRepository $taskRepository
-    ): Response {
-        if (! $this->isGranted('ROLE_ADMIN')) {
-            $user = $this->getUser();
-            if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
-                $tasks = $taskRepository->findByUser($user);
-
-                return $this->render(
-                    'task/list.html.twig',
-                    [
-                        'tasks' => $tasks,
-                    ]
-                );
-            }
-        }
-
-        $tasks = $taskRepository->findAll();
+    public function listAction(): Response
+    {
+        $user = $this->getUser();
+        $tasks = $this->taskService->getTasks($user instanceof UserInterface ? $user : null);
 
         return $this->render(
             'task/list.html.twig',
@@ -64,7 +49,6 @@ final class TaskController extends AbstractController
     )]
     public function createAction(
         Request $request,
-        Security $security
     ): Response {
         $task = new Task();
         $form = $this->createForm(
@@ -73,13 +57,11 @@ final class TaskController extends AbstractController
         );
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $security->getUser();
-            if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
-                $task->setUser($user);
-            }
-
-            $this->entityManager->persist($task);
-            $this->entityManager->flush();
+            $this->taskService
+                ->saveTask(
+                    $task,
+                    $this->getUser()
+                );
             $this->addFlash(
                 'success',
                 'La tâche a été bien été ajoutée.'
@@ -114,39 +96,21 @@ final class TaskController extends AbstractController
             $task
         );
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $this->entityManager
-                    ->persist($task);
-                $this->entityManager
-                    ->flush();
-                $this->addFlash(
-                    'success',
-                    'La tâche a bien été modifiée.'
-                );
-            } else {
-                $this->addFlash(
-                    'error',
-                    'La tâche n\'a pas été modifiée.'
-                );
+                $this->taskService->saveTask($task);
+                $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-                return $this->render('task/edit.html.twig', [
-                    'form' => $form->createView(),
-                    'task' => $task,
-                ]);
+                return $this->redirectToRoute('task_list');
             }
 
-            return $this->redirectToRoute(
-                'task_list'
-            );
+            $this->addFlash('error', 'La tâche n\'a pas été modifiée.');
         }
 
         return $this->render(
             'task/edit.html.twig',
-            [
-                'form' => $form->createView(),
-                'task' => $task,
-            ]
+            ['form' => $form->createView(), 'task' => $task]
         );
     }
 
@@ -162,24 +126,19 @@ final class TaskController extends AbstractController
     public function toggleTaskAction(
         Task $task
     ): Response {
-        $isDone = $task->isDone() !== true;
-        $task->toggle($isDone);
-        $this->entityManager->flush();
-        $message = $isDone ? sprintf(
-            'La tâche %s a bien été marquée comme terminée.',
-            $task->getTitle()
-        ) : sprintf(
-            'La tâche %s a bien été marquée comme non-terminée.',
-            $task->getTitle()
-        );
+        $this->taskService->toggleTask($task);
         $this->addFlash(
             'success',
-            $message
+            sprintf(
+                'La tâche %s a bien été marquée comme %s.',
+                $task->getTitle(),
+                $task->isDone() === true
+            ? 'terminée'
+            : 'non-terminée'
+            )
         );
 
-        return $this->redirectToRoute(
-            'task_list'
-        );
+        return $this->redirectToRoute('task_list');
     }
 
     #[Route(
@@ -194,8 +153,8 @@ final class TaskController extends AbstractController
     public function deleteTaskAction(
         Task $task
     ): Response {
-        $this->entityManager->remove($task);
-        $this->entityManager->flush();
+        $this->taskService
+            ->deleteTask($task);
         $this->addFlash(
             'success',
             'La tâche a bien été supprimée.'
@@ -210,26 +169,15 @@ final class TaskController extends AbstractController
         '/done',
         name: 'list_done'
     )]
-    public function listTasksDone(
-        TaskRepository $taskRepository
-    ): Response {
-        $tasks = [];
-
-        if ($this->isGranted('ROLE_USER')) {
-            $user = $this->getUser();
-            if ($user instanceof \Symfony\Component\Security\Core\User\UserInterface) {
-                $tasks = $taskRepository
-                    ->findByUserAndStatus($user);
-            }
-
-            return $this->render(
-                'task/list_done.html.twig',
-                ['tasks' => $tasks]
+    public function listTasksDone(): Response
+    {
+        $user = $this->getUser();
+        $tasks = $this->taskService
+            ->getDoneTasks(
+                $user instanceof UserInterface
+                ? $user
+                : null
             );
-        }
-
-        $tasks = $taskRepository
-            ->findByStatus(true);
 
         return $this->render(
             'task/list_done.html.twig',

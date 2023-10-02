@@ -17,14 +17,16 @@ final class DeleteTest extends WebTestCase
     use WebTestCaseHelperTrait;
 
     public const BASE_URL = 'http://localhost:8000';
+
     public const TEST_USER_EMAIL = 'alice@gmail.com';
+
     public const ADMIN_USER_EMAIL = 'john@gmail.com';
 
     public function testShouldDeleteTaskAndRedirectToListPage(): void
     {
-        $client = $this->setUpClientAndLogin();
+        $kernelBrowser = $this->setUpClientAndLogin();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -33,26 +35,28 @@ final class DeleteTest extends WebTestCase
             ->findOneBy(
                 ['email' => self::TEST_USER_EMAIL]
             );
-        if (!$user) {
+        if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
+
         /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
-        if (!$task) {
+        if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_DELETE,
             $taskUrl.'/delete'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_GET,
             $taskUrl.'/edit'
         );
@@ -66,9 +70,9 @@ final class DeleteTest extends WebTestCase
 
     public function testShouldRaiseHttpAccessDenied(): void
     {
-        $client = $this->setUpClientAndLogin();
+        $kernelBrowser = $this->setUpClientAndLogin();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -77,32 +81,34 @@ final class DeleteTest extends WebTestCase
             ->findOneBy(
                 ['email' => self::ADMIN_USER_EMAIL]
             );
-        if (!$user) {
+        if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
+
         /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
-        if (!$task) {
+        if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_DELETE,
             $taskUrl.'/delete'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
     }
 
     public function testAdminCanDeleteOtherUserTask(): void
     {
-        $client = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);
+        $kernelBrowser = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -111,26 +117,28 @@ final class DeleteTest extends WebTestCase
             ->findOneBy(
                 ['email' => self::TEST_USER_EMAIL]
             );
-        if (!$user) {
+        if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
+
         /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
             ->findOneBy(
                 ['user' => $user->getId()]
             );
-        if (!$task) {
+        if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_DELETE,
             $taskUrl.'/delete'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_GET,
             $taskUrl.'/edit'
         );
@@ -149,15 +157,15 @@ final class DeleteTest extends WebTestCase
      */
     private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL)
     {
-        $client = self::createClient();
+        $kernelBrowser = self::createClient();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        $entityManager = $kernelBrowser->getContainer()->get(EntityManagerInterface::class);
         /** @var User|null $user */
         $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
         if ($user instanceof User) {
-            $client->loginUser($user);
+            $kernelBrowser->loginUser($user);
         }
 
-        return $client;
+        return $kernelBrowser;
     }
 }
