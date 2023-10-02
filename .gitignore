@@ -23,6 +23,9 @@
 /public/bundles/
 /var/
 /vendor/
+/var/cache/
+/tests/.notes
+.phpunit.cache/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
