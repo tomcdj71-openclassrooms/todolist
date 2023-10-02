@@ -17,14 +17,16 @@ final class ToggleTest extends WebTestCase
     use WebTestCaseHelperTrait;
 
     public const BASE_URL = 'http://localhost:8000';
+
     public const TEST_USER_EMAIL = 'alice@gmail.com';
+
     public const ADMIN_USER_EMAIL = 'john@gmail.com';
 
     public function testShouldToogleTask(): void
     {
-        $client = $this->setUpClientAndLogin();
+        $kernelBrowser = $this->setUpClientAndLogin();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -48,11 +50,11 @@ final class ToggleTest extends WebTestCase
             $this->fail('Task not found.');
         }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_POST,
             $taskUrl.'/toggle'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
         $isDone = $task->isDone();
         if (true === $isDone) {
@@ -60,6 +62,7 @@ final class ToggleTest extends WebTestCase
         } else {
             $successMessage = 'La tâche '.$task->getTitle().' a bien été marquée comme non-terminée.';
         }
+
         self::assertFlashBagContains(
             'success',
             $successMessage,
@@ -68,9 +71,9 @@ final class ToggleTest extends WebTestCase
 
     public function testShouldRaiseHttpAccessDenied(): void
     {
-        $client = $this->setUpClientAndLogin();
+        $kernelBrowser = $this->setUpClientAndLogin();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -79,7 +82,7 @@ final class ToggleTest extends WebTestCase
             ->findOneBy(
                 ['email' => self::ADMIN_USER_EMAIL]
             );
-        if (!$user) {
+        if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
         /** @var Task|null $task */
@@ -88,23 +91,23 @@ final class ToggleTest extends WebTestCase
             ->findOneBy(
                 ['user' => $user->getId()]
             );
-        if (!$task) {
+        if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_POST,
             $taskUrl.'/toggle'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
     }
 
     public function testAdminCanToggleOtherUserTask(): void
     {
-        $client = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);
+        $kernelBrowser = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
         /** @var User|null $user */
@@ -113,7 +116,7 @@ final class ToggleTest extends WebTestCase
             ->findOneBy(
                 ['email' => self::TEST_USER_EMAIL]
             );
-        if (!$user) {
+        if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
         /** @var Task|null $task */
@@ -122,15 +125,15 @@ final class ToggleTest extends WebTestCase
             ->findOneBy(
                 ['user' => $user->getId()]
             );
-        if (!$task) {
+        if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
-        $client->request(
+        $kernelBrowser->request(
             Request::METHOD_POST,
             $taskUrl.'/toggle'
         );
-        $client->followRedirects(true);
+        $kernelBrowser->followRedirects(true);
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
         $isDone = $task->isDone();
         $doneMessage = ' a bien été marquée comme terminée.';
@@ -140,6 +143,7 @@ final class ToggleTest extends WebTestCase
         } else {
             $successMessage = 'La tâche '.$task->getTitle().$notDoneMessage;
         }
+
         self::assertFlashBagContains(
             'success',
             $successMessage,
@@ -153,15 +157,15 @@ final class ToggleTest extends WebTestCase
      */
     private function setUpClientAndLogin(string $email = self::TEST_USER_EMAIL)
     {
-        $client = self::createClient();
+        $kernelBrowser = self::createClient();
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client->getContainer()->get(EntityManagerInterface::class);
+        $entityManager = $kernelBrowser->getContainer()->get(EntityManagerInterface::class);
         /** @var User|null $user */
         $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
         if ($user instanceof User) {
-            $client->loginUser($user);
+            $kernelBrowser->loginUser($user);
         }
 
-        return $client;
+        return $kernelBrowser;
     }
 }

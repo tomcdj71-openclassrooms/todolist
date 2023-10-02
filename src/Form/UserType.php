@@ -23,74 +23,82 @@ final class UserType extends AbstractType
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
-    public function buildForm(
-        FormBuilderInterface $formBuilder,
-        array $options
-    ): void {
-        $formBuilder
-            ->add(
-                'username',
-                TextType::class,
-                [
-                    'label' => "Nom d'utilisateur",
-                ]
-            )
-            ->add(
-                'password',
-                RepeatedType::class,
-                [
-                    'type' => PasswordType::class,
-                    'invalid_message' => 'Les deux mots de passe doivent correspondre.',
-                    'required' => true,
-                    'first_options' => [
-                        'label' => 'Mot de passe',
-                    ],
-                    'second_options' => [
-                        'label' => 'Tapez le mot de passe à nouveau',
-                    ],
-                ]
-            )
-            ->add(
-                'roles',
-                ChoiceType::class,
-                [
-                    'choices' => [
-                        'Utilisateur' => 'ROLE_USER',
-                        'Administrateur' => 'ROLE_ADMIN',
-                    ],
-                    'label' => 'Choisissez un rôle',
-                    'required' => true,
-                    'multiple' => false,
-                ]
-            )
-            ->add(
-                'email',
-                EmailType::class,
-                [
-                    'label' => 'Adresse email',
-                ]
-            );
+    public function buildForm(FormBuilderInterface $formBuilder, array $options): void
+    {
+        $this->addUsernameField($formBuilder);
+        $this->addPasswordField($formBuilder);
+        $this->addRolesField($formBuilder);
+        $this->addEmailField($formBuilder);
+    }
 
+    private function addUsernameField(FormBuilderInterface $formBuilder): void
+    {
+        $formBuilder->add(
+            'username',
+            TextType::class,
+            [
+                'label' => "Nom d'utilisateur",
+            ]
+        );
+    }
+
+    private function addPasswordField(FormBuilderInterface $formBuilder): void
+    {
+        $formBuilder->add(
+            'password',
+            RepeatedType::class,
+            [
+                'type' => PasswordType::class,
+                'invalid_message' => 'Les deux mots de passe doivent correspondre.',
+                'required' => true,
+                'first_options' => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Tapez le mot de passe à nouveau'],
+            ]
+        );
+    }
+
+    private function addRolesField(FormBuilderInterface $formBuilder): void
+    {
+        $formBuilder->add(
+            'roles',
+            ChoiceType::class,
+            [
+                'choices' => ['Utilisateur' => 'ROLE_USER', 'Administrateur' => 'ROLE_ADMIN'],
+                'label' => 'Choisissez un rôle',
+                'required' => true,
+                'multiple' => false,
+            ]
+        );
+        $this->addRolesTransformer($formBuilder);
+    }
+
+    private function addEmailField(FormBuilderInterface $formBuilder): void
+    {
+        $formBuilder->add(
+            'email',
+            EmailType::class,
+            [
+                'label' => 'Adresse email',
+            ]
+        );
+    }
+
+    private function addRolesTransformer(FormBuilderInterface $formBuilder): void
+    {
         $formBuilder->get('roles')
             ->addModelTransformer(
                 new CallbackTransformer(
                     static function ($rolesArray) {
-                        // Check if $rolesArray is null or not an array
-                        if ($rolesArray === null || ! is_array($rolesArray)) {
-                            return null;
-                        }
-
-                        // transform the array to a string
-                        return $rolesArray !== [] ? $rolesArray[0] : null;
+                        // Check if $rolesArray is null or not an array and transform to string
+                        return $rolesArray !== null && is_array($rolesArray)
+                            ?
+                            ($rolesArray !== [] ? $rolesArray[0] : null)
+                            :
+                            null;
                     },
                     static function ($rolesString): array {
-                        // Check if $rolesString is null
-                        if ($rolesString === null) {
-                            return [];
-                        }
-
-                        // transform the string back to an array
-                        return [$rolesString];
+                        // Check if $rolesString is null and transform to array
+                        return $rolesString !== null ? [$rolesString] : [];
                     }
                 )
             );
