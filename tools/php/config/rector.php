@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
 use Rector\Config\RectorConfig;
-use Rector\Core\ValueObject\PhpVersion;
 use Rector\Set\ValueObject\SetList;
+use Rector\Core\ValueObject\PhpVersion;
+use Rector\CodeQuality\Rector\Foreach_\ForeachItemsAssignToEmptyArrayToAssignRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -22,7 +22,6 @@ return static function (RectorConfig $rectorConfig): void {
     );
 
     $rectorConfig->sets([
-        SetList::CODE_QUALITY,
         SetList::DEAD_CODE,
         SetList::PHP_80,
         SetList::STRICT_BOOLEANS,
@@ -30,9 +29,12 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
         SetList::EARLY_RETURN,
-        SetList::INSTANCEOF
+        SetList::PRIVATIZATION,
+        SetList::INSTANCEOF,
+        SetList::CODE_QUALITY,
     ]);
 
+    $rectorConfig->skip([ForeachItemsAssignToEmptyArrayToAssignRector::class]);
 
     $rectorConfig->rule(TypedPropertyFromStrictConstructorRector::class);
 

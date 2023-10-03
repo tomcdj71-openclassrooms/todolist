@@ -1,4 +1,11 @@
-   1) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php (unary_operator_spaces)
-   2) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Security/TaskVoter.php (no_superfluous_phpdoc_tags, no_empty_phpdoc, no_extra_blank_lines)
+   1) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/TaskController.php (method_argument_space, unary_operator_spaces, yoda_style, curly_braces_position, blank_line_before_statement)
+   2) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Controller/UserController.php (single_line_throw, method_argument_space, unary_operator_spaces, yoda_style)
+   3) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/DataFixtures/AppFixtures.php (yoda_style)
+   4) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Form/UserType.php (unary_operator_spaces, yoda_style)
+   5) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Security/TaskVoter.php (unary_operator_spaces, yoda_style)
+   6) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Entity/User.php (yoda_style)
+   7) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/UserRepository.php (single_line_throw, unary_operator_spaces)
+   8) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/src/Repository/TaskRepository.php (phpdoc_to_comment, no_trailing_whitespace)
+   9) /home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist/public/index.php (yoda_style)
 
-Found 2 of 27 files that can be fixed in 0.103 seconds, 14.000 MB memory used
+Found 9 of 28 files that can be fixed in 0.515 seconds, 16.000 MB memory used

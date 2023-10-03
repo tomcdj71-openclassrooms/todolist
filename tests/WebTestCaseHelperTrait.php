@@ -25,9 +25,11 @@ trait WebTestCaseHelperTrait
     public function assertFlashBagContains(string $type, string $message): void
     {
         // Récupération des messages flash du type demandé
-        $flashMessages = self::getClient()
+        /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+        $session = self::getClient()
             ->getRequest()
-            ->getSession()
+            ->getSession();
+        $flashMessages = $session
             ->getFlashBag()
             ->get($type);
 
@@ -80,7 +82,9 @@ trait WebTestCaseHelperTrait
         );
 
         // Appel dela méthode getClient pour y ajouter l'instance de KernelBrowser
-        /* @var KernelBrowser $kernel */
-        return $reflectionMethod->invoke(null);
+        /** @var KernelBrowser $kernel */
+        $kernel = $reflectionMethod->invoke(null);
+
+        return $kernel;
     }
 }
