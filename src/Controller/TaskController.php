@@ -6,13 +6,12 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
+use App\Handler\TaskHandler;
 use App\Security\TaskVoter;
-use App\Service\TaskService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(
@@ -22,7 +21,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class TaskController extends AbstractController
 {
     public function __construct(
-        private readonly TaskService $taskService
+        private readonly TaskHandler $taskHandler,
     ) {
     }
 
@@ -32,14 +31,11 @@ final class TaskController extends AbstractController
     )]
     public function listAction(): Response
     {
-        $user = $this->getUser();
-        $tasks = $this->taskService->getTasks($user instanceof UserInterface ? $user : null);
+        $tasks = $this->taskHandler->getTasksForCurrentUser();
 
         return $this->render(
             'task/list.html.twig',
-            [
-                'tasks' => $tasks,
-            ]
+            ['tasks' => $tasks]
         );
     }
 
@@ -47,9 +43,8 @@ final class TaskController extends AbstractController
         '/create',
         name: 'create',
     )]
-    public function createAction(
-        Request $request,
-    ): Response {
+    public function createAction(Request $request): Response
+    {
         $task = new Task();
         $form = $this->createForm(
             TaskType::class,
@@ -57,19 +52,10 @@ final class TaskController extends AbstractController
         );
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->taskService
-                ->saveTask(
-                    $task,
-                    $this->getUser()
-                );
-            $this->addFlash(
-                'success',
-                'La tâche a été bien été ajoutée.'
-            );
+            $this->taskHandler->saveTask($task, $this->getUser());
+            $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 
-            return $this->redirectToRoute(
-                'task_list'
-            );
+            return $this->redirectToRoute('task_list');
         }
 
         return $this->render(
@@ -87,25 +73,16 @@ final class TaskController extends AbstractController
         TaskVoter::OWNER,
         subject: 'task'
     )]
-    public function editAction(
-        Task $task,
-        Request $request
-    ): Response {
-        $form = $this->createForm(
-            TaskType::class,
-            $task
-        );
+    public function editAction(Task $task, Request $request): Response
+    {
+        $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $this->taskService->saveTask($task);
-                $this->addFlash('success', 'La tâche a bien été modifiée.');
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->taskHandler->saveTask($task);
+            $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-                return $this->redirectToRoute('task_list');
-            }
-
-            $this->addFlash('error', 'La tâche n\'a pas été modifiée.');
+            return $this->redirectToRoute('task_list');
         }
 
         return $this->render(
@@ -123,20 +100,10 @@ final class TaskController extends AbstractController
         TaskVoter::OWNER,
         subject: 'task'
     )]
-    public function toggleTaskAction(
-        Task $task
-    ): Response {
-        $this->taskService->toggleTask($task);
-        $this->addFlash(
-            'success',
-            sprintf(
-                'La tâche %s a bien été marquée comme %s.',
-                $task->getTitle(),
-                $task->isDone() === true
-            ? 'terminée'
-            : 'non-terminée'
-            )
-        );
+    public function toggleTaskAction(Task $task): Response
+    {
+        $flashMessage = $this->taskHandler->toggleTask($task);
+        $this->addFlash('success', $flashMessage);
 
         return $this->redirectToRoute('task_list');
     }
@@ -150,38 +117,13 @@ final class TaskController extends AbstractController
         TaskVoter::OWNER,
         subject: 'task'
     )]
-    public function deleteTaskAction(
-        Task $task
-    ): Response {
-        $this->taskService
-            ->deleteTask($task);
-        $this->addFlash(
-            'success',
-            'La tâche a bien été supprimée.'
-        );
+    public function deleteTaskAction(Task $task): Response
+    {
+        $this->taskHandler->deleteTask($task);
+        $this->addFlash('success', 'La tâche a bien été supprimée.');
 
         return $this->redirectToRoute(
             'task_list'
-        );
-    }
-
-    #[Route(
-        '/done',
-        name: 'list_done'
-    )]
-    public function listTasksDone(): Response
-    {
-        $user = $this->getUser();
-        $tasks = $this->taskService
-            ->getDoneTasks(
-                $user instanceof UserInterface
-                ? $user
-                : null
-            );
-
-        return $this->render(
-            'task/list_done.html.twig',
-            ['tasks' => $tasks]
         );
     }
 }
