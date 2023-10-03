@@ -60,11 +60,10 @@ final class AppFixtures extends Fixture
         $user->setEmail($email);
         $user->setRoles($roles);
         $user->setPassword(
-            $this->userPasswordHasher
-                ->hashPassword(
-                    $user,
-                    $username
-                )
+            $this->userPasswordHasher->hashPassword(
+                $user,
+                $username
+            )
         );
 
         $objectManager->persist($user);
