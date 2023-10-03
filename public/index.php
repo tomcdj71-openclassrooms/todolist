@@ -20,8 +20,16 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts([$trustedHosts]);
 }
 
-if ($_SERVER['APP_ENV'] !== 'prod') {
+if ('prod' !== $_SERVER['APP_ENV']) {
     ini_set('assert.active', '1');
+    ini_set('opcache.enable', '0');
+    ini_set('opcache.memory_consumption', '256');
+    ini_set('opcache.max_accelerated_files', '20000');
+    ini_set('opcache.validate_timestamps', '0');
+    ini_set('opcache.preload_user', 'www-data');
+    ini_set('opcache.preload', '/var/www/html/todolist/config/preload.php');
+    ini_set('realpath_cache_size', '4096K');
+    ini_set('realpath_cache_ttl', '600');
 } else {
     ini_set('assert.active', '-1');
 }
