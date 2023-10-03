@@ -38,6 +38,7 @@ final class DeleteTest extends WebTestCase
         if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
+
         /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
@@ -47,6 +48,7 @@ final class DeleteTest extends WebTestCase
         if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $kernelBrowser->request(
             Request::METHOD_DELETE,
@@ -82,6 +84,7 @@ final class DeleteTest extends WebTestCase
         if (!$user instanceof \App\Entity\User) {
             $this->fail('User not found.');
         }
+
         /** @var Task|null $task */
         $task = $entityManager
             ->getRepository(Task::class)
@@ -91,6 +94,7 @@ final class DeleteTest extends WebTestCase
         if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $kernelBrowser->request(
             Request::METHOD_DELETE,
@@ -126,6 +130,7 @@ final class DeleteTest extends WebTestCase
         if (!$task instanceof \App\Entity\Task) {
             $this->fail('Task not found.');
         }
+
         $taskUrl = self::BASE_URL.'/tasks/'.$task->getId();
         $kernelBrowser->request(
             Request::METHOD_DELETE,

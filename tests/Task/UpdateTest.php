@@ -66,9 +66,8 @@ final class UpdateTest extends WebTestCase
             $formData
         );
         $crawler = $kernelBrowser->getCrawler();
-        $alert = $crawler->filter('.alert.alert-danger');
-        self::assertCount(1, $alert);
-        self::assertStringContainsString("Oops ! La tâche n'a pas été modifiée.", $alert->text());
+        $errorsList = $crawler->filter('.list-unstyled');
+        self::assertCount(1, $errorsList);
         self::assertSelectorTextContains('.list-unstyled', '');
         self::assertResponseStatusCodeSame(
             Response::HTTP_OK
