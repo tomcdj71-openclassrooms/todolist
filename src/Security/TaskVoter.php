@@ -15,7 +15,7 @@ final class TaskVoter extends Voter
 
     protected function supports(string $attribute, mixed $subject): bool
     {
-        return $attribute === self::OWNER && $subject instanceof Task;
+        return self::OWNER === $attribute && $subject instanceof Task;
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
