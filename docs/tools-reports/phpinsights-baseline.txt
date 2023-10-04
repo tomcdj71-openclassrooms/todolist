@@ -1,0 +1,33 @@
+
+
+
+[2023-09-25 19:31:52] `/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todolist`
+
+                                                                                                              
+                95.0%                   82.5%                   88.2%                   98.8%                 
+                                                                                                              
+                                                                                                              
+                 Code                 Complexity             Architecture               Style                 
+
+
+Score scale: ◼ 1-49 ◼ 50-79 ◼ 80-100
+
+[CODE] 95 pts within 557 lines
+
+Comments ...................................................... 30.9 %
+Classes ....................................................... 47.0 %
+Functions ...................................................... 0.0 %
+Globally ...................................................... 22.1 %
+
+[COMPLEXITY] 82.5 pts with average of 1.52 cyclomatic complexity
+
+[ARCHITECTURE] 88.2 pts within 16 files
+
+Classes ....................................................... 93.8 %
+Interfaces ..................................................... 0.0 %
+Globally ....................................................... 6.3 %
+Traits ......................................................... 0.0 %
+
+[MISC] 98.8 pts on coding style and 0 security issues encountered
+
+Press enter to see code issues...
