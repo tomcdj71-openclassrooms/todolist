@@ -7,230 +7,170 @@
 set shell := ["bash", "-c"]
 PWD := "`pwd`"
 SYMFONY := "symfony"
-SYMFONY_CONSOLE := "symfony console"
 COMPOSER := "composer"
-NPM := "pnpm"
 VENDOR_BIN := "./vendor/bin"
-PHPUNIT := "APP_ENV=test ${SYMFONY} php vendor/bin/phpunit"
-COMPOSER_TOOLS := "composer --working-dir=tools/php"
+PHPUNIT := "APP_ENV=test phpunit"
+PHP_CONSOLE := "php bin/console"
+SYMFONY_CONSOLE := "symfony console"
 
-# Symfony
-#Starts the Symfony server.
-sf-start:
-    {{SYMFONY}} serve -d
-#Stops the Symfony server.
-sf-stop: 
-    {{SYMFONY}} server:stop
-#Clears the Symfony cache.
-sf-cc: 
-    {{SYMFONY_CONSOLE}} cache:clear
-#Opens the Symfony server log.
-sf-log: 
-    {{SYMFONY}} server:log
-#Creates the Doctrine database.
-sf-dc: 
-    {{SYMFONY_CONSOLE}} doctrine:database:create
-#Drops the Doctrine database.
-sf-dd: 
-    {{SYMFONY_CONSOLE}} doctrine:database:drop --force
-#Updates the Doctrine schema.
-sf-su: 
-    {{SYMFONY_CONSOLE}} doctrine:schema:update --force
-#Creates a new Doctrine migration.
-sf-mm: 
-    {{SYMFONY_CONSOLE}} make:migration
-#Executes the Doctrine migrations.
-sf-dmm: 
-    {{SYMFONY_CONSOLE}} doctrine:migrations:migrate --no-interaction
-#Loads the Doctrine fixtures.
-sf-fixtures: 
-    {{SYMFONY_CONSOLE}} doctrine:fixtures:load --no-interaction
-#Creates a new Symfony Entity.
-sf-me: 
-    {{SYMFONY_CONSOLE}} make:entity
-#Creates a new Symfony Controller.
-sf-mc: 
-    {{SYMFONY_CONSOLE}} make:controller
-#Creates a new Symfony Form.
-sf-mf: 
-    {{SYMFONY_CONSOLE}} make:form
-#Fix ./var permissions.
-sf-perm: 
-    chmod -R 777 var
-#Fix ./var permissions with sudo.
-sf-sudo-perm: 
-    sudo chmod -R 777 var
-#Dumps the content of the .env file.
-sf-dump-env: 
-    {{SYMFONY_CONSOLE}} debug:dotenv
-#Dumps the environment variables used by the container.
-sf-dump-env-container: 
-    {{SYMFONY_CONSOLE}} debug:container --env-vars
-#Dumps the Symfony routes.
-sf-dump-routes: 
-    {{SYMFONY_CONSOLE}} debug:router
-#Opens the local Symfony application in the default browser.
-sf-open: 
-    {{SYMFONY}} open:local
-#Opens the Symfony email collector in the default browser.
-sf-open-email: 
-    {{SYMFONY}} open:local:webmail
-#Checks the Symfony application's requirements.
-sf-check-requirements: 
-    {{SYMFONY}} check:requirements
-#Generates secret keys for the Symfony application.
-sf-generate-keys: 
-    {{SYMFONY_CONSOLE}} secret:generate-keys
-#Generates secret keys for both the dev and prod environments.
-sf-generate-all-keys: 
-    APP_RUNTIME_ENV=dev just sf-generate-keys && APP_RUNTIME_ENV=prod just sf-generate-keys
-#Rotates the secret keys for the Symfony application.
-sf-rotate-keys: 
-    {{SYMFONY_CONSOLE}} secret:generate-keys --rotate
-#Rotates the secret keys for both the dev and prod environments.
-sf-rotate-all-keys: 
-    APP_RUNTIME_ENV=dev just sf-rotate-keys && APP_RUNTIME_ENV=prod just sf-rotate-keys
-#Decrypts the secrets to the local .env file.
-sf-decrypt: 
-    {{SYMFONY_CONSOLE}} secrets:decrypt-to-local --force
+# Shortcut that runs make qa-audit.
+audit:
+    just qa-audit
 
-# Composer
-#Installs the composer dependencies.
-composer-install: 
-    {{COMPOSER}} install
-    {{COMPOSER_TOOLS}} install
-#Updates the composer dependencies.
-composer-update: 
-    {{COMPOSER}} update
-    {{COMPOSER_TOOLS}} update
-#Validates the composer.json and composer.lock files.
-composer-validate: 
-    {{COMPOSER}} validate
-    {{COMPOSER_TOOLS}} validate
-#Executes a deeper validation of the composer.json and composer.lock files.
-composer-validate-deep: 
-    {{COMPOSER}} validate --strict --check-lock
-    {{COMPOSER_TOOLS}} validate --strict --check-lock
-#Check if there are outdate packages
-composer-outdated: 
-    {{COMPOSER}} outdated --direct --strict
-    {{COMPOSER_TOOLS}} outdated --direct --strict
-
-# Determine the php.ini location and set opcache.preload
-php-set-env:
-    ./setup_php.sh
-
-# NPM
-#Installs the npm packages.
-npm-install: 
-    {{NPM}} install --force
-#Updates the npm packages.
-npm-update: 
-    {{NPM}} update
-#Runs the npm build script.
-npm-build: 
-    {{NPM}} run build
-#Runs the npm dev script.
-npm-dev: 
-    {{NPM}} run dev
-#Runs the npm watch script.
-npm-watch: 
-    {{NPM}} run watch
-
-# PHPQA
-#Runs PHP CS Fixer in dry run mode.
-
-# Tests
-#Runs PHPUnit tests.
-test-phpunit: 
-    {{PHPUNIT}}
-#Runs PHPSpec tests.
-test-phpspec: 
-    {{SYMFONY_CONSOLE}} phpspec:run
-#Runs Behat tests.
-test-behat: 
-    {{SYMFONY_CONSOLE}} behat
-#Runs PHPUnit tests with code coverage.
-test-phpunit-coverage: 
-    {{PHPUNIT}} --coverage-html var/coverage
-#Runs all the tests with testdox format.
-tests: 
-    APP_ENV=test symfony php {{VENDOR_BIN}}/phpunit --testdox
-#Runs all the tests with code coverage.
-tests-coverage: 
-    APP_ENV=test symfony php {{VENDOR_BIN}}/phpunit --coverage-html var/coverage
-
-# Other commands
-#Runs a series of checks before committing code.
-before-commit:
-    just update
-    just report
-    just lint
-
-update:
-    just composer-update
-    just composer-outdated
-    just npm-update
-
-#Executes a series of commands to prepare for the first installation.
-first-install: 
-    just composer-install
-    just npm-install
-    just npm-build
-    just sf-perm
-    just sf-decrypt
-    just sf-start
-    just sf-open
-
-#Starts the Symfony server and opens the local Symfony application in the default browser.
-start: 
-    just sf-start
-    just sf-open
-
-#Stops the Symfony server.
-stop: 
-    just sf-stop
-
-# Resets the database. This will delete and recreate the database, and run any existing migrations.
-reset-db:
-    #!/usr/bin/env bash
-    read -p "Are you sure you want to reset the database? [y/N] " confirm
-    if [[ $$confirm == "y" ]]; then
-        just sf-dd
-        just sf-dc
-        just sf-dmm
-    fi
-
-#Prints the values of various variables.
-print-vars:
-    echo "${SYMFONY}"
-    echo "${PHPUNIT}"
-    echo "${SYMFONY_CONSOLE}"
-    echo "${COMPOSER}"
-    echo "${NPM}"
-    echo "${VENDOR_BIN}"
-    echo "${RECTOR}"
-
-analyze:
-    {{COMPOSER_TOOLS}} run-script analyze
-
+# Runs all QA tools on the project and fixes the issues.
 fix:
-    {{COMPOSER_TOOLS}} run-script fix
+    just qa-rector
+    just qa-cs
+    just qa-insights
 
+# Runs all Linters. Generates reports.
 lint:
-    just qa-translations-update
     just qa-lint-twigs
     just qa-lint-yaml
     just qa-lint-container
     just qa-lint-schema
 
-report:
-    just qa-security-checker
-    just qa-cs-fixer-dr
-    just qa-phpstan-baseline
-    just qa-rector-dr
-    just qa-phpmd-baseline
-
-#Lists all available just commands.
+# Lists all available just commands.
 help: 
     @just --list
+
+# Utility command to detect if we need to use symfony console or php bin/console
+run-command *args:
+    #!/usr/bin/env sh
+    args="{{args}}"
+    if command -v symfony ; then
+        symfony console $args
+    else
+        php bin/console $args
+    fi
+
+###################################
+#
+# Project setup
+#
+###################################
+# Install php tools
+install-dev:
+    {{COMPOSER}} install --dev --optimize-autoloader
+    cd tools/php && {{COMPOSER}} install
+
+# Install project with normal dependencies
+install-project:
+    {{COMPOSER}} install --no-dev --optimize-autoloader
+    just run-command doctrine:database:create
+    just run-command doctrine:schema:update --force --complete
+    just run-command doctrine:fixtures:load
+    just run-command cache:clear
+    just {{COMPOSER}} outdated
+    {{COMPOSER}} validate --strict --check-lock
+
+###################################
+#
+# Symfony commands
+#
+###################################
+# Clear the Symfony cache.
+sf-clear-cache:
+    just run-command cache:clear
+
+# Open symfony logs
+sf-log:
+    {{SYMFONY}} server:log
+
+# Open symfony project in browser
+sf-open:
+    {{SYMFONY}} open:local
+    
+# Fix permissions issues on var folder
+sf-perms:
+    chown -R www-data:www-data var
+    chmod -R 777 var
+
+# Start Symfony server
+sf-start:
+    {{SYMFONY}} server:start
+
+# Start Symfony server in daemon-mode
+sf-start-daemon:
+    {{SYMFONY}} server:start -d
+    just sf-open
+    just sf-log
+
+# Stop Symfony server
+sf-stop:
+    {{SYMFONY}} server:stop
+
+###################################
+#
+# Quality Assurance
+#
+###################################
+# Runs a security audit (security-checker + audit + rector + PHPCS + phpmetrics + phpinsights + PHPStan). Only generates reports.
+qa-audit:
+    just qa-security-checker
+    {{COMPOSER}} audit
+    {{COMPOSER}} run-script rector-bs --working-dir=tools/php
+    {{COMPOSER}} run-script cs-bs --working-dir=tools/php
+    {{COMPOSER}} run-script metrics --working-dir=tools/php
+    {{COMPOSER}} run-script stan --working-dir=tools/php
+
+# Check outdated dependencies.
+qa-composer-outdated:
+    {{COMPOSER}} outdated --direct --strict
+    {{COMPOSER}} outdated --direct --strict --working-dir=tools/php
+
+# Runs PHP_CodeSniffer on the project and fixes the issues.
+qa-cs:
+    {{COMPOSER}} run-script cs --working-dir=tools/php
+
+# Runs PHP_CodeSniffer on the project. Generates reports.
+qa-cs-bs:
+    {{COMPOSER}} run-script cs-bs --working-dir=tools/php
+
+# Runs PHPInsights on the project.
+qa-insights:
+    {{COMPOSER}} run-script insights --working-dir=tools/php
+
+# Checks the Symfony DI container for errors.
+qa-lint-container:
+    {{SYMFONY_CONSOLE}} lint:container
+
+# Validates that the Doctrine schema is in sync with the current mapping metadata.
+qa-lint-schema:
+    {{SYMFONY_CONSOLE}} doctrine:schema:validate --skip-sync -v --no-interaction
+
+# Lints Twig templates.
+qa-lint-twigs:
+    {{SYMFONY_CONSOLE}} lint:twig ./templates
+
+# Lints YAML files.
+qa-lint-yaml:
+    {{SYMFONY_CONSOLE}} lint:yaml ./config
+
+# Runs PHPMetrics on the project. Generates reports.
+qa-metrics:
+    {{COMPOSER}} run-script metrics-src --working-dir=tools/php
+    {{COMPOSER}} run-script metrics-test --working-dir=tools/php
+
+# Runs Rector on the project and fixes the issues.
+qa-rector:
+    {{COMPOSER}} run-script rector --working-dir=tools/php
+
+# Runs Rector on the project. Generates reports.
+qa-rector-bs:
+    {{COMPOSER}} run-script rector-bs --working-dir=tools/php
+
+# Checks security issues in your project dependencies.
+qa-security-checker: 
+    symfony check:security
+
+# Runs PHPStan on the project.
+qa-stan:
+    {{COMPOSER}} run-script stan --working-dir=tools/php
+
+# Run PHPUnit tests
+test:
+    php {{VENDOR_BIN}}/phpunit
+# Run PHPUnit tests with coverage
+test-coverage:
+    php {{VENDOR_BIN}}/phpunit --coverage-html docs/tools-reports/coverage
