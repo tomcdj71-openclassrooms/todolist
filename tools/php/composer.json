@@ -36,23 +36,23 @@
             "@stan"
         ],
         "cs": "./vendor/bin/php-cs-fixer fix --verbose --allow-risky=yes --config=config/.php-cs-fixer.dist.php",
-        "cs-bs": "./vendor/bin/php-cs-fixer fix --verbose --allow-risky=yes --config=config/.php-cs-fixer.dist.php --dry-run --format=txt > reports/phpcsfixer-baseline.txt || true",
+        "cs-bs": "./vendor/bin/php-cs-fixer fix --verbose --allow-risky=yes --config=config/.php-cs-fixer.dist.php --dry-run --format=txt > ../../docs/tools-reports/phpcsfixer-baseline.txt || true",
         "fix": [
             "@rector",
             "@cs",
             "@insights"
         ],
         "insights": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction --fix",
-        "insights-bs": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction -v > tools/php/reports/insights.txt || true",
-        "metrics-src": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../src --report-html=reports/metrics-src --report-violations=reports/metrics-src/violations.xml --exclude=DataFixtures",
-        "metrics-test": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../tests --report-html=reports/metrics-test --report-violations=reports/metrics-test/violations.xml --exclude=DataFixtures",
+        "insights-bs": "cd ../.. && tools/php/vendor/bin/phpinsights --format=console --no-interaction -v > docs/tools-reports/phpinsights.txt || true",
+        "metrics-src": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../src --report-html=../../docs/tools-reports/metrics-src --report-violations=../../docs/tools-reports/metrics-src/violations.xml --exclude=DataFixtures",
+        "metrics-test": "./vendor/bin/phpmetrics --level=10 --extensions=php8,php,inc ../../tests --report-html=../../docs/tools-reports/metrics-test --report-violations=../../docs/tools-reports/metrics-test/violations.xml",
         "metrics": [
             "@metrics-src",
             "@metrics-test",
             "@insights-bs"
         ],
-        "rector": "./vendor/bin/rector process --config config/rector.php --clear-cache --debug",
-        "rector-bs": "./vendor/bin/rector process --config config/rector.php --clear-cache --dry-run > reports/rector.txt || true",
+        "rector": "./vendor/bin/rector process --config config/rector.php --clear-cache",
+        "rector-bs": "./vendor/bin/rector process --config config/rector.php --clear-cache --dry-run > ../../docsocs/tools-reports/rector.txt || true",
         "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --ansi -v || true"
     }
 }
