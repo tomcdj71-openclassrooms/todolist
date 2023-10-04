@@ -88,7 +88,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         assert(
-            $this->username !== null,
+            null !== $this->username,
             new \LogicException(
                 'Username should not be accessed before it has been set.'
             )
@@ -113,7 +113,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPassword(): string
     {
         assert(
-            $this->password !== null,
+            null !== $this->password,
             new \LogicException(
                 'Password should not be accessed before it has been set.'
             )
@@ -146,7 +146,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getEmail(): string
     {
         assert(
-            $this->email !== null,
+            null !== $this->email,
             new \LogicException(
                 'Email should not be accessed before it has been set.'
             )

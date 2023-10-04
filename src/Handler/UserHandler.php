@@ -10,8 +10,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class UserHandler implements UserHandlerInterface
 {
-    public const PASSWORD_NOT_STRING = 'Le mot de passe doit être une chaîne de caractères.';
-
     public const NO_ROLE_ATTRIBUTED = 'Aucun rôle n\'a été attribué à l\'utilisateur.';
 
     public function __construct(
@@ -27,7 +25,7 @@ final class UserHandler implements UserHandlerInterface
 
     public function manageUser(User $user, string $plaintextPassword): void
     {
-        if ($user->getRoles() === []) {
+        if ([] === $user->getRoles()) {
             throw new \InvalidArgumentException(self::NO_ROLE_ATTRIBUTED);
         }
 

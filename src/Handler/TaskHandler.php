@@ -20,16 +20,16 @@ final class TaskHandler implements TaskHandlerInterface
 
     public function saveTask(Task $task, ?UserInterface $user = null): void
     {
-        if ($user instanceof UserInterface) {
+        if ($user instanceof UserInterface && $task->getUser() === null) {
             $task->setUser($user);
         }
-
+        
         $this->taskRepository->save($task);
     }
 
     public function toggleTask(Task $task): string
     {
-        $task->toggle($task->isDone() !== true);
+        $task->toggle(true !== $task->isDone());
         $this->taskRepository->save($task);
 
         return $this->addTaskStatusFlash($task);
@@ -54,7 +54,7 @@ final class TaskHandler implements TaskHandlerInterface
 
     private function addTaskStatusFlash(Task $task): string
     {
-        $status = $task->isDone() === true ? 'terminée' : 'non-terminée';
+        $status = true === $task->isDone() ? 'terminée' : 'non-terminée';
 
         return sprintf('La tâche %s a bien été marquée comme %s.', $task->getTitle(), $status);
     }
