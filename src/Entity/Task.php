@@ -42,7 +42,10 @@ class Task
     )]
     private string $content;
 
-    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    #[ORM\Column(
+        type: 'boolean', 
+        options: ['default' => false]
+    )]
     private bool $isDone = false;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
