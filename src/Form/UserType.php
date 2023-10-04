@@ -23,7 +23,10 @@ final class UserType extends AbstractType
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
-    public function buildForm(FormBuilderInterface $formBuilder, array $options): void
+    public function buildForm(
+        FormBuilderInterface $formBuilder, 
+        array $options
+    ): void
     {
         $this->addUsernameField($formBuilder);
         $this->addPasswordField($formBuilder);
@@ -90,15 +93,15 @@ final class UserType extends AbstractType
                 new CallbackTransformer(
                     static function ($rolesArray) {
                         // Check if $rolesArray is null or not an array and transform to string
-                        return $rolesArray !== null && is_array($rolesArray)
+                        return null !== $rolesArray && is_array($rolesArray)
                             ?
-                            ($rolesArray !== [] ? $rolesArray[0] : null)
+                            ([] !== $rolesArray ? $rolesArray[0] : null)
                             :
                             null;
                     },
                     static function ($rolesString): array {
                         // Check if $rolesString is null and transform to array
-                        return $rolesString !== null ? [$rolesString] : [];
+                        return null !== $rolesString ? [$rolesString] : [];
                     }
                 )
             );

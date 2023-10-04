@@ -48,9 +48,8 @@ final class TaskType extends AbstractType
         ;
     }
 
-    public function configureOptions(
-        OptionsResolver $optionsResolver
-    ): void {
+    public function configureOptions(OptionsResolver $optionsResolver): void 
+    {
         $optionsResolver->setDefaults([
             'data_class' => Task::class,
         ]);
