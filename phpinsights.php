@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-use NunoMaduro\PhpInsights\Domain\Sniffs\ForbiddenSetterSniff;
-use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
-use SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff;
-
 return [
     'preset' => 'symfony',
     'ide' => 'vscode',
@@ -18,34 +14,25 @@ return [
     ],
 
     'remove' => [
-        AlphabeticallySortedUsesSniff::class,
-        DeclareStrictTypesSniff::class,
-        DisallowMixedTypeHintSniff::class,
-        DisallowShortTernaryOperatorSniff::class,
-        ForbiddenDefineFunctions::class,
-        ForbiddenFinalClasses::class,
-        ForbiddenTraits::class,
-        ParameterTypeHintSniff::class,
-        PropertyTypeHintSniff::class,
-        ReturnTypeHintSniff::class,
-        UselessFunctionDocCommentSniff::class,
-        UnnecessaryFinalModifierSniff::class,
+        // Allow Yoda style (symfony preset)
+        \SlevomatCodingStandard\Sniffs\ControlStructures\DisallowYodaComparisonSniff::class,
     ],
 
     'config' => [
-        UnusedParameterSniff::class => [
+        \SlevomatCodingStandard\Sniffs\Classes\SuperfluousInterfaceNamingSniff::class => [
             'exclude' => [
-                dirname(__DIR__, 3).'/src/Form',
+                'src/Handler/UserHandlerInterface.php',
+                'src/Handler/TaskHandlerInterface.php',
             ],
         ],
-        DisallowMixedTypeHintSniff::class => [
+        \SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
             'exclude' => [
-                dirname(__DIR__, 3).'/src/Form',
+                'src/Security',
             ],
         ],
-        ForbiddenSetterSniff::class => [
+        \SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class => [
             'exclude' => [
-                dirname(__DIR__, 3).'/src/Entity',
+                'src/Form',
             ],
         ],
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
@@ -53,13 +40,23 @@ return [
             'absoluteLineLimit' => 160,
             'ignoreComments' => false,
         ],
+        \NunoMaduro\PhpInsights\Domain\Sniffs\ForbiddenSetterSniff::class => [
+            'exclude' => [
+                'src/Entity',
+            ],
+        ],
+        \NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class => [
+            'exclude' => [
+                'src/Entity',
+            ],
+        ],
     ],
 
     'requirements' => [
-        'min-quality' => 80,
-        'min-complexity' => 80,
-        'min-architecture' => 80,
-        'min-style' => 80,
+        'min-quality' => 95,
+        'min-complexity' => 90,
+        'min-architecture' => 95,
+        'min-style' => 95,
     ],
 
     'threads' => 4,

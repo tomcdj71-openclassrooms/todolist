@@ -76,6 +76,10 @@
         </properties>
     </rule>
 
+    <!-- Yoda Style should be enabled -->
+    <rule ref="Squiz.ControlStructures.YodaComparison">
+        <type>error</type>
+    </rule>
     <!-- We use custom indent rules for arrays -->
     <rule ref="Generic.Arrays.ArrayIndent"/>
     <rule ref="Squiz.Arrays.ArrayDeclaration.KeyNotAligned">
