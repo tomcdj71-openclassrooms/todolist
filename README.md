@@ -184,8 +184,6 @@ Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you f
 
 The original project can be found [here](https://github.com/saro0h/projet8-TodoList)
 
-For a full list of all authors and contributors, see [the contributors page](docs/CONTRIBUTORS.md).
-
 ## Security
 
 TodoList follows good practices of security, but 100% security cannot be assured.
