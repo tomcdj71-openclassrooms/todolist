@@ -1,0 +1,44 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install make and SQLite
+      run: |
+        sudo apt-get update 
+        sudo apt-get install -yqq make sqlite3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite
+        coverage: xdebug
+
+    - name: Setup project
+      run: |
+        make install-project
+        make install-dev
+
+    # start the php built-in webserver and test if homepage is available
+    - name: Run PHP built-in webserver
+      run: |
+        php -S localhost:8000 -t public/ &
+        sleep 5 
+        curl -f http://localhost:8000/
+        
+    - name: Run PHPUnit Tests
+      run: ./vendor/bin/phpunit
