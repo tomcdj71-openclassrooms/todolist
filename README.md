@@ -70,9 +70,13 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 | :-------------------------------------------------------------------------------------------------------------: |
 |  <img src="docs/screenshots/homepage.png" title="Home Page" width="100%" alt="Home Page">                       |
 
+|                                                   Login Page                                                    |
+| :-------------------------------------------------------------------------------------------------------------: |
+|  <img src="docs/screenshots/userlogin.png" title="Create User Page" width="100%" alt="Create User Page">        |
+
 |                                                Create User Page                                                 |
 | :-------------------------------------------------------------------------------------------------------------: |
-|  <img src="docs/screenshots/createuser.png" title="Create User Page" width="100%" alt="Create User Page">       |
+|  <img src="docs/screenshots/usercreate.png" title="Create User Page" width="100%" alt="Create User Page">       |
 
 |                                                 Tasks List Page                                                 |
 | :-------------------------------------------------------------------------------------------------------------: |
