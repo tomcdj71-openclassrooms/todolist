@@ -39,6 +39,7 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Alternative Installation](#alternative-install)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Support](#support)
@@ -134,20 +135,21 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 
 ### Built With
 
-> **Note**:
-> PHP 8.2, Composer 2.6, Symfony 6.3
+> **INFO**:
+> PHP 8.2, Composer 2.6, Symfony 6.3, SQLITE
 
 ## Getting Started
 
 ### Prerequisites
 
-> **Note**:
+> **NOTE**:
 > What are the project requirements/dependencies?
 
 - [PHP] (8.2)
 - [composer]
 - [sqlite]
-- [Symfony CLI] (optional)
+- [Symfony CLI] (recommended)
+- You can speed up enhance the use of this project by using [Make] or [Just]. see [Alternative installation](#alternative-install)
 
 [PHP]: https://www.php.net/downloads
 [Symfony CLI]: https://symfony.com/download
@@ -155,14 +157,14 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 [SQLite]: https://www.sqlite.org/download.html
 ### Installation
 
-> **Note**:
+> **NOTE**:
 > How to get started with the project?
 
 ```bash
 git clone https://github.com/tomcdj71-openclassrooms/todolist
 cd todolist
 ```
-> **Warning**:
+> **WARNING**:
 > The next steps is dependending of your prefered method. You can use [Make], [Just] or [PHP commands] to fully install the project.
 
 > With PHP (or symfony-cli):
@@ -178,17 +180,29 @@ php bin/console d:f:l
 symfony server:start 
 # or  if you don't have the symfony binary :
 php -S localhost:8000 -t public/ 
-# alternatively you can use php bin/console serve -d to run in daemon mode
+# alternatively you can use symfony server:start -d to run in daemon mode
 ```
+### Alternative Install
+> **INFO**
+> Many utility commands are available thanks to the Justfile and Makefile provided. You can give a try by typing `make help` or `just help`.
 
-> Makefile and Justfile
-Many utility commands are available thanks to the Justfile and Makefile provided. You can give a try by typing `make help` or `just help`.
+> Install Using Make
 
-In order to setup the project, you can use `make first-install` or `just first-install` instead the commands provided above.
+`make first-install`
+
+> **NOTE**
+> In order to start the web server in daemon-mode and open your browser you can now use `make sf-start-daemon`. This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
+
+> Install Using Just
+
+`just first-install`
+
+> **NOTE**
+> In order to start the web server in daemon-mode and open your browser you can now use `just sf-start-daemon`. This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
 
 ## Support
 
-> **Info**:
+> **INFO**:
 > How to contact me ?
 
 | Documentation              | Status                                                         |
@@ -214,12 +228,12 @@ Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you f
 
 ## Authors & contributors
 
-> **Info**:
+> **INFO**:
 > The original project can be found [here](https://github.com/saro0h/projet8-TodoList)
 
 ## Security
 
-> **Info**:
+> **INFO**:
 > TodoList follows good practices of security, but 100% security cannot be assured.
 > _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
