@@ -55,8 +55,6 @@
 
 ## About
 
-<table><tr><td>
-
 > **[?]**
 TodoList is my 8th project of my OpenClassrooms courses for being an Application Developer (PHP/Symfony).
 The goal is to update a legacy PoC app and prepare it for the future !
@@ -98,7 +96,37 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 
 </details>
 
-</td></tr></table>
+<details>
+<summary>Diagrams</summary>
+<br>
+
+|         TYPE        |       PREVIEW       |
+| :-----------------: | :-----------------: |
+| MPD · drawio        | [MPD]               |
+| Classes · plantuml  | [Classes]           |
+| Sequence · plantuml | [Add Task]          |
+| Sequence · plantuml | [Delete Task]       |
+| Sequence · plantuml | [Create Task]       |
+| Sequence · plantuml | [Toggle Task]       |
+| Sequence · plantuml | [Update Task]       |
+| Sequence · plantuml | [Add User]          |
+| Sequence · plantuml | [Login]             |
+| Sequence · plantuml | [Logout]            |
+| Use Case · plantuml | [Use Case]          |
+
+[MPD]: docs/diagrams/png/MPD.png
+[Classes]: docs/diagrams/png/classes.png
+[Add Task]: docs/diagrams/png/Seq_1_Add_Task.png
+[Delete Task]: docs/diagrams/png/Seq_2_Delete_Task.png
+[Create Task]: docs/diagrams/png/Seq_3_Create_User.png
+[Toggle Task]: docs/diagrams/png/Seq_4_Toggle_Task.png
+[Update Task]: docs/diagrams/png/Seq_5_Update_Task.png
+[Add User]: docs/diagrams/png/Seq_6_Add_User.png
+[Login]: docs/diagrams/png/Seq_7_Login.png
+[Logout]: docs/diagrams/png/Seq_8_Logout.png
+[Use Case]: docs/diagrams/png/UseCase.png
+
+</details>
 
 ### Built With
 

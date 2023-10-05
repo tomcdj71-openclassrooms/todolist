@@ -1,0 +1,15 @@
+@startuml Delete Task
+    title Delete Task
+    skinparam backgroundColor #EEEEEE
+    skinparam shadowing true
+
+    actor User
+    control Server
+    database Database
+    User --> Server : Request task deletion
+    activate Server  #lightblue
+    Server --> Database : Remove Task
+    Database --> Server : Return success
+    Server --> User : Display success, redirect to home page
+    deactivate Server 
+@enduml

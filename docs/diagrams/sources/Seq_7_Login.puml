@@ -1,0 +1,24 @@
+@startuml Login
+    title Login
+    skinparam backgroundColor #EEEEEE
+    skinparam shadowing true
+
+    actor User
+    control Server
+    database Database
+    User --> Server : Request login page (or homepage if not logged)
+    activate Server  #lightblue
+    Server --> User : Display the login form
+    deactivate Server 
+    User --> Server : Submit login form
+    activate Server #lightblue
+    Server -> Server : Validate form data
+    alt If form data is valid
+        Server --> Database : Check if user exists and password is correct
+        Database --> Server : Return user data
+        Server --> User : Redirect to homepage
+    else
+        Server --> User : Display form validation error
+    end
+    deactivate Server
+@enduml
