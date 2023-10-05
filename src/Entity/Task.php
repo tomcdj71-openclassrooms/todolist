@@ -43,7 +43,7 @@ class Task
     private string $content;
 
     #[ORM\Column(
-        type: 'boolean', 
+        type: 'boolean',
         options: ['default' => false]
     )]
     private bool $isDone = false;

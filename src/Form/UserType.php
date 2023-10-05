@@ -24,10 +24,9 @@ final class UserType extends AbstractType
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
     public function buildForm(
-        FormBuilderInterface $formBuilder, 
+        FormBuilderInterface $formBuilder,
         array $options
-    ): void
-    {
+    ): void {
         $this->addUsernameField($formBuilder);
         $this->addPasswordField($formBuilder);
         $this->addRolesField($formBuilder);
