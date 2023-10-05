@@ -41,14 +41,12 @@
   - [Installation](#installation)
   - [Alternative Installation](#alternative-install)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
 - [Support](#support)
 - [Project assistance](#project-assistance)
 - [Contributing](#contributing)
 - [Authors & contributors](#authors--contributors)
 - [Security](#security)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 </details>
 
@@ -56,11 +54,11 @@
 
 ## About
 
-> **[?]**
-TodoList is my 8th project of my OpenClassrooms courses for being an Application Developer (PHP/Symfony).
-The goal is to update a legacy PoC app and prepare it for the future !
-The app is a simple To-Do list app made with Symfony 6, that can be tested via PHPunit.
-You can see more about this project by clicking in the [docs](docs/todoco_intro.pdf).
+> **NOTE**
+> TodoList is my 8th project of my OpenClassrooms courses for being an Application Developer (PHP/Symfony).
+> The goal is to update a legacy PoC app and prepare it for the future !
+> The app is a simple To-Do list app made with Symfony 6, that can be tested via PHPunit.
+> You can see more about this project by clicking in the [docs](./docs/todoco_intro.pdf).
 
 
 <details>
@@ -135,15 +133,14 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 
 ### Built With
 
-> **INFO**:
+> [!IMPORTANT]  
 > PHP 8.2, Composer 2.6, Symfony 6.3, SQLITE
 
 ## Getting Started
 
 ### Prerequisites
 
-> **NOTE**:
-> What are the project requirements/dependencies?
+**What are the project requirements/dependencies?**
 
 - [PHP] (8.2)
 - [composer]
@@ -157,14 +154,13 @@ You can see more about this project by clicking in the [docs](docs/todoco_intro.
 [SQLite]: https://www.sqlite.org/download.html
 ### Installation
 
-> **NOTE**:
-> How to get started with the project?
+**How to get started with the project?**
 
 ```bash
 git clone https://github.com/tomcdj71-openclassrooms/todolist
 cd todolist
 ```
-> **WARNING**:
+> [!WARNING]  
 > The next steps is dependending of your prefered method. You can use [Make], [Just] or [PHP commands] to fully install the project.
 
 > With PHP (or symfony-cli):
@@ -183,27 +179,28 @@ php -S localhost:8000 -t public/
 # alternatively you can use symfony server:start -d to run in daemon mode
 ```
 ### Alternative Install
-> **INFO**
-> Many utility commands are available thanks to the Justfile and Makefile provided. You can give a try by typing `make help` or `just help`.
+
+**_Many utility commands are available thanks to the Justfile and Makefile provided. You can give a try by typing `make help` or `just help`._**
 
 > Install Using Make
 
 `make first-install`
 
 > **NOTE**
-> In order to start the web server in daemon-mode and open your browser you can now use `make sf-start-daemon`. This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
+> In order to start the web server in daemon-mode and open your browser you can now use `make sf-start-daemon`. 
+> This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
 
 > Install Using Just
 
 `just first-install`
 
 > **NOTE**
-> In order to start the web server in daemon-mode and open your browser you can now use `just sf-start-daemon`. This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
+> In order to start the web server in daemon-mode and open your browser you can now use `just sf-start-daemon`. 
+> This will start the server in daemon mode, open the page in your prefered browser, and open the logs in your terminal.
 
 ## Support
 
-> **INFO**:
-> How to contact me ?
+**How to contact me ?**
 
 | Documentation              | Status                                                         |
 | -------------------------- | -------------------------------------------------------------- |
@@ -224,18 +221,18 @@ Together, we can make TodoList **better**!
 First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
 
-Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!
+Please read [our contribution guidelines](./docs/CONTRIBUTING.md), and thank you for being involved!
 
 ## Authors & contributors
 
-> **INFO**:
+> [!NOTE]  
 > The original project can be found [here](https://github.com/saro0h/projet8-TodoList)
 
 ## Security
 
-> **INFO**:
+> [!WARNING]  
 > TodoList follows good practices of security, but 100% security cannot be assured.
-> _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
+> _For more information and to report security issues, please refer to our_ [security documentation](docs/SECURITY.md).
 
 ## License
 
