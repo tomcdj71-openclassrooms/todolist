@@ -14,7 +14,6 @@
   <a href="https://github.com/tomcdj71-openclassrooms/todolist/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
    · 
   <a href="https://github.com/tomcdj71-openclassrooms/todolist/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
-   · <a href="https://github.com/tomcdj71-openclassrooms/todolist/discussions">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -25,7 +24,7 @@
 |---|---|
 | **Open&#160;Source** | [![BSD 3-clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/tomcdj71-openclassrooms/todolist/blob/main/LICENSE) |
 | **Community** | [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/tomcdj71-openclassrooms/todolist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)  |
-| **CI/CD** | (coming soon)  |
+| **CI/CD** | ![build](https://github.com/github/docs/actions/workflows/build_and_test.yml/badge.svg)  |
 | **Mainteners** | [![coded with love by tomcdj71](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-tomcdj71-ff1414.svg?style=flat-square)](https://github.com/tomcdj71) |
 | **Tools** | [![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits) |
 
@@ -102,14 +101,14 @@ You can more about this project by clicking in the [docs](./docs/todoco_intro.pd
 
 ### Built With
 
-> **[?]**
+> **Note**:
 > PHP 8.2, Composer 2.6, Symfony 6.3
 
 ## Getting Started
 
 ### Prerequisites
 
-> **[?]**
+> **Note**:
 > What are the project requirements/dependencies?
 
 - [PHP] (8.2)
@@ -123,15 +122,15 @@ You can more about this project by clicking in the [docs](./docs/todoco_intro.pd
 [SQLite]: https://www.sqlite.org/download.html
 ### Installation
 
-> **[?]**
-> Describe how to install and get started with the project.
+> **Note**:
+> How to get started with the project?
 
 ```bash
 git clone https://github.com/tomcdj71-openclassrooms/todolist
 cd todolist
 ```
-
-The next steps is dependending of your prefered method. You can use [Make], [Just] or [PHP commands] to fully install the project.
+> **Warning**:
+> The next steps is dependending of your prefered method. You can use [Make], [Just] or [PHP commands] to fully install the project.
 
 > With PHP (or symfony-cli):
 
@@ -156,13 +155,13 @@ In order to setup the project, you can use `make first-install` or `just first-i
 
 ## Support
 
-> **[?]**
-> Provide additional ways to contact the project maintainer/maintainers.
+> **Info**:
+> How to contact me ?
 
 | Documentation              | Status                                                         |
 | -------------------------- | -------------------------------------------------------------- |
 | :bug: **Issues Board** | [open issues](https://github.com/tomcdj71-openclassrooms/todolist/issues) |
-| :bug: **Github Project Board** | [Project Board](https://github.com/tomcdj71-openclassrooms/todolist/discussions) |
+| :bug: **Github Project Board** | [Project Board](https://github.com/orgs/tomcdj71-openclassrooms/projects/2) |
 
 ## Project assistance
 
@@ -182,13 +181,14 @@ Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you f
 
 ## Authors & contributors
 
-The original project can be found [here](https://github.com/saro0h/projet8-TodoList)
+> **Info**:
+> The original project can be found [here](https://github.com/saro0h/projet8-TodoList)
 
 ## Security
 
-TodoList follows good practices of security, but 100% security cannot be assured.
-
-_For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
+> **Info**:
+> TodoList follows good practices of security, but 100% security cannot be assured.
+> _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
 ## License
 
