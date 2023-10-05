@@ -1,0 +1,23 @@
+@startuml Classes
+    title Classes
+
+class User {
+    + id: integer
+    + username: string
+    + email: string
+    + password: string
+    + roles: array<string>
+}
+
+class Task {
+    + id: integer
+    + createdAt: datetime
+    + title: string
+    + content: string
+    + isDone: bool
+    + user: integer (FK)
+}
+
+User "1" -- "0..*" Task: CREATES
+
+@enduml

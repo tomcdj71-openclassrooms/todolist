@@ -1,0 +1,38 @@
+@startuml Use Case Todolist
+  title Use Case Todolist
+
+  skinparam packageStyle rect
+  skinparam shadowing false
+
+  actor Visitor as visitor
+  actor User as user
+  actor Admin as admin
+
+  rectangle application {
+      (S'inscrire) as registerUser
+      (Ajout tâche) as addTask
+      (Gestion des mes tâches) as manageMyTasks
+      (Edition statut de ma tâche) as editMyTasksStatus
+      (Edition tâche de ma tâche) as editMyTaskContent
+      (Supprimer ma tâche) as deleteMyTask
+      (Gestion des tâches) as manageTasks
+      (Edition des tâches) as editTaskContent
+      (Supprimer des tâches) as deleteTask
+      (Gestion des users) as manageUsers
+      (Edition utilisateur) as editUsers
+      (Supprimer utilisateur) as deleteUsers
+  }
+
+  visitor --> registerUser
+  user --> addTask
+  user --> manageMyTasks
+  manageMyTasks ---> editMyTasksStatus: extends
+  manageMyTasks ---> editMyTaskContent: extends
+  manageMyTasks ---> deleteMyTask: extends
+  admin --> manageTasks: extends
+  admin --> manageUsers: extends
+  manageTasks ---> editTaskContent: extends
+  manageTasks ---> deleteTask: extends
+  manageUsers ---> editUsers: extends
+  manageUsers ---> deleteUsers: extends
+@enduml

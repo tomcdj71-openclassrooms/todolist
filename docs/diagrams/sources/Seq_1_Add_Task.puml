@@ -1,0 +1,24 @@
+@startuml AddTask
+    title Add Task
+    skinparam backgroundColor #EEEEEE
+    skinparam shadowing true
+
+    actor User
+    control Server
+    database Database
+    User --> Server : Request add task page
+    activate Server  #lightblue
+    Server --> User : Display add task page
+    deactivate Server 
+    User --> Server : Submit task form
+    activate Server #lightblue
+    Server -> Server : Validate form data
+    alt If form data is valid
+        Server --> Database : Store new Task data
+        Database --> Server : Confirm Task data stored
+        Server --> User : Redirect to newly created task page
+    else
+        Server --> User : Display form validation error
+    end
+    deactivate Server
+@enduml

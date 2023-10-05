@@ -1,0 +1,24 @@
+@startuml Create User
+    title Create User
+    skinparam backgroundColor #EEEEEE
+    skinparam shadowing true
+
+    actor User
+    control Server
+    database Database
+    User --> Server : Request create user page
+    activate Server  #lightblue
+    Server --> User : Display the create user page
+    deactivate Server 
+    User --> Server : Submit the form
+    activate Server #lightblue
+    Server -> Server : Validate form data
+    alt If form data is valid
+        Server --> Database : Store new User data
+        Database --> Server : Confirm User data stored
+        Server --> User : Redirect to homepage with success message (no auto-login)
+    else
+        Server --> User : Display form validation error
+    end
+    deactivate Server
+@enduml

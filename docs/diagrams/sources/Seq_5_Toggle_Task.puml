@@ -1,0 +1,15 @@
+@startuml Toggle Task
+    title Toggle Task
+    skinparam backgroundColor #EEEEEE
+    skinparam shadowing true
+
+    actor User
+    control Server
+    database Database
+    User --> Server : Request task toggle
+    activate Server  #lightblue
+    Server --> Database : toggle Task (done/undone)
+    Database --> Server : Return success
+    Server --> User : Display success, redirect to task list
+    deactivate Server 
+@enduml
