@@ -20,10 +20,14 @@ final class TaskHandler implements TaskHandlerInterface
 
     public function saveTask(Task $task, ?UserInterface $user = null): void
     {
-        if ($user instanceof UserInterface && $task->getUser() === null) {
+        // if the task has no user, we set the current user
+        if ($user instanceof UserInterface) {
             $task->setUser($user);
         }
-        
+
+        // if the task already has a user ensure the user does not change
+        $task->setUser($task->getUser());
+
         $this->taskRepository->save($task);
     }
 
