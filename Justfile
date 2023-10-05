@@ -34,16 +34,6 @@ lint:
 help: 
     @just --list
 
-# Utility command to detect if we need to use symfony console or php bin/console
-run-command *args:
-    #!/usr/bin/env sh
-    args="{{args}}"
-    if command -v symfony ; then
-        symfony console $args
-    else
-        php bin/console $args
-    fi
-
 ###################################
 #
 # Project setup
@@ -51,18 +41,17 @@ run-command *args:
 ###################################
 # Install php tools
 install-dev:
-    {{COMPOSER}} install --dev --optimize-autoloader
-    cd tools/php && {{COMPOSER}} install
+    cd tools/php && {{COMPOSER}} install --optimize-autoloader
 
 # Install project with normal dependencies
 install-project:
-    {{COMPOSER}} install --no-dev --optimize-autoloader
-    just run-command doctrine:database:create
-    just run-command doctrine:schema:update --force --complete
-    just run-command doctrine:fixtures:load
-    just run-command cache:clear
-    just {{COMPOSER}} outdated
-    {{COMPOSER}} validate --strict --check-lock
+    {{COMPOSER}} install --optimize-autoloader
+    {{PHP_CONSOLE}} doctrine:database:create
+    {{PHP_CONSOLE}} doctrine:schema:update --force --complete
+    {{PHP_CONSOLE}} doctrine:fixtures:load --append
+    just qa-clear-cache
+    just qa-composer-outdated
+    just qa-composer-validate
 
 ###################################
 #
@@ -118,6 +107,11 @@ qa-audit:
 qa-composer-outdated:
     {{COMPOSER}} outdated --direct --strict
     {{COMPOSER}} outdated --direct --strict --working-dir=tools/php
+
+# Validates a composer.json and composer.lock.
+qa-composer-validate: 
+	{{COMPOSER}} validate --strict --no-check-lock
+	{{COMPOSER}} validate --strict --no-check-lock --working-dir=tools/php
 
 # Runs PHP_CodeSniffer on the project and fixes the issues.
 qa-cs:

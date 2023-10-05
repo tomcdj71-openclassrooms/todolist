@@ -25,29 +25,22 @@ lint: ## Runs all Linters. Generates reports.
 help: ## Lists all available make commands.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-
-run-command: ## Utility command to detect if we need to use symfony console or php bin/console
-	@command -v symfony > /dev/null && \
-		eval "symfony $(args)" || \
-		eval "php bin/console $(args)"
-
 ###################################
 #
 # Project setup
 #
 ###################################
 install-dev: ## Install php tools
-	$(COMPOSER) install --dev --optimize-autoloader
-	cd tools/php && $(COMPOSER) install
+	cd tools/php && $(COMPOSER) install --optimize-autoloader
 
 install-project: ## Install project with normal dependencies
-	$(COMPOSER) install --no-dev --optimize-autoloader
-	make run-command args="doctrine:database:create"
-	make run-command args="doctrine:schema:update --force --complete"
-	make run-command args="doctrine:fixtures:load"
-	make run-command args="cache:clear"
-	$(COMPOSER) outdated --direct --strict
-	$(COMPOSER) validate --strict --check-lock
+	$(COMPOSER) install --optimize-autoloader
+	$(PHP_CONSOLE) doctrine:database:create
+	$(PHP_CONSOLE) doctrine:schema:update --force --complete
+	$(PHP_CONSOLE) doctrine:fixtures:load --append
+	make sf-clear-cache
+	make qa-composer-outdated
+	make qa-composer-validate
 
 ###################################
 #
@@ -55,7 +48,7 @@ install-project: ## Install project with normal dependencies
 #
 ###################################
 sf-clear-cache: ## Clear the Symfony cache.
-	make run-command args="cache:clear"
+	$(PHP_CONSOLE) cache:clear
 
 sf-log: ## Open symfony logs
 	$(SYMFONY) server:log
@@ -95,6 +88,10 @@ qa-audit: ## Runs a security audit (security-checker + audit + rector + PHPCS + 
 qa-composer-outdated: ## Check outdated dependencies.
 	$(COMPOSER) outdated --direct --strict
 	$(COMPOSER) outdated --strict --strict --working-dir=tools/php
+
+qa-composer-validate: ## Validates a composer.json and composer.lock.
+	$(COMPOSER) validate --strict --no-check-lock
+	$(COMPOSER) validate --strict --no-check-lock --working-dir=tools/php
 
 qa-cs: ## Runs PHP_CodeSniffer on the project and fixes the issues.
 	$(COMPOSER) run-script cs --working-dir=tools/php
