@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://github.com/tomcdj71-openclassrooms/todolist">
     <!-- Please provide path to your logo here -->
-    <img src="docs/images/logo.svg" alt="Logo" width="100" height="100">
+    <img src="public/img/Logo_OpenClassrooms.png" alt="Logo" width="100" height="100">
   </a>
 </h1>
 
@@ -22,10 +22,11 @@
 
 |  | |
 |---|---|
-| **Open&#160;Source** | [![BSD 3-clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/tomcdj71-openclassrooms/todolist/blob/main/LICENSE) |
+| **CI/CD** | [![Build and Test](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml)  |
 | **Community** | [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/tomcdj71-openclassrooms/todolist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)  |
-| **CI/CD** | ![build](https://github.com/github/docs/actions/workflows/build_and_test.yml/badge.svg)  |
+| **License** | [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) |
 | **Mainteners** | [![coded with love by tomcdj71](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-tomcdj71-ff1414.svg?style=flat-square)](https://github.com/tomcdj71) |
+| **Open&#160;Source** | [![BSD 3-clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/tomcdj71-openclassrooms/todolist/blob/main/LICENSE) |
 | **Tools** | [![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits) |
 
 </div>
@@ -60,7 +61,7 @@
 TodoList is my 8th project of my OpenClassrooms courses for being an Application Developer (PHP/Symfony).
 The goal is to update a legacy PoC app and prepare it for the future !
 The app is a simple To-Do list app made with Symfony 6, that can be tested via PHPunit.
-You can more about this project by clicking in the [docs](./docs/todoco_intro.pdf).
+You can see more about this project by clicking in the [docs](docs/todoco_intro.pdf).
 
 
 <details>
