@@ -23,6 +23,7 @@
 |  | |
 |---|---|
 | **CI/CD** | [![Build and Test](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml)  |
+| **Analysis** | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d5382685ac5c43fca6d95b2ab27a2615)](https://app.codacy.com/gh/tomcdj71-openclassrooms/todolist/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) |
 | **Community** | [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/tomcdj71-openclassrooms/todolist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)  |
 | **License** | [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) |
 | **Mainteners** | [![coded with love by tomcdj71](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-tomcdj71-ff1414.svg?style=flat-square)](https://github.com/tomcdj71) |
