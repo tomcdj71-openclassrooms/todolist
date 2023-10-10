@@ -133,4 +133,4 @@ test: ## Run PHPUnit tests
 	php $(VENDOR_BIN)/phpunit
 
 test-coverage: ## Run PHPUnit tests with coverage
-	php $(VENDOR_BIN)/phpunit --coverage-html docs/tools-reports/coverage
+	php $(VENDOR_BIN)/phpunit --coverage-html docs/tools-reports/coverage --coverage-clover docs/tools-reports/clover.xml

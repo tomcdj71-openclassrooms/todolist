@@ -49,7 +49,7 @@ install-project:
     {{PHP_CONSOLE}} doctrine:database:create
     {{PHP_CONSOLE}} doctrine:schema:update --force --complete
     {{PHP_CONSOLE}} doctrine:fixtures:load --append
-    just qa-clear-cache
+    just sf-clear-cache
     just qa-composer-outdated
     just qa-composer-validate
 
@@ -167,4 +167,4 @@ test:
     php {{VENDOR_BIN}}/phpunit
 # Run PHPUnit tests with coverage
 test-coverage:
-    php {{VENDOR_BIN}}/phpunit --coverage-html docs/tools-reports/coverage
+    php {{VENDOR_BIN}}/phpunit --coverage-html docs/tools-reports/coverage --coverage-clover docs/tools-reports/clover.xml
