@@ -19,6 +19,9 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
     '/users',
     name: 'user_',
 )]
+/**
+ * This class represents the controller for user-related actions.
+ */
 final class UserController extends AbstractController
 {
     public function __construct(
@@ -27,15 +30,17 @@ final class UserController extends AbstractController
     ) {
     }
 
-    #[Route(
-        '/',
-        name: 'list'
-    )]
+    #[Route('/', name: 'list')]
     #[IsGranted(
         TaskVoter::OWNER,
         message: 'Vous devez être connecté pour accéder à cette page.',
         statusCode: 404
     )]
+    /**
+     * Returns the list of users.
+     *
+     * @return Response the HTTP response
+     */
     public function listAction(): Response
     {
         return $this->render(
@@ -44,10 +49,14 @@ final class UserController extends AbstractController
         );
     }
 
-    #[Route(
-        '/create',
-        name: 'create'
-    )]
+    /**
+     * Creates a new user.
+     *
+     * @param Request $request the HTTP request
+     *
+     * @return Response the HTTP response
+     */
+    #[Route('/create', name: 'create')]
     public function createAction(Request $request): Response
     {
         $user = new User();
@@ -68,10 +77,15 @@ final class UserController extends AbstractController
         );
     }
 
-    #[Route(
-        '/{id}/edit',
-        name: 'edit'
-    )]
+    /**
+     * Edit a user.
+     *
+     * @param User    $user    the user to edit
+     * @param Request $request the HTTP request
+     *
+     * @return Response the HTTP response
+     */
+    #[Route('/{id}/edit', name: 'edit')]
     public function editAction(User $user, Request $request): Response
     {
         $form = $this->createForm(UserType::class, $user);

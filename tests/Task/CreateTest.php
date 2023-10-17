@@ -23,6 +23,10 @@ final class CreateTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Ajouter';
 
+    /**
+     * Test the create task page.
+     * The user should be redirected to the newly created task page.
+     */
     public function testShouldCreateTaskAndRedirectToShowPage(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -48,6 +52,9 @@ final class CreateTest extends WebTestCase
         );
     }
 
+    /**
+     * Unauthenticated users should be redirected to the login page.
+     */
     public function testShouldRaiseHttpAccessDeniedAndRedirectToLogin(): void
     {
         $client = self::createClient();
@@ -86,6 +93,8 @@ final class CreateTest extends WebTestCase
     }
 
     /**
+     * Provides invalid form data for the CreateTest class.
+     *
      * @return array<string, array{array<string, string>}>
      */
     public static function provideInvalidFormData(): array

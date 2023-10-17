@@ -21,6 +21,9 @@ final class ListTest extends WebTestCase
 
     public const TEST_USER_EMAIL = 'alice@gmail.com';
 
+    /**
+     * Test the list task page.
+     */
     public function testShouldListTasks(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -35,6 +38,9 @@ final class ListTest extends WebTestCase
         );
     }
 
+    /**
+     * Unauthenticated users should be redirected to the login page.
+     */
     public function testShouldRaiseHttpAccessDeniedAndRedirectToLogin(): void
     {
         $client = self::createClient();

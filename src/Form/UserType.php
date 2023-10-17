@@ -33,6 +33,11 @@ final class UserType extends AbstractType
         $this->addEmailField($formBuilder);
     }
 
+    /**
+     * Adds a username field to the form builder.
+     *
+     * @param FormBuilderInterface the form builder to add the field to
+     */
     private function addUsernameField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -44,6 +49,11 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a password field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder instance
+     */
     private function addPasswordField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -59,6 +69,11 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a roles field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder
+     */
     private function addRolesField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -77,6 +92,11 @@ final class UserType extends AbstractType
         $this->addRolesTransformer($formBuilder);
     }
 
+    /**
+     * Adds an email field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder
+     */
     private function addEmailField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -88,6 +108,13 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a model transformer to the 'roles' field of the form builder.
+     * The transformer converts the roles array to a string.
+     * (2 way transformation).
+     *
+     * @param FormBuilderInterface $formBuilder the form builder instance
+     */
     private function addRolesTransformer(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->get('roles')

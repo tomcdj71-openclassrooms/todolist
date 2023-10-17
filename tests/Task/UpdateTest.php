@@ -24,6 +24,10 @@ final class UpdateTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Modifier';
 
+    /**
+     * Test the update task page.
+     * The user should be redirected to the task page.
+     */
     public function testShouldUpdateTaskAndRedirectToShowPage(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -47,9 +51,9 @@ final class UpdateTest extends WebTestCase
      * Unauthenticated users should be redirected to the login page
      * Users that don't have access to this task should be redirected to the login page.
      *
-     * @dataProvider provideInvalidFormData
-     *
      * @param array<string, mixed> $formData
+     *
+     * @dataProvider provideInvalidFormData
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {
@@ -75,6 +79,8 @@ final class UpdateTest extends WebTestCase
     }
 
     /**
+     * Provides invalid form data for the UpdateTest class.
+     *
      * @return array<string, array{array<string, string>}>
      */
     public static function provideInvalidFormData(): array
@@ -96,6 +102,8 @@ final class UpdateTest extends WebTestCase
     }
 
     /**
+     * This method provides an array of valid form data for the UpdateTest class.
+     *
      * @return array<string, string>
      */
     private function createFormData(string $title = 'Task', string $content = 'Description'): array

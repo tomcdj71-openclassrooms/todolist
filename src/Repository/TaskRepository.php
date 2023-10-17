@@ -31,12 +31,22 @@ final class TaskRepository extends ServiceEntityRepository
         $this->entityManager = $this->getEntityManager();
     }
 
+    /**
+     * Saves a task to the database.
+     *
+     * @param Task $Task the task to be saved
+     */
     public function save(Task $Task): void
     {
         $this->entityManager->persist($Task);
         $this->entityManager->flush();
     }
 
+    /**
+     * Removes a task from the database.
+     *
+     * @param Task $Task the task to remove
+     */
     public function remove(Task $Task): void
     {
         $this->entityManager->remove($Task);

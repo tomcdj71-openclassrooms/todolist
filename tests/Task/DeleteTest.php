@@ -22,6 +22,10 @@ final class DeleteTest extends WebTestCase
 
     public const ADMIN_USER_EMAIL = 'john@gmail.com';
 
+    /**
+     * Test the delete task page.
+     * The user should be redirected to the task list page.
+     */
     public function testShouldDeleteTaskAndRedirectToListPage(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -68,6 +72,11 @@ final class DeleteTest extends WebTestCase
         );
     }
 
+    /**
+     * Test to delete a task.
+     * The user tested is not the owner of the task.
+     * The user should be redirected to the task list page.
+     */
     public function testShouldRaiseHttpAccessDenied(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -104,6 +113,10 @@ final class DeleteTest extends WebTestCase
         self::assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
     }
 
+    /**
+     * Test if the admin can delete a task.
+     * The user should be redirected to the task list page.
+     */
     public function testAdminCanDeleteOtherUserTask(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);

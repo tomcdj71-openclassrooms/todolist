@@ -22,6 +22,11 @@ final class ToggleTest extends WebTestCase
 
     public const ADMIN_USER_EMAIL = 'john@gmail.com';
 
+    /**
+     * Test the toggle functionnality.
+     * A flash message should be displayed
+     * indicating the task has been toggled.
+     */
     public function testShouldToogleTask(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -70,6 +75,11 @@ final class ToggleTest extends WebTestCase
         );
     }
 
+    /**
+     * Test the toggle functionnality.
+     * The test user should not be able to toggle
+     * the task of another user.
+     */
     public function testShouldRaiseHttpAccessDenied(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -106,6 +116,13 @@ final class ToggleTest extends WebTestCase
         self::assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
     }
 
+    /**
+     * Test the toggle functionnality.
+     * The admin user should be able to toggle
+     * the task of another user.
+     * A flash message should be displayed
+     * indicating the task has been toggled.
+     */
     public function testAdminCanToggleOtherUserTask(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin(self::ADMIN_USER_EMAIL);

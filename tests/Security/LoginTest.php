@@ -8,6 +8,9 @@ use App\Tests\WebTestCaseHelperTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * This class represents the test case for the login functionality.
+ */
 final class LoginTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -26,6 +29,10 @@ final class LoginTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Se connecter';
 
+    /**
+     * Test if an authenticated user is redirected
+     * to the index page after logging in.
+     */
     public function testShouldAuthenticatedUserAndRedirectToIndex(): void
     {
         $client = self::createClient();
@@ -54,9 +61,9 @@ final class LoginTest extends WebTestCase
     }
 
     /**
-     * @dataProvider provideInvalidFormData
-     *
      * @param array{_username: string, _password: string} $formData
+     *
+     * @dataProvider provideInvalidFormData
      */
     public function testShouldNotAuthenticateUser(array $formData): void
     {
@@ -78,6 +85,9 @@ final class LoginTest extends WebTestCase
         self::assertRouteSame('login');
     }
 
+    /**
+     * Test that logs out a user and redirects to the login page.
+     */
     public function testShouldLogoutUserAndRedirectToLogin(): void
     {
         $client = self::createClient();
@@ -107,6 +117,8 @@ final class LoginTest extends WebTestCase
     }
 
     /**
+     * This method provides an array of invalid form data for the LoginTest class.
+     *
      * @return array<string, array<array-key, array{_username: string, _password: string}>>
      */
     public static function provideInvalidFormData(): array
@@ -125,12 +137,16 @@ final class LoginTest extends WebTestCase
     }
 
     /**
+     * Helper method to create form data for login tests.
+     *
+     * @param string $username the username to use in the form data
+     * @param string $password the password to use in the form data
+     *
      * @return array{_username: string, _password: string}
+     *                                                     An array containing the form data
      */
-    private static function createFormData(
-        string $username,
-        string $password
-    ): array {
+    private static function createFormData(string $username, string $password): array
+    {
         return [
             '_username' => $username,
             '_password' => $password,

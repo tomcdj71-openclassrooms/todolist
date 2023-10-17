@@ -8,8 +8,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * This class represents the default controller for the application.
+ */
 final class DefaultController extends AbstractController
 {
+    /**
+     * This method represents the index action of the default controller.
+     * It returns a Response object that renders the default index view.
+     *
+     * @return Response a Response object that renders the default index view
+     */
     #[Route('/', name: 'homepage')]
     public function indexAction(): Response
     {

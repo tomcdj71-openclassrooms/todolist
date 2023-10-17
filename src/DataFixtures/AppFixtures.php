@@ -10,6 +10,10 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/**
+ * This class is a fixture class
+ * It is used to load initial data into the database.
+ */
 final class AppFixtures extends Fixture
 {
     public function __construct(
@@ -17,6 +21,11 @@ final class AppFixtures extends Fixture
     ) {
     }
 
+    /**
+     * Load data fixtures with sample data for the App.
+     *
+     * @param ObjectManager the object manager instance
+     */
     public function load(ObjectManager $objectManager): void
     {
         // create the user alice (user)
@@ -45,7 +54,7 @@ final class AppFixtures extends Fixture
     }
 
     /**
-     * create user.
+     * Create user.
      *
      * @param array<string> $roles
      */

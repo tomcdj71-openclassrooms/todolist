@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/**
+ * This class represents the test case for the Registration functionality.
+ */
 final class RegistrationTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -36,6 +39,10 @@ final class RegistrationTest extends WebTestCase
         'roles' => ['ROLE_ADMIN'],
     ];
 
+    /**
+     * Test the registration page.
+     * The user should be redirected to the login page.
+     */
     public function testShouldRegisterUserAndRedirectToIndex(): void
     {
         $client = self::createClient();
@@ -110,6 +117,10 @@ final class RegistrationTest extends WebTestCase
         );
     }
 
+    /**
+     * Test if submitting a registration form
+     * with an already used username raises an error.
+     */
     public function testShouldRaiseUsernameAlreadyUsedError(): void
     {
         $client = self::createClient();
@@ -130,7 +141,9 @@ final class RegistrationTest extends WebTestCase
     }
 
     /**
-     * @return array<string, array<string, mixed>>
+     * Provides invalid form data for the registration form.
+     *
+     * @return array<string, array<string, mixed>> an array of invalid form data
      */
     public static function provideInvalidFormData(): array
     {
@@ -151,9 +164,14 @@ final class RegistrationTest extends WebTestCase
     }
 
     /**
-     * @param array<string> $roles
+     * Creates form data for user registration.
      *
-     * @return array<string, mixed>
+     * @param string        $username the username of the user
+     * @param string        $password the password of the user
+     * @param string        $email    the email of the user
+     * @param array<string> $roles    the roles of the user
+     *
+     * @return array<string, mixed> the form data for user registration
      */
     private static function createFormData(
         string $username = self::TEST_USER['username'],

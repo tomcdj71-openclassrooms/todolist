@@ -37,6 +37,7 @@ return [
         \SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class => [
             'exclude' => [
                 'src/Form',
+                'src/Security/TaskVoter.php',
             ],
         ],
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
