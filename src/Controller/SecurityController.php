@@ -12,13 +12,16 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 /**
  * This class represents the Security Controller
  * which handles the login and logout actions.
+ * 
+ * @category Controller
  */
 final class SecurityController extends AbstractController
 {
     /**
      * This method handles the login action and renders the login page.
      *
-     * @param AuthenticationUtils the AuthenticationUtils service
+     * @param AuthenticationUtils $authenticationUtils
+     * the AuthenticationUtils service
      *
      * @return Response the response object
      */

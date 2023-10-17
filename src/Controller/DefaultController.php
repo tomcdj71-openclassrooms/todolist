@@ -10,7 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * This class represents the default controller for the application.
+ * @category Controller
  */
+#[Route('/')]
 final class DefaultController extends AbstractController
 {
     /**
@@ -19,7 +21,7 @@ final class DefaultController extends AbstractController
      *
      * @return Response a Response object that renders the default index view
      */
-    #[Route('/', name: 'homepage')]
+    #[Route('', name: 'homepage')]
     public function indexAction(): Response
     {
         return $this->render('default/index.html.twig');
