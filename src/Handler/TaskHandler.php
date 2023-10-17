@@ -59,7 +59,10 @@ final class TaskHandler implements TaskHandlerInterface
     private function addTaskStatusFlash(Task $task): string
     {
         $status = true === $task->isDone() ? 'terminée' : 'non-terminée';
-
-        return sprintf('La tâche %s a bien été marquée comme %s.', $task->getTitle(), $status);
+        return sprintf(
+            'La tâche %s a bien été marquée comme %s.',
+            $task->getTitle(),
+            $status
+        );
     }
 }

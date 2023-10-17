@@ -10,7 +10,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class UserHandler implements UserHandlerInterface
 {
-    public const NO_ROLE_ATTRIBUTED = 'Aucun rôle n\'a été attribué à l\'utilisateur.';
+    public const NO_ROLE_ATTRIBUTED = "Aucun rôle n'a été attribué à l'utilisateur.";
 
     public function __construct(
         private UserPasswordHasherInterface $userPasswordHasher,
@@ -28,8 +28,8 @@ final class UserHandler implements UserHandlerInterface
         if ([] === $user->getRoles()) {
             throw new \InvalidArgumentException(self::NO_ROLE_ATTRIBUTED);
         }
-
-        $hashedPassword = $this->userPasswordHasher->hashPassword($user, $plaintextPassword);
+        $hasher = $this->userPasswordHasher;
+        $hashedPassword = $hasher->hashPassword($user, $plaintextPassword);
         $user->setPassword($hashedPassword);
         $this->userRepository->save($user);
     }

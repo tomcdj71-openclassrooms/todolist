@@ -65,7 +65,10 @@ final class UserType extends AbstractType
             'roles',
             ChoiceType::class,
             [
-                'choices' => ['Utilisateur' => 'ROLE_USER', 'Administrateur' => 'ROLE_ADMIN'],
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Administrateur' => 'ROLE_ADMIN',
+                ],
                 'label' => 'Choisissez un rôle',
                 'required' => true,
                 'multiple' => false,
@@ -91,7 +94,8 @@ final class UserType extends AbstractType
             ->addModelTransformer(
                 new CallbackTransformer(
                     static function ($rolesArray) {
-                        // Check if $rolesArray is null or not an array and transform to string
+                        // Check if $rolesArray is null or not an array
+                        // transforms $rolesArray to string
                         return null !== $rolesArray && is_array($rolesArray)
                             ?
                             ([] !== $rolesArray ? $rolesArray[0] : null)

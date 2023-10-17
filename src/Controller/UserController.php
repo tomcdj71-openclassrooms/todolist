@@ -72,11 +72,6 @@ final class UserController extends AbstractController
         '/{id}/edit',
         name: 'edit'
     )]
-    #[IsGranted(
-        TaskVoter::OWNER,
-        message: 'Vous devez être connecté pour accéder à cette page.',
-        statusCode: 404
-    )]
     public function editAction(User $user, Request $request): Response
     {
         $form = $this->createForm(UserType::class, $user);
