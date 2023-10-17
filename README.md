@@ -23,9 +23,8 @@
 |  | |
 |---|---|
 | **CI/CD** | [![Build and Test](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/tomcdj71-openclassrooms/todolist/actions/workflows/build_and_test.yaml)  |
-| **Analysis** | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d5382685ac5c43fca6d95b2ab27a2615)](https://app.codacy.com/gh/tomcdj71-openclassrooms/todolist/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) |
+| **Analysis** | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1d40d9a0604b4603a98d8b80e20ec9bd)](https://app.codacy.com/gh/tomcdj71-openclassrooms/todolist/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) |
 | **Community** | [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/tomcdj71-openclassrooms/todolist/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)  |
-| **License** | [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) |
 | **Mainteners** | [![coded with love by tomcdj71](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-tomcdj71-ff1414.svg?style=flat-square)](https://github.com/tomcdj71) |
 | **Open&#160;Source** | [![BSD 3-clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/tomcdj71-openclassrooms/todolist/blob/main/LICENSE) |
 | **Tools** | [![better commits is enabled](https://img.shields.io/badge/better--commits-enabled?style=for-the-badge&logo=git&color=a6e3a1&logoColor=D9E0EE&labelColor=302D41)](https://github.com/Everduin94/better-commits) |
@@ -59,7 +58,7 @@
 > TodoList is my 8th project of my OpenClassrooms courses for being an Application Developer (PHP/Symfony).
 > The goal is to update a legacy PoC app and prepare it for the future !
 > The app is a simple To-Do list app made with Symfony 6, that can be tested via PHPunit.
-> You can see more about this project by clicking in the [docs](./docs/todoco_intro.pdf).
+> You can see more about this project by clicking in the [docs](./docs/todoco.pdf).
 
 
 <details>
@@ -170,7 +169,7 @@ cd todolist
 # php bin/console can be replaced by symfony console
 composer install --no-dev --optimize-autoloader
 php bin/console d:d:c
-php bin/console d:s:u --force --complete
+echo "yes" | php bin/console d:m:m
 php bin/console d:f:l
 
 # start the server
@@ -222,7 +221,7 @@ Together, we can make TodoList **better**!
 First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
 
-Please read [our contribution guidelines](./docs/CONTRIBUTING.md), and thank you for being involved!
+Please read [our contribution guidelines](CONTRIBUTING.md), and thank you for being involved!
 
 ## Authors & contributors
 
@@ -233,10 +232,5 @@ Please read [our contribution guidelines](./docs/CONTRIBUTING.md), and thank you
 
 > [!WARNING]  
 > TodoList follows good practices of security, but 100% security cannot be assured.
-> _For more information and to report security issues, please refer to our_ [security documentation](docs/SECURITY.md).
+> _For more information and to report security issues, please refer to our_ [security documentation](SECURITY.md).
 
-## License
-
-This project is licensed under the **BSD license**.
-
-See [LICENSE](LICENSE) for more information.
