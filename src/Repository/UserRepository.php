@@ -76,6 +76,13 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
         $this->save($passwordAuthenticatedUser);
     }
 
+    /**
+     * Finds a user by a specific role.
+     *
+     * @param string $role the role to search for
+     *
+     * @return User|null returns a User object or null if no user was found
+     */
     public function findOneByRoles(string $role): ?User
     {
         return $this->findOneBy(['roles' => $role]);

@@ -98,7 +98,7 @@ final class RegistrationTest extends WebTestCase
     /**
      * @dataProvider provideInvalidFormData
      *
-     * @param array<string, mixed> $formData
+     * @param array<string, mixed> $formData the form data to submit
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {

@@ -77,9 +77,12 @@ final class TaskHandler implements TaskHandlerInterface
     {
         $tasks = $this->taskRepository->findAll();
 
-        return array_filter($tasks, function (Task $task) {
-            return $this->security->isGranted(TaskVoter::OWNER, $task);
-        });
+        return array_filter(
+            $tasks,
+            function (Task $task) {
+                return $this->security->isGranted(TaskVoter::OWNER, $task);
+            }
+        );
     }
 
     /**

@@ -16,7 +16,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 /**
  * This class represents the controller for tasks.
- * 
+ *
  * @category Controller
  */
 #[Route('/tasks', name: 'task_')]

@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * This class represents the test case for the List functionality.
+ */
 final class ListTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -57,7 +60,7 @@ final class ListTest extends WebTestCase
     }
 
     /**
-     * login and return client.
+     * Login and return client.
      *
      * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */

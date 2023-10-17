@@ -12,6 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * This class represents the test case for the Delete functionality.
+ */
 final class DeleteTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -164,7 +167,7 @@ final class DeleteTest extends WebTestCase
     }
 
     /**
-     * login and return client.
+     * Login and return client.
      *
      * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */
@@ -174,7 +177,9 @@ final class DeleteTest extends WebTestCase
         /** @var EntityManagerInterface $entityManager */
         $entityManager = $kernelBrowser->getContainer()->get(EntityManagerInterface::class);
         /** @var User|null $user */
-        $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+        $user = $entityManager->getRepository(User::class)->findOneBy(
+            ['email' => $email]
+        );
         if ($user instanceof User) {
             $kernelBrowser->loginUser($user);
         }

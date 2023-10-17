@@ -21,7 +21,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 )]
 /**
  * This class represents the controller for user-related actions.
- * 
+ *
  * @category Controller
  */
 final class UserController extends AbstractController

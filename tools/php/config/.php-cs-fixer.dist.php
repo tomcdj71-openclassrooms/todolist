@@ -4,6 +4,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('var')
     ->exclude('vendor')
     ->exclude('tools')
+    ->exclude('public')
     ->in(dirname(__DIR__, 3))
 ;
 

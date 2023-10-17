@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * This class represents the default controller for the application.
+ *
  * @category Controller
  */
 #[Route('/')]

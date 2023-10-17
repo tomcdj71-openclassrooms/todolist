@@ -49,7 +49,8 @@ final class UpdateTest extends WebTestCase
 
     /**
      * Unauthenticated users should be redirected to the login page
-     * Users that don't have access to this task should be redirected to the login page.
+     * Users that don't have access to this task should be redirected
+     * To the login page.
      *
      * @param array<string, mixed> $formData
      *
