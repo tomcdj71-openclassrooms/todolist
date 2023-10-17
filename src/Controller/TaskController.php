@@ -14,10 +14,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route(
-    '/tasks',
-    name: 'task_',
-)]
+/**
+ * This class represents the controller for tasks.
+ *
+ * @category Controller
+ */
+#[Route('/tasks', name: 'task_')]
 final class TaskController extends AbstractController
 {
     public function __construct(
@@ -25,10 +27,10 @@ final class TaskController extends AbstractController
     ) {
     }
 
-    #[Route(
-        '',
-        name: 'list'
-    )]
+    /**
+     * Lists all tasks for the current user.
+     */
+    #[Route('', name: 'list')]
     public function listAction(): Response
     {
         $tasks = $this->taskHandler->getTasksForCurrentUser();
@@ -39,10 +41,14 @@ final class TaskController extends AbstractController
         );
     }
 
-    #[Route(
-        '/create',
-        name: 'create',
-    )]
+    /**
+     * Creates a new task.
+     *
+     * @param Request $request the HTTP request
+     *
+     * @return Response the HTTP response
+     */
+    #[Route('/create', name: 'create')]
     public function createAction(Request $request): Response
     {
         $task = new Task();
@@ -64,15 +70,16 @@ final class TaskController extends AbstractController
         );
     }
 
-    #[Route(
-        '/{id}/edit',
-        name: 'edit',
-        methods: ['GET', 'POST']
-    )]
-    #[IsGranted(
-        TaskVoter::OWNER,
-        subject: 'task'
-    )]
+    /**
+     * Edit a task.
+     *
+     * @param Task    $task    the task to edit
+     * @param Request $request the request object
+     *
+     * @return Response the response object
+     */
+    #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
+    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
     public function editAction(Task $task, Request $request): Response
     {
         $form = $this->createForm(TaskType::class, $task);
@@ -91,15 +98,15 @@ final class TaskController extends AbstractController
         );
     }
 
-    #[Route(
-        '/{id}/toggle',
-        name: 'toggle',
-        methods: ['POST']
-    )]
-    #[IsGranted(
-        TaskVoter::OWNER,
-        subject: 'task'
-    )]
+    /**
+     * Toggles the status of a task and redirects to the task list page.
+     *
+     * @param Task $task the task to toggle
+     *
+     * @return Response the response object
+     */
+    #[Route('/{id}/toggle', name: 'toggle', methods: ['POST'])]
+    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
     public function toggleTaskAction(Task $task): Response
     {
         $flashMessage = $this->taskHandler->toggleTask($task);
@@ -108,15 +115,17 @@ final class TaskController extends AbstractController
         return $this->redirectToRoute('task_list');
     }
 
-    #[Route(
-        '/{id}/delete',
-        name: 'delete',
-        methods: ['POST', 'DELETE']
-    )]
-    #[IsGranted(
-        TaskVoter::OWNER,
-        subject: 'task'
-    )]
+    /**
+     * Deletes a task.
+     *
+     * @param Task $task the task to delete
+     *
+     * @return Response the response instance
+     *
+     * @throws Exception if an error occurs while deleting the task
+     */
+    #[Route('/{id}/delete', name: 'delete', methods: ['POST', 'DELETE'])]
+    #[IsGranted(TaskVoter::OWNER, subject: 'task')]
     public function deleteTaskAction(Task $task): Response
     {
         $this->taskHandler->deleteTask($task);

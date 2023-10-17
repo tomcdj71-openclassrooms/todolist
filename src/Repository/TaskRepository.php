@@ -15,7 +15,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Task|null   find($id, $lockMode = null, $lockVersion = null)
  * @method Task|null   findOneBy(array $criteria, array $orderBy = null)
  * @method array<Task> findAll()
- * @method array<Task> findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method array<Task> findBy(
+ *                            array $criteria,
+ *                            array $orderBy = null,
+ *                            $limit = null,
+ *                            $offset = null)
  */
 final class TaskRepository extends ServiceEntityRepository
 {
@@ -27,12 +31,22 @@ final class TaskRepository extends ServiceEntityRepository
         $this->entityManager = $this->getEntityManager();
     }
 
+    /**
+     * Saves a task to the database.
+     *
+     * @param Task $Task the task to be saved
+     */
     public function save(Task $Task): void
     {
         $this->entityManager->persist($Task);
         $this->entityManager->flush();
     }
 
+    /**
+     * Removes a task from the database.
+     *
+     * @param Task $Task the task to remove
+     */
     public function remove(Task $Task): void
     {
         $this->entityManager->remove($Task);

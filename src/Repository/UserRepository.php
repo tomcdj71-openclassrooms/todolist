@@ -18,7 +18,11 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @method User|null   find($id, $lockMode = null, $lockVersion = null)
  * @method User|null   findOneBy(array $criteria, array $orderBy = null)
  * @method array<User> findAll()
- * @method array<User> findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method array<User> findBy(
+ *                              array $criteria,
+ *                              array $orderBy = null,
+ *                              $limit = null,
+ *                              $offset = null)
  */
 final class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
@@ -30,12 +34,22 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
         $this->entityManager = $this->getEntityManager();
     }
 
+    /**
+     * Saves a user to the database.
+     *
+     * @param User $user the user to save
+     */
     public function save(User $user): void
     {
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
 
+    /**
+     * Removes a user from the database.
+     *
+     * @param User $user the user to remove
+     */
     public function remove(User $user): void
     {
         $this->entityManager->remove($user);
@@ -62,6 +76,13 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
         $this->save($passwordAuthenticatedUser);
     }
 
+    /**
+     * Finds a user by a specific role.
+     *
+     * @param string $role the role to search for
+     *
+     * @return User|null returns a User object or null if no user was found
+     */
     public function findOneByRoles(string $role): ?User
     {
         return $this->findOneBy(['roles' => $role]);

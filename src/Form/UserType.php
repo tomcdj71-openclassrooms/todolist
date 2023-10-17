@@ -33,6 +33,11 @@ final class UserType extends AbstractType
         $this->addEmailField($formBuilder);
     }
 
+    /**
+     * Adds a username field to the form builder.
+     *
+     * @param FormBuilderInterface the form builder to add the field to
+     */
     private function addUsernameField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -44,6 +49,11 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a password field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder instance
+     */
     private function addPasswordField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -59,13 +69,21 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a roles field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder
+     */
     private function addRolesField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
             'roles',
             ChoiceType::class,
             [
-                'choices' => ['Utilisateur' => 'ROLE_USER', 'Administrateur' => 'ROLE_ADMIN'],
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Administrateur' => 'ROLE_ADMIN',
+                ],
                 'label' => 'Choisissez un rôle',
                 'required' => true,
                 'multiple' => false,
@@ -74,6 +92,11 @@ final class UserType extends AbstractType
         $this->addRolesTransformer($formBuilder);
     }
 
+    /**
+     * Adds an email field to the form builder.
+     *
+     * @param FormBuilderInterface $formBuilder the form builder
+     */
     private function addEmailField(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->add(
@@ -85,13 +108,21 @@ final class UserType extends AbstractType
         );
     }
 
+    /**
+     * Adds a model transformer to the 'roles' field of the form builder.
+     * The transformer converts the roles array to a string.
+     * (2 way transformation).
+     *
+     * @param FormBuilderInterface $formBuilder the form builder instance
+     */
     private function addRolesTransformer(FormBuilderInterface $formBuilder): void
     {
         $formBuilder->get('roles')
             ->addModelTransformer(
                 new CallbackTransformer(
                     static function ($rolesArray) {
-                        // Check if $rolesArray is null or not an array and transform to string
+                        // Check if $rolesArray is null or not an array
+                        // transforms $rolesArray to string
                         return null !== $rolesArray && is_array($rolesArray)
                             ?
                             ([] !== $rolesArray ? $rolesArray[0] : null)

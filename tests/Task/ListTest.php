@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * This class represents the test case for the List functionality.
+ */
 final class ListTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -21,6 +24,9 @@ final class ListTest extends WebTestCase
 
     public const TEST_USER_EMAIL = 'alice@gmail.com';
 
+    /**
+     * Test the list task page.
+     */
     public function testShouldListTasks(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -35,6 +41,9 @@ final class ListTest extends WebTestCase
         );
     }
 
+    /**
+     * Unauthenticated users should be redirected to the login page.
+     */
     public function testShouldRaiseHttpAccessDeniedAndRedirectToLogin(): void
     {
         $client = self::createClient();
@@ -51,7 +60,7 @@ final class ListTest extends WebTestCase
     }
 
     /**
-     * login and return client.
+     * Login and return client.
      *
      * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */

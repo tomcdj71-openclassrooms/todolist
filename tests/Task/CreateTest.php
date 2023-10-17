@@ -11,6 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * This class represents the test case for the Create functionality.
+ */
 final class CreateTest extends WebTestCase
 {
     use WebTestCaseHelperTrait;
@@ -23,6 +26,10 @@ final class CreateTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Ajouter';
 
+    /**
+     * Test the create task page.
+     * The user should be redirected to the newly created task page.
+     */
     public function testShouldCreateTaskAndRedirectToShowPage(): void
     {
         $kernelBrowser = $this->setUpClientAndLogin();
@@ -48,6 +55,9 @@ final class CreateTest extends WebTestCase
         );
     }
 
+    /**
+     * Unauthenticated users should be redirected to the login page.
+     */
     public function testShouldRaiseHttpAccessDeniedAndRedirectToLogin(): void
     {
         $client = self::createClient();
@@ -86,6 +96,8 @@ final class CreateTest extends WebTestCase
     }
 
     /**
+     * Provides invalid form data for the CreateTest class.
+     *
      * @return array<string, array{array<string, string>}>
      */
     public static function provideInvalidFormData(): array
@@ -107,7 +119,7 @@ final class CreateTest extends WebTestCase
     }
 
     /**
-     * login and return client.
+     * Login and return client.
      *
      * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
      */

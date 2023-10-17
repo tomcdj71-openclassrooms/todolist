@@ -48,10 +48,15 @@ final class TaskType extends AbstractType
         ;
     }
 
+    /**
+     * Configure the options for the TaskType form.
+     *
+     * @param OptionsResolver $optionsResolver The options resolver
+     */
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
-        $optionsResolver->setDefaults([
-            'data_class' => Task::class,
-        ]);
+        $optionsResolver->setDefaults(
+            ['data_class' => Task::class]
+        );
     }
 }

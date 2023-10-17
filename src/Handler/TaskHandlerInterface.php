@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Handler;
 
 use App\Entity\Task;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Interface TaskHandlerInterface.
@@ -17,9 +18,11 @@ interface TaskHandlerInterface
     /**
      * Save a task entity.
      *
-     * @param Task $task the task entity to save
+     * @param Task               $task the task entity to save
+     * @param UserInterface|null $user
+     *                                 the user to associate with the task
      */
-    public function saveTask(Task $task): void;
+    public function saveTask(Task $task, ?UserInterface $user = null): void;
 
     /**
      * Toggle the status of a task.

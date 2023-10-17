@@ -11,6 +11,9 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Represents a user entity.
+ */
 #[ORM\Entity]
 #[ORM\Table(name: 'user')]
 #[UniqueEntity(
@@ -80,11 +83,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Returns the user's ID.
+     *
+     * @return int|null the user's ID
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * Returns the user's username.
+     *
+     * @return string the user's username
+     *
+     * @throws \LogicException if the username has not been set
+     */
     public function getUsername(): string
     {
         assert(
@@ -98,6 +113,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Sets the user's username.
+     *
+     * @param string $username the user's username
+     *
      * @return $this
      */
     public function setUsername(string $username): self
@@ -108,7 +127,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @see PasswordAuthenticatedUserInterface
+     * Returns the user's password.
+     *
+     * @return string the user's password
+     *
+     * @throws \LogicException if the password has not been set
      */
     public function getPassword(): string
     {
@@ -123,6 +146,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Sets the user's password.
+     *
+     * @param string $password the user's password
+     *
      * @return $this
      */
     public function setPassword(string $password): self
@@ -133,7 +160,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @see UserInterface
+     * Clears any sensitive data from the user object.
      */
     public function eraseCredentials(): void
     {
@@ -143,6 +170,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
+    /**
+     * Returns the user's email address.
+     *
+     * @return string the user's email address
+     *
+     * @throws \LogicException if the email address has not been set
+     */
     public function getEmail(): string
     {
         assert(
@@ -155,6 +189,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
+    /**
+     * Sets the user's email address.
+     *
+     * @param string $email the user's email address
+     */
     public function setEmail(string $email): void
     {
         $this->email = $email;
