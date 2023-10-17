@@ -6,8 +6,11 @@ return [
     'preset' => 'symfony',
     'ide' => 'vscode',
     'exclude' => [
-        dirname(__DIR__, 2).'/vendor',
-        dirname(__DIR__, 2).'/tools',
+        'vendor/',
+        'tools/',
+        'var/',
+        'migrations/',
+        'phpinsights.php',
     ],
 
     'add' => [
@@ -28,6 +31,7 @@ return [
         \SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
             'exclude' => [
                 'src/Security',
+                'migrations/',
             ],
         ],
         \SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class => [
@@ -36,7 +40,7 @@ return [
             ],
         ],
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
-            'lineLimit' => 120,
+            'lineLimit' => 85,
             'absoluteLineLimit' => 160,
             'ignoreComments' => false,
         ],

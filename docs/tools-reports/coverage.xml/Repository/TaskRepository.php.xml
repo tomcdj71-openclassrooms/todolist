@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="TaskRepository.php" path="/Repository">
+    <totals>
+      <lines total="42" comments="8" code="34" executable="6" executed="6" percent="100.00"/>
+      <methods count="3" tested="3" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="App\Repository\TaskRepository" start="20" executable="6" executed="6" crap="3">
+      <namespace name="App\Repository"/>
+      <method name="__construct" signature="__construct(Doctrine\Persistence\ManagerRegistry $managerRegistry)" start="24" end="28" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="save" signature="save(App\Entity\Task $Task): void" start="30" end="34" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="remove" signature="remove(App\Entity\Task $Task): void" start="36" end="40" crap="1" executable="2" executed="2" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="26">
+        <covered by="App\Tests\Task\CreateTest::testShouldCreateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\CreateTest::testShouldRaiseFormErrors#blank title"/>
+        <covered by="App\Tests\Task\CreateTest::testShouldRaiseFormErrors#blank content"/>
+        <covered by="App\Tests\Task\DeleteTest::testShouldDeleteTaskAndRedirectToListPage"/>
+        <covered by="App\Tests\Task\DeleteTest::testShouldRaiseHttpAccessDenied"/>
+        <covered by="App\Tests\Task\DeleteTest::testAdminCanDeleteOtherUserTask"/>
+        <covered by="App\Tests\Task\ListTest::testShouldListTasks"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldToogleTask"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldRaiseHttpAccessDenied"/>
+        <covered by="App\Tests\Task\ToggleTest::testAdminCanToggleOtherUserTask"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldUpdateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldRaiseFormErrors#blank title"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldRaiseFormErrors#blank content"/>
+      </line>
+      <line nr="27">
+        <covered by="App\Tests\Task\CreateTest::testShouldCreateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\CreateTest::testShouldRaiseFormErrors#blank title"/>
+        <covered by="App\Tests\Task\CreateTest::testShouldRaiseFormErrors#blank content"/>
+        <covered by="App\Tests\Task\DeleteTest::testShouldDeleteTaskAndRedirectToListPage"/>
+        <covered by="App\Tests\Task\DeleteTest::testShouldRaiseHttpAccessDenied"/>
+        <covered by="App\Tests\Task\DeleteTest::testAdminCanDeleteOtherUserTask"/>
+        <covered by="App\Tests\Task\ListTest::testShouldListTasks"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldToogleTask"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldRaiseHttpAccessDenied"/>
+        <covered by="App\Tests\Task\ToggleTest::testAdminCanToggleOtherUserTask"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldUpdateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldRaiseFormErrors#blank title"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldRaiseFormErrors#blank content"/>
+      </line>
+      <line nr="32">
+        <covered by="App\Tests\Task\CreateTest::testShouldCreateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldToogleTask"/>
+        <covered by="App\Tests\Task\ToggleTest::testAdminCanToggleOtherUserTask"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldUpdateTaskAndRedirectToShowPage"/>
+      </line>
+      <line nr="33">
+        <covered by="App\Tests\Task\CreateTest::testShouldCreateTaskAndRedirectToShowPage"/>
+        <covered by="App\Tests\Task\ToggleTest::testShouldToogleTask"/>
+        <covered by="App\Tests\Task\ToggleTest::testAdminCanToggleOtherUserTask"/>
+        <covered by="App\Tests\Task\UpdateTest::testShouldUpdateTaskAndRedirectToShowPage"/>
+      </line>
+      <line nr="38">
+        <covered by="App\Tests\Task\DeleteTest::testShouldDeleteTaskAndRedirectToListPage"/>
+        <covered by="App\Tests\Task\DeleteTest::testAdminCanDeleteOtherUserTask"/>
+      </line>
+      <line nr="39">
+        <covered by="App\Tests\Task\DeleteTest::testShouldDeleteTaskAndRedirectToListPage"/>
+        <covered by="App\Tests\Task\DeleteTest::testAdminCanDeleteOtherUserTask"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_DECLARE">declare</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strict_types</token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Repository</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6"/>
+      <line no="7">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">App\Entity\Task</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="8">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="9">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Doctrine\ORM\EntityManagerInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="10">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Doctrine\Persistence\ManagerRegistry</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="11"/>
+      <line no="12">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="13">
+        <token name="T_DOC_COMMENT"> * @extends ServiceEntityRepository&lt;Task&gt;</token>
+      </line>
+      <line no="14">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> * @method Task|null   find($id, $lockMode = null, $lockVersion = null)</token>
+      </line>
+      <line no="16">
+        <token name="T_DOC_COMMENT"> * @method Task|null   findOneBy(array $criteria, array $orderBy = null)</token>
+      </line>
+      <line no="17">
+        <token name="T_DOC_COMMENT"> * @method array&lt;Task&gt; findAll()</token>
+      </line>
+      <line no="18">
+        <token name="T_DOC_COMMENT"> * @method array&lt;Task&gt; findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)</token>
+      </line>
+      <line no="19">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="20">
+        <token name="T_FINAL">final</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">TaskRepository</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXTENDS">extends</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ServiceEntityRepository</token>
+      </line>
+      <line no="21">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="22">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">EntityManagerInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$entityManager</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="23"/>
+      <line no="24">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">ManagerRegistry</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$managerRegistry</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="25">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="26">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">parent</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$managerRegistry</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Task</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_CLASS">class</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="27">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">entityManager</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getEntityManager</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="28">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="29"/>
+      <line no="30">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">save</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Task</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$Task</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="31">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="32">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">entityManager</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">persist</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$Task</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="33">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">entityManager</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">flush</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="34">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="35"/>
+      <line no="36">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">remove</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Task</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$Task</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="37">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="38">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">entityManager</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">remove</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$Task</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="39">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">entityManager</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">flush</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="40">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="41">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="42"/>
+    </source>
+  </file>
+</phpunit>
