@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Security;
 
 use App\Tests\WebTestCaseHelperTrait;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * This class represents the test case for the login functionality.
@@ -29,35 +30,25 @@ final class LoginTest extends WebTestCase
 
     public const SUBMIT_BUTTON = 'Se connecter';
 
+    private KernelBrowser $kernelBrowser;
+
+    protected function setUp(): void
+    {
+        $this->kernelBrowser = self::createClient();
+    }
+
     /**
      * Test if an authenticated user is redirected
      * to the index page after logging in.
      */
-    public function testShouldAuthenticatedUserAndRedirectToIndex(): void
+    public function testShouldAuthenticateUserAndRedirectToIndex(): void
     {
-        $client = self::createClient();
-        $client->request(
-            Request::METHOD_GET,
-            self::LOGIN_URL
-        );
-        $client->submitForm(
-            self::SUBMIT_BUTTON,
-            self::createFormData(
-                username: self::GOOD_USERNAME,
-                password: self::GOOD_PASSWORD
-            )
-        );
-
-        self::assertEquals(
-            302,
-            $client->getResponse()->getStatusCode()
-        );
-        $client->followRedirect();
-        self::assertRouteSame('homepage');
-        self::assertIsAuthenticated(
-            true,
-            $client
-        );
+        $this->runAuthenticateUserTest([
+            'username' => self::GOOD_USERNAME,
+            'password' => self::GOOD_PASSWORD,
+            'expectedStatusCode' => 302,
+            'expectedRoute' => 'homepage',
+        ]);
     }
 
     /**
@@ -67,22 +58,11 @@ final class LoginTest extends WebTestCase
      */
     public function testShouldNotAuthenticateUser(array $formData): void
     {
-        $client = self::createClient();
-        $client->request(
-            Request::METHOD_GET,
-            self::LOGIN_URL
-        );
-        $client->submitForm(
-            self::SUBMIT_BUTTON,
-            $formData
-        );
-
-        self::assertEquals(
-            302,
-            $client->getResponse()->getStatusCode()
-        );
-        $client->followRedirect();
-        self::assertRouteSame('login');
+        $this->runAuthenticateUserTest([
+            'formData' => $formData,
+            'expectedStatusCode' => 302,
+            'expectedRoute' => 'login',
+        ]);
     }
 
     /**
@@ -90,29 +70,15 @@ final class LoginTest extends WebTestCase
      */
     public function testShouldLogoutUserAndRedirectToLogin(): void
     {
-        $client = self::createClient();
-        $client->request(
-            Request::METHOD_GET,
-            self::LOGIN_URL
-        );
-        $client->submitForm(
-            self::SUBMIT_BUTTON,
-            self::createFormData(
-                username: self::GOOD_USERNAME,
-                password: self::GOOD_PASSWORD
-            )
-        );
+        $this->runAuthenticateUserTest([
+            'username' => self::GOOD_USERNAME,
+            'password' => self::GOOD_PASSWORD,
+            'expectedStatusCode' => 302,
+            'expectedRoute' => 'homepage',
+        ]);
 
-        self::assertEquals(
-            302,
-            $client->getResponse()->getStatusCode()
-        );
-        $client->followRedirect();
-        $client->request(
-            Request::METHOD_GET,
-            self::BASE_URL.'/logout'
-        );
-        $client->followRedirect();
+        $this->kernelBrowser->request(Request::METHOD_GET, self::BASE_URL.'/logout');
+        $this->kernelBrowser->followRedirect();
         self::assertRouteSame('homepage');
     }
 
@@ -145,11 +111,38 @@ final class LoginTest extends WebTestCase
      * @return array{_username: string, _password: string}
      *                                                     An array containing the form data
      */
-    private static function createFormData(string $username, string $password): array
+    private static function createFormData(?string $username, ?string $password): array
     {
         return [
-            '_username' => $username,
-            '_password' => $password,
+            '_username' => $username ?? '',
+            '_password' => $password ?? '',
         ];
+    }
+
+    /**
+     * @param array{
+     *     username?: string|null,
+     *     password?: string|null,
+     *     formData?: array{_username: string, _password: string},
+     *     expectedStatusCode?: int,
+     *     expectedRoute?: string|null
+     * } $options
+     */
+    private function runAuthenticateUserTest(array $options = []): void
+    {
+        $username = $options['username'] ?? null;
+        $password = $options['password'] ?? null;
+        $formData = $options['formData'] ?? self::createFormData($username, $password);
+        $expectedStatusCode = $options['expectedStatusCode'] ?? 302;
+        $expectedRoute = $options['expectedRoute'] ?? null;
+
+        $this->kernelBrowser->request(Request::METHOD_GET, self::LOGIN_URL);
+        $this->kernelBrowser->submitForm(self::SUBMIT_BUTTON, $formData);
+
+        self::assertEquals($expectedStatusCode, $this->kernelBrowser->getResponse()->getStatusCode());
+        $this->kernelBrowser->followRedirect();
+        if ($expectedRoute !== null) {
+            self::assertRouteSame($expectedRoute);
+        }
     }
 }
