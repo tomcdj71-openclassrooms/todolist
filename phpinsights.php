@@ -55,6 +55,11 @@ return [
                 'src/Entity',
             ],
         ],
+        \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
+            'lineLimit' => 85,
+            'absoluteLineLimit' => 160,
+            'ignoreComments' => true,
+        ],
     ],
 
     'requirements' => [
