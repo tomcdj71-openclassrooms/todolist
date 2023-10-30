@@ -1,10 +1,10 @@
 
 
 
-[2023-10-30 11:45:31] `/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todooooo`
+[2023-10-30 12:27:35] `/home/thomas/Dev/SelfHosted-GitLab/Organizations/Formations/OpenClassrooms/php_sf/Projets/todooooo`
 
                                                                                                               
-                100 %                   91.1%                   100 %                   98.8%                 
+                99.0%                   91.1%                   100 %                   98.8%                 
                                                                                                               
                                                                                                               
                  Code                 Complexity             Architecture               Style                 
@@ -12,10 +12,10 @@
 
 Score scale: ◼ 1-49 ◼ 50-79 ◼ 80-100
 
-[CODE] 100 pts within 782 lines
+[CODE] 99 pts within 784 lines
 
 Comments ...................................................... 63.0 %
-Classes ....................................................... 22.1 %
+Classes ....................................................... 22.2 %
 Functions ...................................................... 0.0 %
 Globally ...................................................... 14.8 %
 
@@ -29,6 +29,9 @@ Globally ....................................................... 0.0 %
 Traits ......................................................... 0.0 %
 
 [MISC] 98.8 pts on coding style and 0 security issues encountered
+
+• [Code] Disallow mixed type hint: (SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff)
+  src/Handler/UserHandlerInterface.php:21: Usage of "mixed" type hint is disallowed.
 
 • [Style] Line length: (PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff)
   src/Controller/SecurityController.php:32: Line exceeds 85 characters; contains 86 characters

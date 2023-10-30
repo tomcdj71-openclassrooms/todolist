@@ -2,18 +2,18 @@
 
 |   Code  | Complexity |  Architecture  | Style  |
 |:-------:|:----------:|:--------------:|:------:|
-|  100.0% |  91.1%     | 100%           |  98.8% |
+|  99.0% |  91.1%     | 100%           |  98.8% |
 
 ---
 
 ### Détails par Catégorie
 
-#### [CODE] 100 pts within 780 lines
+#### [CODE] 99 pts within 780 lines
 
 |    Sous-Catégorie    | Pourcentage |
 |:---------------------|------------:|
 |      Comments        |     63.0%   |
-|      Classes         |     22.1%   |
+|      Classes         |     22.2%   |
 |     Functions        |      0.0%   |
 |      Globally        |     14.8%   |
 
@@ -29,3 +29,8 @@
 |       Traits        |      0.0%   |
 
 #### [MISC] 98.8 pts on coding style and 0 security issues encountered
+
+|Type|File|Line|Error|Rule|
+|-----|-----|-----|-----|
+| Code | src/Handler/UserHandlerInterface.php | 21 | Usage of "mixed" type hint is disallowed. |Disallow mixed type hint (SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff)|
+| Style | src/Controller/SecurityController.php | 32 | Line exceeds 85 characters; contains 86 characters. |Line length (PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff)|
