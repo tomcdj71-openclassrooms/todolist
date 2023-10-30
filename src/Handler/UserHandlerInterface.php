@@ -18,12 +18,12 @@ interface UserHandlerInterface
      * Manage a user entity, including password hashing.
      *
      * @param User   $user              the user entity to manage
-     * @param string $plaintextPassword the plaintext password to hash and set
+     * @param mixed $plaintextPassword the plaintext password to hash and set
      *
      * @throws \InvalidArgumentException if the password is not a string
      * @throws \InvalidArgumentException if no role is attributed to the user
      */
-    public function manageUser(User $user, string $plaintextPassword): void;
+    public function manageUser(User $user, mixed $plaintextPassword): void;
 
     /**
      * Delete a user entity.

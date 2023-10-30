@@ -4,10 +4,11 @@
 |---------------------------|------------------------------------------------------------------------------------|
 | **Runtime**               | PHP 8.2.11                                                                        |
 | **Configuration**         | `../../phpunit.xml.dist` |
-| **Test Summary**          | 26 / 26 (100%)                                                                    |
-| **Time**                  | 00:11.764                                                                         |
-| **Memory**                | 50.50 MB                                                                          |
-| **Results**               | OK (26 tests, 74 assertions)                                                       |
+| **Test Summary**          | 38 / 38 (100%)                                                                    |
+| **Time**                  | 00:11.064                                                                         |
+| **Memory**                | 58.50 MB                                                                          |
+| **Results**               | OK (26 tests, 74 assertions)                                                      |
+| **Results**               | OK (38 tests, 254 assertions)                                                     |
 
 ---
 
