@@ -26,9 +26,8 @@ final class TaskHandler implements TaskHandlerInterface
     /**
      * Saves a task to the database.
      *
-     * @param Task the task to save
-     * @param UserInterface|null The user associated with the task, if any.
-     * If null, the current user will be used.
+     * @param Task               $task the task entity to save
+     * @param UserInterface|null $user the user to associate with the task
      */
     public function saveTask(Task $task, ?UserInterface $user = null): void
     {
@@ -79,7 +78,7 @@ final class TaskHandler implements TaskHandlerInterface
 
         return array_filter(
             $tasks,
-            function (Task $task) {
+            function (Task $task): bool {
                 return $this->security->isGranted(TaskVoter::OWNER, $task);
             }
         );

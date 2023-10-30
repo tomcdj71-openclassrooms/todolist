@@ -36,7 +36,7 @@ final class UserType extends AbstractType
     /**
      * Adds a username field to the form builder.
      *
-     * @param FormBuilderInterface the form builder to add the field to
+     * @param FormBuilderInterface $formBuilder the form builder to add the field to
      */
     private function addUsernameField(FormBuilderInterface $formBuilder): void
     {

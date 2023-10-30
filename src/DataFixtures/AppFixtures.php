@@ -13,6 +13,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 /**
  * This class is a fixture class
  * It is used to load initial data into the database.
+ *
+ * @codeCoverageIgnore
  */
 final class AppFixtures extends Fixture
 {
