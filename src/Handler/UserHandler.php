@@ -37,7 +37,7 @@ final class UserHandler implements UserHandlerInterface
     /**
      * Manage a user entity, including password hashing.
      */
-    public function manageUser(User $user, mixed $plaintextPassword): void
+    public function manageUser(User $user, string $plaintextPassword): void
     {
         if ([] === $user->getRoles()) {
             // @codeCoverageIgnoreStart
@@ -46,9 +46,8 @@ final class UserHandler implements UserHandlerInterface
         }
 
         $hasher = $this->userPasswordHasher;
-        /** @var string $password */
-        $password = $plaintextPassword;
-        $hashedPassword = $hasher->hashPassword($user, $password);
+
+        $hashedPassword = $hasher->hashPassword($user, $plaintextPassword);
         $user->setPassword($hashedPassword);
         $this->userRepository->save($user);
     }

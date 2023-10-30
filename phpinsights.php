@@ -40,11 +40,6 @@ return [
                 'src/Security/TaskVoter.php',
             ],
         ],
-        \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
-            'lineLimit' => 85,
-            'absoluteLineLimit' => 160,
-            'ignoreComments' => false,
-        ],
         \NunoMaduro\PhpInsights\Domain\Sniffs\ForbiddenSetterSniff::class => [
             'exclude' => [
                 'src/Entity',
@@ -56,7 +51,7 @@ return [
             ],
         ],
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
-            'lineLimit' => 85,
+            'lineLimit' => 120,
             'absoluteLineLimit' => 160,
             'ignoreComments' => true,
         ],
