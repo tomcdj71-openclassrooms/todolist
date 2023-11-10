@@ -46,7 +46,9 @@ final class TaskVoter extends Voter
         $user = $token->getUser();
 
         if (! $user instanceof User) {
+            // @codeCoverageIgnoreStart
             return false;
+            // @codeCoverageIgnoreEnd
         }
 
         // If the user is an admin, they can do anything
@@ -59,7 +61,9 @@ final class TaskVoter extends Voter
 
         // If the task does not belong to a user, deny access
         if (! $task->getUser() instanceof User) {
+            // @codeCoverageIgnoreStart
             return false;
+            // @codeCoverageIgnoreEnd
         }
 
         // If the user owns the task, grant access

@@ -16,8 +16,6 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 /**
  * This class represents the controller for tasks.
- *
- * @category Controller
  */
 #[Route('/tasks', name: 'task_')]
 final class TaskController extends AbstractController
@@ -121,8 +119,6 @@ final class TaskController extends AbstractController
      * @param Task $task the task to delete
      *
      * @return Response the response instance
-     *
-     * @throws Exception if an error occurs while deleting the task
      */
     #[Route('/{id}/delete', name: 'delete', methods: ['POST', 'DELETE'])]
     #[IsGranted(TaskVoter::OWNER, subject: 'task')]

@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Handler\UserHandler;
-use App\Security\TaskVoter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,17 +31,13 @@ final class UserController extends AbstractController
     ) {
     }
 
-    #[Route('/', name: 'list')]
-    #[IsGranted(
-        TaskVoter::OWNER,
-        message: 'Vous devez être connecté pour accéder à cette page.',
-        statusCode: 404
-    )]
     /**
      * Returns the list of users.
      *
      * @return Response the HTTP response
      */
+    #[Route('/', name: 'list')]
+    #[IsGranted('ROLE_ADMIN')]
     public function listAction(): Response
     {
         return $this->render(

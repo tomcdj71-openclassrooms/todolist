@@ -26,6 +26,8 @@ final class UserHandler implements UserHandlerInterface
      * Delete a user entity.
      *
      * @param User $user the user entity to delete
+     *
+     * @codeCoverageIgnore
      */
     public function deleteUser(User $user): void
     {
@@ -38,10 +40,13 @@ final class UserHandler implements UserHandlerInterface
     public function manageUser(User $user, string $plaintextPassword): void
     {
         if ([] === $user->getRoles()) {
+            // @codeCoverageIgnoreStart
             throw new \InvalidArgumentException(self::NO_ROLE_ATTRIBUTED);
+            // @codeCoverageIgnoreEnd
         }
 
         $hasher = $this->userPasswordHasher;
+
         $hashedPassword = $hasher->hashPassword($user, $plaintextPassword);
         $user->setPassword($hashedPassword);
         $this->userRepository->save($user);

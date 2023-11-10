@@ -19,8 +19,7 @@ interface TaskHandlerInterface
      * Save a task entity.
      *
      * @param Task               $task the task entity to save
-     * @param UserInterface|null $user
-     *                                 the user to associate with the task
+     * @param UserInterface|null $user the user to associate with the task
      */
     public function saveTask(Task $task, ?UserInterface $user = null): void;
 

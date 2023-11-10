@@ -52,16 +52,16 @@ trait WebTestCaseHelperTrait
         $profile = $kernelBrowser->getProfile();
 
         // Récupération du collecteur de données de sécurité
-        $collector = $profile->getCollector('security');
+        $dataCollector = $profile->getCollector('security');
 
         // Assertion que le collector est une instance de SecurityDataCollector
         self::assertInstanceOf(
             SecurityDataCollector::class,
-            $collector
+            $dataCollector
         );
 
         // Assertion que l'utilisateur est authentifié ou non
-        $isCollectorAuthenticated = $collector->isAuthenticated();
+        $isCollectorAuthenticated = $dataCollector->isAuthenticated();
         self::assertSame(
             $isAuthenticated,
             $isCollectorAuthenticated

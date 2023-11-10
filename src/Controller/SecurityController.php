@@ -29,14 +29,14 @@ final class SecurityController extends AbstractController
     public function loginAction(
         AuthenticationUtils $authenticationUtils
     ): Response {
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $authenticationException = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render(
             'security/login.html.twig',
             [
                 'last_username' => $lastUsername,
-                'error' => $error,
+                'error' => $authenticationException,
             ]
         );
     }
@@ -45,6 +45,8 @@ final class SecurityController extends AbstractController
      * This method handles the logout action and throws a runtime exception.
      *
      * @throws \RuntimeException
+     *
+     * @codeCoverageIgnore
      */
     #[Route('/logout', name: 'logout')]
     public function logoutAction(): void

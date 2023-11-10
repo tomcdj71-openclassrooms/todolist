@@ -45,24 +45,24 @@ final class RegistrationTest extends WebTestCase
      */
     public function testShouldRegisterUserAndRedirectToIndex(): void
     {
-        $client = self::createClient();
-        $client->request(
+        $kernelBrowser = self::createClient();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::REGISTER_URL
         );
 
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
             self::createFormData()
         );
 
         /** @var EntityManagerInterface $entityManager */
-        $entityManager = $client
+        $entityManager = $kernelBrowser
             ->getContainer()
             ->get(EntityManagerInterface::class);
 
         /** @var UserPasswordHasherInterface $passwordHasher */
-        $passwordHasher = $client
+        $passwordHasher = $kernelBrowser
             ->getContainer()
             ->get(UserPasswordHasherInterface::class);
 
@@ -102,12 +102,12 @@ final class RegistrationTest extends WebTestCase
      */
     public function testShouldRaiseFormErrors(array $formData): void
     {
-        $client = self::createClient();
-        $client->request(
+        $kernelBrowser = self::createClient();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::REGISTER_URL
         );
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
             $formData
         );
@@ -123,12 +123,12 @@ final class RegistrationTest extends WebTestCase
      */
     public function testShouldRaiseUsernameAlreadyUsedError(): void
     {
-        $client = self::createClient();
-        $client->request(
+        $kernelBrowser = self::createClient();
+        $kernelBrowser->request(
             Request::METHOD_GET,
             self::REGISTER_URL
         );
-        $client->submitForm(
+        $kernelBrowser->submitForm(
             self::SUBMIT_BUTTON,
             self::createFormData(
                 self::TEST_ADMIN['username']

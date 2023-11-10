@@ -52,8 +52,8 @@
             "@metrics-test",
             "@insights-bs"
         ],
-        "rector": "./vendor/bin/rector process --config config/rector.php --clear-cache",
-        "rector-bs": "./vendor/bin/rector process --config config/rector.php --clear-cache --dry-run > ../../docsocs/tools-reports/rector.txt || true",
+        "rector": "./vendor/bin/rector process --config config/rector.php --clear-cache --debug",
+        "rector-bs": "./vendor/bin/rector process --config config/rector.php --clear-cache --dry-run > ../../docs/tools-reports/rector.txt || true",
         "stan": "./vendor/bin/phpstan analyze --configuration=config/phpstan.neon --ansi -v || true"
     }
 }
