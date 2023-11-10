@@ -60,7 +60,7 @@ install-project:
 ###################################
 # Clear the Symfony cache.
 sf-clear-cache:
-    just run-command cache:clear
+    {{PHP_CONSOLE}} cache:clear
 
 # Open symfony logs
 sf-log:
