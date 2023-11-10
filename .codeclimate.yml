@@ -1,0 +1,52 @@
+version: "2"
+
+plugins:
+  phpmd:
+    enabled: true
+  markdownlint:
+    enabled: false
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - php
+
+exclude_patterns:
+  - "vendor/"
+  - "tools/"
+  - "var/"
+  - "migrations/"
+  - "tests/"
+  - "codeclimate-master/"
+  - "docs/"
+  - "public/"
+  - "config/"
+  - "phpinsights.php"
+
+checks:
+  argument-count:
+    enabled: true
+    config:
+      threshold: 4
+  file-lines:
+    enabled: true
+    config:
+      threshold: 250
+  method-complexity:
+    enabled: true
+    config:
+      threshold: 5
+  method-count:
+    enabled: true
+    config:
+      threshold: 20
+  method-lines:
+    enabled: true
+    config:
+      threshold: 25
+  nesting:
+    enabled: true
+    config:
+      threshold: 4
